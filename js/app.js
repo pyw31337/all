@@ -186,6 +186,12 @@ function renderProjects() {
                   <span class="pulse-dot"></span>
                   <span>${escapeHtml(project.badge || project.statusLabel)}</span>
                 </span>
+                ${project.releaseDate ? `
+                  <span class="release-date-pill" title="출시일: ${escapeHtml(project.releaseDate)}">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="release-date-icon"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                    <span>출시 ${escapeHtml(project.releaseDate)}</span>
+                  </span>
+                ` : ''}
               </div>
             </div>
 
@@ -299,7 +305,9 @@ function openServiceModal(projectId) {
   state.selectedProject = project;
 
   elements.modalTitle.textContent = project.title;
-  elements.modalSlug.textContent = `${project.titleEn} (${project.slug})`;
+  elements.modalSlug.textContent = project.releaseDate
+    ? `${project.titleEn} · 출시 ${project.releaseDate}`
+    : `${project.titleEn} (${project.slug})`;
   elements.modalBadge.textContent = project.badge || project.statusLabel;
   elements.modalIcon.src = project.iconPath;
   elements.modalIcon.alt = `${project.title} 아이콘`;

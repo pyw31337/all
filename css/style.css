@@ -644,6 +644,33 @@ input, button, select, textarea {
   white-space: nowrap;
 }
 
+.release-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="light"] .release-date-pill {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.release-date-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
 .pulse-dot {
   width: 7px;
   height: 7px;

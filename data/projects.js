@@ -16,6 +16,7 @@ export const PROJECTS = [
     slug: 'camp',
     title: '렛츠 캠핑',
     titleEn: "Let's Camp",
+    releaseDate: '26.10.22(목)',
     category: 'travel',
     categoryLabel: '여행 & 아웃도어',
     status: 'live',
@@ -72,6 +73,7 @@ export const PROJECTS = [
     slug: 'culture',
     title: '컬처플로우',
     titleEn: 'Culture Flow',
+    releaseDate: '26.01.30',
     category: 'culture',
     categoryLabel: '문화 & 라이프',
     status: 'live',
@@ -128,6 +130,7 @@ export const PROJECTS = [
     slug: 'cctv',
     title: '렛츠 뷰',
     titleEn: "Let's View",
+    releaseDate: '26.01.15',
     category: 'mobility',
     categoryLabel: '모빌리티 & 인프라',
     status: 'live',
@@ -184,6 +187,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     slug: 'pick',
     title: '렛츠 픽',
     titleEn: "Let's Pick",
+    releaseDate: '26.10.08',
     category: 'tools',
     categoryLabel: '생산성 & 도구',
     status: 'live',
@@ -239,24 +243,25 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     id: 'calendar',
     slug: 'calendar',
     title: '렛츠 캘린더',
-    titleEn: "Let's Calendar · Moaelga",
+    titleEn: "Let's Calendar",
+    releaseDate: '26.08.12',
     category: 'culture',
     categoryLabel: '문화 & 라이프',
     status: 'live',
     statusLabel: '운영 중',
-    badge: '모아엘가 · 실시간 공유 캘린더',
+    badge: '실시간 공유 캘린더',
     accentColor: '#ec4899', // pink
     accentGlow: 'rgba(236, 72, 153, 0.35)',
     gradient: 'linear-gradient(135deg, #db2777 0%, #f472b6 100%)',
     bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(236, 72, 153, 0.22) 0%, transparent 65%)',
-    summary: '모아엘가 구성원이 링크 하나로 일정, 장소, 기록을 함께 보고 가능한 날짜를 실시간으로 조율하는 공유 캘린더',
-    description: `모아엘가 캘린더를 기준으로, 가족과 소규모 모임이 날짜를 정하기 위해 대화방을 끝없이 오가는 불편을 줄이기 위해 만든 서비스입니다.
+    summary: '캘린더 구성원이 링크 하나로 일정, 장소, 기록을 함께 보고 가능한 날짜를 실시간으로 조율하는 공유 캘린더',
+    description: `로그인이나 회원가입 없이 링크 하나로 가족과 소규모 모임 구성원이 일정과 가능한 날짜를 같은 화면에서 실시간으로 조율하는 공유 캘린더 서비스입니다.
 모임 전용 링크를 열면 바로 참여할 수 있고, 각 구성원의 가능 날짜와 일정 변화가 같은 화면에 실시간 반영됩니다.`,
     highlights: [
       {
         icon: 'link',
-        title: '모아엘가 링크 기반 참여',
-        desc: '회원가입이나 앱 설치 없이 모아엘가 전용 링크를 열어 일정, 장소, 기록을 함께 확인합니다.'
+        title: '캘린더 링크 기반 참여',
+        desc: '회원가입이나 앱 설치 없이 캘린더 전용 링크를 열어 일정, 장소, 기록을 함께 확인합니다.'
       },
       {
         icon: 'sync',
@@ -266,28 +271,28 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
       {
         icon: 'share',
         title: '공유용 전용 미리보기',
-        desc: '모아엘가 전용 공유 URL(/share/cw/)은 모임 이름과 현황을 담은 미리보기 카드를 메신저에서 보여줍니다.'
+        desc: '캘런더 전용 공유 URL은 모임 이름과 현황을 담은 미리보기 카드를 메신저에서 보여줍니다.'
       }
     ],
     techStack: ['Vanilla JS', 'Firebase Firestore', 'CSS Grid', 'GitHub Pages'],
-    stats: '모아엘가 실시간 일정 조율',
+    stats: '실시간 일정 조율',
     story: {
       problem: '날짜를 잡을 때 대화방에서 후보일을 다시 묻고, 답을 취합하고, 바뀐 내용을 다시 알리는 일이 반복됐습니다.',
-      solution: '모아엘가 전용 링크 하나에서 각자의 가능 날짜와 모임 정보를 같은 화면으로 모았습니다.',
+      solution: '캘린더 전용 링크 하나에서 각자의 가능 날짜와 모임 정보를 같은 화면으로 모았습니다.',
       metrics: [
         { value: '0', label: '가입·설치 단계', detail: '링크를 열면 바로 참여' },
-        { value: '1', label: '모아엘가 공유 링크', detail: '같은 캘린더로 연결' },
+        { value: '1', label: '전용 공유 링크', detail: '같은 캘린더로 연결' },
         { value: '0', label: '새로고침 필요', detail: '날짜 선택이 실시간으로 반영' }
       ],
       metricNote: '수치는 사용자 흐름에서 없앤 단계와 동기화 방식에 따른 마찰 감소 지표입니다.',
       flow: [
         { icon: 'users', title: '대화방에서 조율', desc: '후보일과 답을 반복해서 취합' },
-        { icon: 'link', title: '모아엘가 링크 공유', desc: '같은 캘린더로 바로 입장' },
+        { icon: 'link', title: '캘린더 링크 공유', desc: '같은 캘린더로 바로 입장' },
         { icon: 'sync', title: '실시간으로 합의', desc: '가능 날짜가 즉시 함께 보임' }
       ]
     },
     previewContext: {
-      eyebrow: 'MOAELGA CALENDAR · LIVE REFERENCE',
+      eyebrow: 'LETS CALENDAR · LIVE REFERENCE',
       title: '한 링크로 모이는 우리 일정',
       desc: '일정, 장소, 기록을 같은 캘린더에서 함께 확인',
       pills: ['로그인 없이 참여', '가능 날짜 실시간 반영']

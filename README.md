@@ -14,7 +14,7 @@
 | **렛츠 뷰** | Let's View (`cctv`) | 모빌리티 & 인프라 | 전국 고속도로·국도·도심 실시간 도로/재난 CCTV 뷰어 | [바로가기](https://pyw31337.github.io/cctv/) | [GitHub](https://github.com/pyw31337/cctv) |
 | **렛츠 픽** | Let's Pick (`pick`) | 생산성 & 도구 | 원본 미디어·SVG·CSS 토큰 원클릭 추출 확장도구 (v1.4.9) | [바로가기](https://pyw31337.github.io/pick/) | [GitHub](https://github.com/pyw31337/pick) |
 | **렛츠 캘린더** | Let's Calendar (`calendar`) | 문화 & 라이프 | 로그인 없는 실시간 모임 일정 조율 & 가능 날짜 웹 달력 | [바로가기](https://pyw31337.github.io/calendar/?id=cw) | [GitHub](https://github.com/pyw31337/calendar) |
-| **렛츠 헤어** | Let's Hair (`hair`) | 생산성 & 도구 | 링크 기반 10초 무가입 미용실 예약 & 멀티 테넌트 SaaS | [바로가기](https://pyw31337.github.io/jhair/?shop=jhair) | [GitHub](https://github.com/pyw31337/jhair) |
+| **렛츠 헤어** | Let's Hair (`hair`) | 생산성 & 도구 | 링크 기반 10초 무가입 미용실 예약 & 멀티 테넌트 SaaS | [바로가기](https://pyw31337.github.io/hair/?shop=jhair) | [GitHub](https://github.com/pyw31337/hair) |
 
 ---
 

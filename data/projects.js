@@ -362,8 +362,8 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
       desc: '로그인 없이 10초 예약, 아이디 발급으로 내 매장 즉시 개설',
       pills: ['무가입 10초 예약', '실시간 중복 방지', '멀티 숍 SaaS']
     },
-    url: 'https://pyw31337.github.io/jhair/?shop=jhair',
-    githubUrl: 'https://github.com/pyw31337/jhair',
+    url: 'https://pyw31337.github.io/hair/?shop=jhair',
+    githubUrl: 'https://github.com/pyw31337/hair',
     screenshot: 'assets/screenshots/jhair.png',
     iconPath: 'assets/icons/framed/jhair.png',
     featured: false

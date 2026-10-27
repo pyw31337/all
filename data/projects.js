@@ -297,6 +297,31 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
       desc: '일정, 장소, 기록을 같은 캘린더에서 함께 확인',
       pills: ['로그인 없이 참여', '가능 날짜 실시간 반영']
     },
+    screenStory: {
+      title: '모아엘가 화면으로 보는 조율의 흐름',
+      caption: '모아엘가 운영 UI의 공유 캘린더 구조',
+      detail: '실제 캘린더 화면의 세 영역을 따라, 구성원이 같은 정보를 보고 약속을 정하는 흐름을 설명합니다.',
+      callouts: [
+        {
+          label: '01',
+          title: '함께 확인하는 월간 일정',
+          desc: '중앙의 월간 화면에서 구성원의 일정과 모임 확정일을 한 기준으로 확인합니다.',
+          pin: { x: 61, y: 66 }
+        },
+        {
+          label: '02',
+          title: '가까운 모임을 먼저 보여주는 상단 영역',
+          desc: '다가오는 확정 일정과 D-day를 먼저 보여줘, 대화방을 다시 열지 않아도 다음 약속을 확인할 수 있습니다.',
+          pin: { x: 65, y: 28 }
+        },
+        {
+          label: '03',
+          title: '일정과 이어지는 공동 기록',
+          desc: '왼쪽 메뉴에서 채팅·장소·메모·갤러리로 이어져, 일정의 맥락을 같은 공간에서 계속 확인합니다.',
+          pin: { x: 10, y: 48 }
+        }
+      ]
+    },
     url: 'https://pyw31337.github.io/calendar/?id=cw',
     githubUrl: 'https://github.com/pyw31337/calendar',
     screenshot: 'assets/screenshots/calendar.png',

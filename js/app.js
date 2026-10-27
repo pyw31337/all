@@ -3,7 +3,7 @@
  * 100% Full-Width Visual Showcase with 3D Realistic App Icons & Wide Backgrounds
  */
 
-import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js';
+import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js?v=20261027-editorial';
 import { getIcon } from './icons.js';
 
 // Application State
@@ -11,7 +11,7 @@ const state = {
   activeCategory: 'all',
   searchQuery: '',
   selectedProject: null,
-  theme: localStorage.getItem('pyw_hub_theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+  theme: localStorage.getItem('pyw_hub_theme') || 'light'
 };
 
 // DOM Elements
@@ -36,12 +36,18 @@ const elements = {
   modalFlowIcon: document.getElementById('modal-flow-icon'),
   modalFeatureIcon: document.getElementById('modal-feature-icon'),
   modalTechIcon: document.getElementById('modal-tech-icon'),
+  modalScreenIcon: document.getElementById('modal-screen-icon'),
   modalDesc: document.getElementById('modal-desc'),
   modalProblem: document.getElementById('modal-problem'),
   modalSolution: document.getElementById('modal-solution'),
   modalMetrics: document.getElementById('modal-metrics'),
   modalMetricNote: document.getElementById('modal-metric-note'),
   modalFlow: document.getElementById('modal-flow'),
+  modalScreenImage: document.getElementById('modal-screen-image'),
+  modalScreenPins: document.getElementById('modal-screen-pins'),
+  modalScreenCaption: document.getElementById('modal-screen-caption'),
+  modalScreenDetail: document.getElementById('modal-screen-detail'),
+  modalScreenCallouts: document.getElementById('modal-screen-callouts'),
   modalHighlights: document.getElementById('modal-highlights'),
   modalTech: document.getElementById('modal-tech'),
   modalLiveLink: document.getElementById('modal-live-link'),
@@ -330,6 +336,34 @@ function openServiceModal(projectId) {
   setModalIcon(elements.modalFlowIcon, 'arrowRight');
   setModalIcon(elements.modalFeatureIcon, 'layers');
   setModalIcon(elements.modalTechIcon, 'code');
+  setModalIcon(elements.modalScreenIcon, 'image');
+
+  const screenStory = project.screenStory || {
+    title: '실제 화면에서 확인되는 구현',
+    caption: `${project.title} 실제 서비스 화면`,
+    detail: '제품을 소개하는 문장 대신, 실제 운영 화면에서 어떤 불편을 줄이는지 보여줍니다.',
+    callouts: (project.highlights || []).slice(0, 3).map((highlight, index) => ({
+      label: `0${index + 1}`,
+      title: highlight.title,
+      desc: highlight.desc
+    }))
+  };
+
+  const screenStoryTitle = document.getElementById('modal-screen-story-title');
+  if (screenStoryTitle) screenStoryTitle.textContent = screenStory.title;
+  elements.modalScreenImage.src = project.screenshot;
+  elements.modalScreenImage.alt = `${project.title} 실제 서비스 화면`;
+  elements.modalScreenCaption.textContent = screenStory.caption || `${project.title} 실제 서비스 화면`;
+  elements.modalScreenDetail.textContent = screenStory.detail || '';
+  elements.modalScreenPins.innerHTML = (screenStory.callouts || []).filter(item => item.pin).map(item => `
+    <span class="modal-screen-pin" style="left: ${item.pin.x}%; top: ${item.pin.y}%;">${escapeHtml(item.label)}</span>
+  `).join('');
+  elements.modalScreenCallouts.innerHTML = (screenStory.callouts || []).map((item, index) => `
+    <button type="button" class="modal-screen-callout ${index === 0 ? 'is-active' : ''}" data-screen-callout="${index}">
+      <span class="modal-screen-callout-number">${escapeHtml(item.label || `0${index + 1}`)}</span>
+      <span><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.desc)}</small></span>
+    </button>
+  `).join('');
 
   const metrics = story.metrics || [{ value: project.stats || '운영 중', label: '서비스 현황', detail: project.summary }];
   elements.modalMetrics.innerHTML = metrics.map(metric => `
@@ -452,6 +486,21 @@ function setupEventListeners() {
       );
       if (!isInDialog) {
         elements.serviceModal.close();
+      }
+    });
+
+    elements.serviceModal.addEventListener('click', (event) => {
+      const callout = event.target.closest('[data-screen-callout]');
+      if (!callout) return;
+
+      const index = Number(callout.dataset.screenCallout);
+      const items = state.selectedProject?.screenStory?.callouts || state.selectedProject?.highlights || [];
+      const selected = items[index];
+      elements.modalScreenCallouts.querySelectorAll('.modal-screen-callout').forEach(item => {
+        item.classList.toggle('is-active', item === callout);
+      });
+      if (selected) {
+        elements.modalScreenDetail.textContent = selected.desc || '';
       }
     });
   }

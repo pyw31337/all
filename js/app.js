@@ -3,7 +3,7 @@
  * 100% Full-Width Visual Showcase with 3D Realistic App Icons & Wide Backgrounds
  */
 
-import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js?v=20261027-editorial';
+import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js?v=20261027-moaelga';
 import { getIcon } from './icons.js';
 
 // Application State

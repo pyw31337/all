@@ -324,7 +324,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     },
     url: 'https://pyw31337.github.io/calendar/?id=cw',
     githubUrl: 'https://github.com/pyw31337/calendar',
-    screenshot: 'assets/screenshots/calendar.png',
+    screenshot: 'https://raw.githubusercontent.com/pyw31337/calendar/main/designv2/parity-shots/unit-loop/hero-aurora/home-full-pc.png',
     iconPath: 'assets/icons/framed/calendar.png',
     featured: false
   },

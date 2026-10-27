@@ -22,8 +22,9 @@ export const PROJECTS = [
     statusLabel: '운영 중',
     badge: '전국 캠핑장 통합',
     accentColor: '#10b981', // emerald
+    accentGlow: 'rgba(16, 185, 129, 0.35)',
     gradient: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
-    bgGlow: 'radial-gradient(ellipse at 80% 20%, rgba(16, 185, 129, 0.18) 0%, transparent 70%)',
+    bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(16, 185, 129, 0.22) 0%, transparent 65%)',
     summary: '전국 공영·민간 캠핑장의 사양, 예약 방식, 오픈 일정 및 날씨 정보를 한곳에서 비교하는 캠핑 탐색 포털',
     description: `전국 각지에 흩어져 있는 고캠핑 공공데이터와 지자체/민간 예약 채널을 체계적으로 수집·정규화하여, 캠퍼들이 예약 실패 없이 최적의 사이트를 발견할 수 있도록 돕는 서비스입니다.
 복잡한 예약 오픈 일정을 캘린더 피드로 제공하고, 시설 사양부터 주변 날씨까지 한 화면에서 직관적으로 파악할 수 있습니다.`,
@@ -49,6 +50,7 @@ export const PROJECTS = [
     url: 'https://pyw31337.github.io/camp/',
     githubUrl: 'https://github.com/pyw31337/camp',
     screenshot: 'assets/screenshots/camp.png',
+    iconPath: 'assets/icons/camp.svg',
     featured: true
   },
   {
@@ -62,8 +64,9 @@ export const PROJECTS = [
     statusLabel: '운영 중',
     badge: 'Next.js 19 · PWA',
     accentColor: '#8b5cf6', // violet
+    accentGlow: 'rgba(139, 92, 246, 0.35)',
     gradient: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)',
-    bgGlow: 'radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.18) 0%, transparent 70%)',
+    bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(139, 92, 246, 0.22) 0%, transparent 65%)',
     summary: '한국의 공연, 전시, 영화, 스포츠, 축제 일정을 여러 공식/티켓 소스에서 모아 한눈에 탐색하는 문화 캘린더',
     description: `인터파크, YES24, 국가유산청, 영화관 실시간 상영시간표 등 파편화된 문화 예술 일정을 하나의 타임라인과 지도로 통합한 정적 웹 서비스입니다.
 지역 및 공연장 딕셔너리를 기반으로 검색 정확도를 극대화했으며, 설치형 PWA를 지원해 언제든 편리하게 문화 생활을 즐길 수 있습니다.`,
@@ -89,6 +92,7 @@ export const PROJECTS = [
     url: 'https://pyw31337.github.io/culture/',
     githubUrl: 'https://github.com/pyw31337/culture',
     screenshot: 'assets/screenshots/culture.png',
+    iconPath: 'assets/icons/culture.png',
     featured: true
   },
   {
@@ -102,8 +106,9 @@ export const PROJECTS = [
     statusLabel: '운영 중',
     badge: '초저지연 HLS 스트리밍',
     accentColor: '#3b82f6', // blue
+    accentGlow: 'rgba(59, 130, 246, 0.35)',
     gradient: 'linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)',
-    bgGlow: 'radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.18) 0%, transparent 70%)',
+    bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(59, 130, 246, 0.22) 0%, transparent 65%)',
     summary: '전국 고속도로, 국도, 도심 실시간 도로 상황과 재난 CCTV를 지도 위에서 즉시 감상하는 라이브 뷰어',
     description: `한국도로공사 ITS, 경찰청 UTIC, 제주교통정보센터, 서울 GITS, KBS 재난망 등 전국 각지의 CCTV 피드를 수집, 정규화, 검증하여 지도와 목록에서 실시간으로 스트리밍하는 플랫폼입니다.
 FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collection) 주기를 통해 안정적인 가용성을 보장합니다.`,
@@ -129,6 +134,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     url: 'https://pyw31337.github.io/cctv/',
     githubUrl: 'https://github.com/pyw31337/cctv',
     screenshot: 'assets/screenshots/cctv.png',
+    iconPath: 'assets/icons/cctv.png',
     featured: true
   },
   {
@@ -142,8 +148,9 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     statusLabel: '배포 완료',
     badge: 'Chrome Extension · v1.4.9',
     accentColor: '#f59e0b', // amber
+    accentGlow: 'rgba(245, 158, 11, 0.35)',
     gradient: 'linear-gradient(135deg, #d97706 0%, #f59e0b 100%)',
-    bgGlow: 'radial-gradient(ellipse at 80% 20%, rgba(245, 158, 11, 0.18) 0%, transparent 70%)',
+    bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(245, 158, 11, 0.22) 0%, transparent 65%)',
     summary: '웹페이지의 원본 이미지, 영상, SVG, 웹폰트 및 디자인 토큰을 Alt+클릭 한 번으로 즉시 추출하는 Chromium 확장 프로그램',
     description: `웹 서핑 중 마음에 드는 고화질 원본 이미지, 백그라운드 영상, 인라인 SVG 아이콘, 글꼴, 색상 팔레트와 CSS 디자인 토큰을 복잡한 개발자 도구 없이 마우스 Alt+클릭 단 한 번으로 찾아내고 다운로드할 수 있는 강력한 생산성 도구입니다.`,
     highlights: [
@@ -169,6 +176,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     githubUrl: 'https://github.com/pyw31337/pick',
     secondaryRepoUrl: 'https://github.com/pyw31337/source-lens',
     screenshot: 'assets/screenshots/pick.png',
+    iconPath: 'assets/icons/pick.png',
     featured: true
   },
   {
@@ -182,8 +190,9 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     statusLabel: '운영 중',
     badge: 'Firestore 실시간 동기화',
     accentColor: '#ec4899', // pink
+    accentGlow: 'rgba(236, 72, 153, 0.35)',
     gradient: 'linear-gradient(135deg, #db2777 0%, #f472b6 100%)',
-    bgGlow: 'radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.18) 0%, transparent 70%)',
+    bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(236, 72, 153, 0.22) 0%, transparent 65%)',
     summary: '로그인 없이 공유 링크 하나로 사모임 일정 조율 및 참석 가능 날짜를 실시간 취합하는 웹 캘린더',
     description: `동호회, 친구 모임, 스터디 등 여러 사람이 만날 날짜를 잡을 때 겪는 번거로움을 해결하기 위해 탄생한 서비스입니다.
 URL의 고유 ID 파라미터로 개별 모임 캘린더가 자동 생성되며, 참석자들이 가능한 날짜를 누르면 실시간으로 참석 현황 히트맵이 업데이트됩니다.`,
@@ -209,6 +218,7 @@ URL의 고유 ID 파라미터로 개별 모임 캘린더가 자동 생성되며,
     url: 'https://pyw31337.github.io/calendar/?id=kkot',
     githubUrl: 'https://github.com/pyw31337/calendar',
     screenshot: 'assets/screenshots/calendar.png',
+    iconPath: 'assets/icons/calendar.png',
     featured: false
   }
 ];

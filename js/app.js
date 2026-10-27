@@ -1,6 +1,6 @@
 /**
  * pyw31337 Hub - Main Application Script
- * Single-Column Visual Showcase Architecture
+ * 100% Full-Width Visual Showcase with 3D Realistic App Icons & Wide Backgrounds
  */
 
 import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js';
@@ -108,7 +108,7 @@ function getFilteredProjects() {
   });
 }
 
-// Projects 1-Column Showcase Sections Rendering
+// 100% Full-Width Showcase Sections Rendering
 function renderProjects() {
   if (!elements.projectsContainer) return;
 
@@ -128,7 +128,7 @@ function renderProjects() {
   const sectionsHtml = filtered.map((project, idx) => {
     const highlightsHtml = (project.highlights || []).map(h => `
       <div class="feature-box">
-        <div class="feature-icon" style="color: ${project.accentColor}; background: ${project.accentColor}18;">
+        <div class="feature-icon" style="color: ${project.accentColor}; background: ${project.accentColor}1c;">
           ${getIcon(h.icon || 'check')}
         </div>
         <div class="feature-content">
@@ -146,36 +146,43 @@ function renderProjects() {
     const hasGithubUrl = Boolean(project.githubUrl);
 
     return `
-      <article class="service-showcase-section" data-project-id="${project.id}" style="--project-glow: ${project.bgGlow}; --project-accent: ${project.accentColor};">
-        <!-- Ambient Glow and Geometric Graphics in Background -->
-        <div class="section-glow-backdrop"></div>
+      <section class="service-showcase-section" data-project-id="${project.id}" style="--project-glow: ${project.bgGlow}; --project-accent: ${project.accentColor}; --project-accent-glow: ${project.accentGlow};">
+        <!-- Wide Immersive Background Screenshot Scene -->
+        <div class="section-wide-bg" style="background-image: url('${project.screenshot}');"></div>
+        <div class="section-wide-vignette"></div>
         <div class="section-grid-pattern"></div>
         <div class="section-accent-line" style="background: ${project.gradient};"></div>
 
-        <div class="service-section-container">
+        <div class="section-inner-container">
           <!-- Information & Story Column -->
           <div class="service-info-col">
             <div class="service-meta-header">
-              <div class="service-brand-pill">
-                <span class="service-brand-avatar" style="background: ${project.gradient};">
-                  ${project.title.charAt(0)}
-                </span>
+              <div class="service-meta-badges">
                 <span class="service-category-tag">${escapeHtml(project.categoryLabel)}</span>
-              </div>
-              <div class="status-pill">
-                <span class="pulse-dot"></span>
-                <span>${escapeHtml(project.badge || project.statusLabel)}</span>
+                <span class="status-pill">
+                  <span class="pulse-dot"></span>
+                  <span>${escapeHtml(project.badge || project.statusLabel)}</span>
+                </span>
               </div>
             </div>
 
-            <div class="service-title-wrap">
-              <h2 class="service-title">${escapeHtml(project.title)}</h2>
-              <span class="service-title-en">${escapeHtml(project.titleEn)}</span>
+            <!-- Title with 3D App Icon Badge -->
+            <div class="service-title-container">
+              <div class="app-icon-3d-wrap" title="${escapeHtml(project.title)} 3D 앱 아이콘">
+                <div class="app-icon-3d" style="--icon-glow: ${project.accentGlow};">
+                  <img src="${project.iconPath}" alt="${escapeHtml(project.title)} 아이콘" class="app-icon-3d-img" />
+                  <div class="app-icon-3d-gloss"></div>
+                </div>
+              </div>
+              <div class="service-title-text-group">
+                <h2 class="service-title">${escapeHtml(project.title)}</h2>
+                <span class="service-title-en">${escapeHtml(project.titleEn)}</span>
+              </div>
             </div>
 
             <p class="service-summary">${escapeHtml(project.summary)}</p>
 
-            <!-- Visual Highlights Grid with Rich Icons -->
+            <!-- Visual Feature Highlights with Rich Icons -->
             <div class="service-highlights-grid">
               ${highlightsHtml}
             </div>
@@ -189,7 +196,7 @@ function renderProjects() {
             <div class="service-actions-row">
               ${hasLiveUrl ? `
                 <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-primary" title="웹사이트 바로가기">
-                  <span>웹사이트 바로가기</span>
+                  <span>서비스 바로가기</span>
                   ${getIcon('externalLink')}
                 </a>
               ` : `
@@ -205,27 +212,34 @@ function renderProjects() {
                 </a>
               ` : ''}
 
-              <button type="button" class="btn-secondary detail-btn" data-project-id="${project.id}" title="상세 기획 및 구조 보기">
+              <button type="button" class="btn-secondary detail-btn" data-project-id="${project.id}" title="상세 기획 및 아키텍처 보기">
                 ${getIcon('info')}
                 <span>상세보기</span>
               </button>
             </div>
           </div>
 
-          <!-- Visual Browser Frame & Screenshot Column -->
+          <!-- Wide Visual Display & Browser Mockup Column -->
           <div class="service-visual-col">
             <div class="browser-frame">
-              <!-- Browser Window Title Bar -->
+              <!-- Browser Window Title Bar with App Tab -->
               <div class="browser-topbar">
                 <div class="browser-dots">
                   <span class="dot red"></span>
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
                 </div>
+
+                <div class="browser-tab">
+                  <img src="${project.iconPath}" class="browser-tab-icon" alt="" />
+                  <span class="browser-tab-title">${escapeHtml(project.title)}</span>
+                </div>
+
                 <div class="browser-address-bar">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                   <span class="browser-url-text">${escapeHtml(project.url || 'https://pyw31337.github.io/' + project.slug)}</span>
                 </div>
+
                 ${hasLiveUrl ? `
                   <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="browser-external-link" title="새 창에서 열기">
                     ${getIcon('externalLink')}
@@ -233,20 +247,20 @@ function renderProjects() {
                 ` : ''}
               </div>
 
-              <!-- Live Screenshot Image Container with Zoom Overlay -->
-              <div class="browser-viewport" data-project-id="${project.id}" title="클릭하여 상세 정보 보기">
+              <!-- High-res Screenshot Container with Interactive Zoom Overlay -->
+              <div class="browser-viewport" data-project-id="${project.id}" title="클릭하여 상세 정보 및 큰 화면 보기">
                 <img src="${project.screenshot}" alt="${escapeHtml(project.title)} 실제 서비스 캡처 화면" loading="${idx === 0 ? 'eager' : 'lazy'}" class="service-screenshot">
                 <div class="browser-viewport-overlay">
                   <span class="preview-zoom-btn">
                     ${getIcon('maximize')}
-                    <span>상세보기 및 큰 화면</span>
+                    <span>상세보기 & 큰 화면</span>
                   </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </article>
+      </section>
     `;
   }).join('');
 
@@ -267,7 +281,7 @@ function openServiceModal(projectId) {
 
   elements.modalHighlights.innerHTML = (project.highlights || []).map(h => `
     <li class="modal-highlight-box">
-      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+      <div style="display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.35rem;">
         <span style="color: ${project.accentColor}; display: flex;">${getIcon(h.icon || 'check')}</span>
         <h4 style="margin-bottom: 0;">${escapeHtml(h.title)}</h4>
       </div>
@@ -334,7 +348,6 @@ function setupEventListeners() {
   // Container Delegated Clicks
   if (elements.projectsContainer) {
     elements.projectsContainer.addEventListener('click', (e) => {
-      // Detail button click
       const detailBtn = e.target.closest('.detail-btn');
       if (detailBtn) {
         const projectId = detailBtn.dataset.projectId;
@@ -342,7 +355,6 @@ function setupEventListeners() {
         return;
       }
 
-      // Browser viewport click to open detail
       const viewport = e.target.closest('.browser-viewport');
       if (viewport) {
         const projectId = viewport.dataset.projectId;

@@ -109,11 +109,15 @@
   <dialog class="service-modal" id="service-modal" aria-labelledby="modal-title">
     <div class="modal-header">
       <div class="modal-title-wrap">
-        <div>
-          <h3 id="modal-title" style="font-size: 1.25rem; font-weight: 700;">서비스 이름</h3>
-          <span id="modal-slug" style="font-size: 0.8125rem; color: var(--text-muted); font-family: var(--font-mono);">slug</span>
+        <div class="modal-app-icon" aria-hidden="true">
+          <img id="modal-icon" src="" alt="">
         </div>
-        <span id="modal-badge" class="status-pill" style="margin-left: 0.5rem;">운영 중</span>
+        <div>
+          <span class="modal-kicker" id="modal-kicker">Product case study</span>
+          <h3 id="modal-title">서비스 이름</h3>
+          <span id="modal-slug">slug</span>
+        </div>
+        <span id="modal-badge" class="status-pill">운영 중</span>
       </div>
       <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="닫기">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -121,23 +125,72 @@
     </div>
 
     <div class="modal-body">
-      <div class="modal-desc" id="modal-desc">
-        서비스 소개 내용이 들어갑니다.
-      </div>
+      <section class="modal-hero" aria-labelledby="modal-origin-title">
+        <div class="modal-hero-icon" aria-hidden="true" id="modal-origin-icon"></div>
+        <div>
+          <span class="modal-section-eyebrow">SERVICE ORIGIN</span>
+          <h4 id="modal-origin-title">왜 이 서비스를 만들었나</h4>
+          <p class="modal-desc" id="modal-desc">서비스 소개 내용이 들어갑니다.</p>
+        </div>
+      </section>
+
+      <section class="modal-story-grid" aria-label="문제와 해결 방식">
+        <article class="modal-story-card modal-problem-card">
+          <div class="modal-story-icon" id="modal-problem-icon" aria-hidden="true"></div>
+          <span class="modal-section-eyebrow">BEFORE</span>
+          <h4>불편했던 지점</h4>
+          <p id="modal-problem">문제 상황</p>
+        </article>
+        <article class="modal-story-card modal-solution-card">
+          <div class="modal-story-icon" id="modal-solution-icon" aria-hidden="true"></div>
+          <span class="modal-section-eyebrow">AFTER</span>
+          <h4>바뀐 경험</h4>
+          <p id="modal-solution">해결 방식</p>
+        </article>
+      </section>
+
+      <section class="modal-impact-section" aria-labelledby="modal-impact-title">
+        <div class="modal-section-title">
+          <span class="modal-section-title-icon" id="modal-impact-icon" aria-hidden="true"></span>
+          <div>
+            <span class="modal-section-eyebrow">IMPACT BY DESIGN</span>
+            <h4 id="modal-impact-title">줄어든 탐색·조율 마찰</h4>
+          </div>
+        </div>
+        <div class="modal-metrics-grid" id="modal-metrics"></div>
+        <p class="modal-metric-note" id="modal-metric-note"></p>
+      </section>
+
+      <section class="modal-flow-section" aria-labelledby="modal-flow-title">
+        <div class="modal-section-title">
+          <span class="modal-section-title-icon" id="modal-flow-icon" aria-hidden="true"></span>
+          <div>
+            <span class="modal-section-eyebrow">EXPERIENCE FLOW</span>
+            <h4 id="modal-flow-title">한 번에 이어지는 흐름</h4>
+          </div>
+        </div>
+        <ol class="modal-flow" id="modal-flow"></ol>
+      </section>
 
       <div class="modal-section-title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        <span>핵심 강점 & 차별점</span>
+        <span class="modal-section-title-icon" id="modal-feature-icon" aria-hidden="true"></span>
+        <div>
+          <span class="modal-section-eyebrow">CAPABILITIES</span>
+          <h4>구현으로 만든 차이</h4>
+        </div>
       </div>
       <ul class="modal-highlights-list" id="modal-highlights">
         <!-- Dynamically filled -->
       </ul>
 
       <div class="modal-section-title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-        <span>적용 기술 스택</span>
+        <span class="modal-section-title-icon" id="modal-tech-icon" aria-hidden="true"></span>
+        <div>
+          <span class="modal-section-eyebrow">BUILT WITH</span>
+          <h4>적용 기술 스택</h4>
+        </div>
       </div>
-      <div class="tech-stack-row" id="modal-tech" style="margin-bottom: 0;">
+      <div class="tech-stack-row modal-tech-stack" id="modal-tech">
         <!-- Dynamically filled -->
       </div>
     </div>

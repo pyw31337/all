@@ -47,6 +47,20 @@ export const PROJECTS = [
     ],
     techStack: ['Vanilla JS', 'TypeScript', 'PostgreSQL', 'GitHub Actions', 'GitHub Pages'],
     stats: '전국 3,500+ 캠핑장',
+    story: {
+      problem: '캠핑장을 고르려면 시설 사양, 예약 채널, 오픈일, 날씨를 서로 다른 화면에서 반복해서 대조해야 했습니다.',
+      solution: '흩어진 정보를 정규화하고, 탐색부터 예약 계획까지 한 흐름으로 연결했습니다.',
+      metrics: [
+        { value: '3,500+', label: '비교 가능한 캠핑장', detail: '전국 공영·민간 캠핑장 정보' },
+        { value: '1', label: '탐색 화면', detail: '사양·예약·날씨를 함께 확인' },
+        { value: '.ics', label: '일정 구독', detail: '예약 오픈일을 개인 캘린더로' }
+      ],
+      flow: [
+        { icon: 'search', title: '분산된 정보', desc: '시설·예약·날씨를 따로 찾음' },
+        { icon: 'layers', title: '데이터 정리', desc: '같은 기준으로 비교 가능' },
+        { icon: 'calendarIcon', title: '예약 계획', desc: '오픈일을 놓치지 않음' }
+      ]
+    },
     url: 'https://pyw31337.github.io/camp/',
     githubUrl: 'https://github.com/pyw31337/camp',
     screenshot: 'assets/screenshots/camp.png',
@@ -89,10 +103,24 @@ export const PROJECTS = [
     ],
     techStack: ['Next.js 19', 'React', 'Tailwind CSS 4', 'TypeScript', 'Playwright', 'PWA'],
     stats: '5+ 주요 예매처 통합',
+    story: {
+      problem: '공연, 전시, 영화, 스포츠 일정은 예매처와 기관마다 흩어져 있어 한 번의 외출 계획에도 여러 검색이 필요했습니다.',
+      solution: '서로 다른 문화 일정을 한 타임라인과 지도로 모아, 탐색의 시작점을 하나로 만들었습니다.',
+      metrics: [
+        { value: '5+', label: '주요 소스 통합', detail: '예매처·공공 문화 데이터' },
+        { value: '매일', label: '수집·검증 주기', detail: '새 일정의 신선도 관리' },
+        { value: 'PWA', label: '설치형 경험', detail: '필요할 때 빠르게 다시 열기' }
+      ],
+      flow: [
+        { icon: 'search', title: '여러 예매처', desc: '각각의 검색 경험' },
+        { icon: 'refresh', title: '수집·검증', desc: '일정을 같은 포맷으로 정리' },
+        { icon: 'mapPin', title: '한 번에 탐색', desc: '시간과 장소를 함께 판단' }
+      ]
+    },
     url: 'https://pyw31337.github.io/culture/',
     githubUrl: 'https://github.com/pyw31337/culture',
     screenshot: 'assets/screenshots/culture.png',
-    iconPath: 'assets/icons/culture.png',
+    iconPath: 'assets/icons/framed/culture.png',
     featured: true
   },
   {
@@ -131,10 +159,24 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     ],
     techStack: ['Python', 'FastAPI/Flask', 'FFmpeg', 'Vanilla JS', 'Kakao Maps', 'HLS.js'],
     stats: '전국 실시간 교통망',
+    story: {
+      problem: '도로·재난 CCTV는 기관별 사이트와 서로 다른 스트리밍 형식에 나뉘어 있어, 필요한 장면을 바로 확인하기 어려웠습니다.',
+      solution: '분산된 피드를 지도와 웹 표준 재생 환경으로 모아, 위치를 고르고 바로 보는 흐름으로 단순화했습니다.',
+      metrics: [
+        { value: '1', label: '통합 지도', detail: '교통·재난 CCTV 탐색 창구' },
+        { value: 'HLS', label: '웹 표준 재생', detail: '비표준 스트림을 재생 가능한 형태로' },
+        { value: '실시간', label: '도로 상황 확인', detail: '필요한 시점의 라이브 화면' }
+      ],
+      flow: [
+        { icon: 'globe', title: '기관별 피드', desc: '찾는 경로와 형식이 제각각' },
+        { icon: 'film', title: '표준화', desc: 'HLS 프록시·캐시로 변환' },
+        { icon: 'mapPin', title: '지도에서 즉시 보기', desc: '위치 선택 후 바로 재생' }
+      ]
+    },
     url: 'https://pyw31337.github.io/cctv/',
     githubUrl: 'https://github.com/pyw31337/cctv',
     screenshot: 'assets/screenshots/cctv.png',
-    iconPath: 'assets/icons/cctv.png',
+    iconPath: 'assets/icons/framed/cctv.png',
     featured: true
   },
   {
@@ -172,35 +214,49 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     ],
     techStack: ['Chrome Extension (MV3)', 'TypeScript', 'Tailwind CSS', 'DOM API'],
     stats: 'v1.4.9 안정 버전',
+    story: {
+      problem: '페이지의 원본 이미지, SVG, 글꼴과 디자인 토큰을 확인하려면 개발자 도구를 여러 번 열고 요소를 추적해야 했습니다.',
+      solution: '보는 화면 위에서 Alt+클릭 한 번으로 자산과 스타일 정보를 읽을 수 있게 만들었습니다.',
+      metrics: [
+        { value: 'Alt+클릭', label: '시작 동작', detail: '보는 위치에서 바로 인스펙트' },
+        { value: '4+', label: '추출 대상', detail: '미디어·SVG·폰트·디자인 토큰' },
+        { value: 'v1.4.9', label: '현재 안정 버전', detail: 'Chromium 확장 프로그램' }
+      ],
+      flow: [
+        { icon: 'mousePointer', title: '화면에서 선택', desc: '궁금한 요소를 가리킴' },
+        { icon: 'search', title: '원본 추적', desc: 'DOM·배경·Shadow DOM 탐색' },
+        { icon: 'code', title: '정보를 가져오기', desc: '원본·토큰을 즉시 활용' }
+      ]
+    },
     url: 'https://pyw31337.github.io/pick/',
     githubUrl: 'https://github.com/pyw31337/pick',
     secondaryRepoUrl: 'https://github.com/pyw31337/source-lens',
     screenshot: 'assets/screenshots/pick.png',
-    iconPath: 'assets/icons/pick.png',
+    iconPath: 'assets/icons/framed/pick.png',
     featured: true
   },
   {
     id: 'calendar',
     slug: 'calendar',
     title: '렛츠 캘린더',
-    titleEn: "Let's Calendar",
+    titleEn: "Let's Calendar · Moaelga",
     category: 'culture',
     categoryLabel: '문화 & 라이프',
     status: 'live',
     statusLabel: '운영 중',
-    badge: 'Firestore 실시간 동기화',
+    badge: '모아엘가 · 실시간 공유 캘린더',
     accentColor: '#ec4899', // pink
     accentGlow: 'rgba(236, 72, 153, 0.35)',
     gradient: 'linear-gradient(135deg, #db2777 0%, #f472b6 100%)',
     bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(236, 72, 153, 0.22) 0%, transparent 65%)',
-    summary: '로그인 없이 공유 링크 하나로 사모임 일정 조율 및 참석 가능 날짜를 실시간 취합하는 웹 캘린더',
-    description: `동호회, 친구 모임, 스터디 등 여러 사람이 만날 날짜를 잡을 때 겪는 번거로움을 해결하기 위해 탄생한 서비스입니다.
-URL의 고유 ID 파라미터로 개별 모임 캘린더가 자동 생성되며, 참석자들이 가능한 날짜를 누르면 실시간으로 참석 현황 히트맵이 업데이트됩니다.`,
+    summary: '모아엘가 구성원이 링크 하나로 일정, 장소, 기록을 함께 보고 가능한 날짜를 실시간으로 조율하는 공유 캘린더',
+    description: `모아엘가 캘린더를 기준으로, 가족과 소규모 모임이 날짜를 정하기 위해 대화방을 끝없이 오가는 불편을 줄이기 위해 만든 서비스입니다.
+모임 전용 링크를 열면 바로 참여할 수 있고, 각 구성원의 가능 날짜와 일정 변화가 같은 화면에 실시간 반영됩니다.`,
     highlights: [
       {
         icon: 'link',
-        title: 'URL 기반 제로-로그인 인스턴스',
-        desc: '회원가입이나 앱 설치 없이 고유 URL 링크 공유만으로 즉시 전용 캘린더가 생성되고 투표에 참여할 수 있습니다.'
+        title: '모아엘가 링크 기반 참여',
+        desc: '회원가입이나 앱 설치 없이 모아엘가 전용 링크를 열어 일정, 장소, 기록을 함께 확인합니다.'
       },
       {
         icon: 'sync',
@@ -209,16 +265,37 @@ URL의 고유 ID 파라미터로 개별 모임 캘린더가 자동 생성되며,
       },
       {
         icon: 'share',
-        title: '카카오톡 맞춤형 동적 Open Graph',
-        desc: '모임 이름과 현황이 담긴 전용 공유 URL(/share/{id}/)을 제공해 메신저 공유 시 매력적인 미리보기 카드를 렌더링합니다.'
+        title: '공유용 전용 미리보기',
+        desc: '모아엘가 전용 공유 URL(/share/cw/)은 모임 이름과 현황을 담은 미리보기 카드를 메신저에서 보여줍니다.'
       }
     ],
     techStack: ['Vanilla JS', 'Firebase Firestore', 'CSS Grid', 'GitHub Pages'],
-    stats: '실시간 일정 조율',
-    url: 'https://pyw31337.github.io/calendar/?id=kkot',
+    stats: '모아엘가 실시간 일정 조율',
+    story: {
+      problem: '날짜를 잡을 때 대화방에서 후보일을 다시 묻고, 답을 취합하고, 바뀐 내용을 다시 알리는 일이 반복됐습니다.',
+      solution: '모아엘가 전용 링크 하나에서 각자의 가능 날짜와 모임 정보를 같은 화면으로 모았습니다.',
+      metrics: [
+        { value: '0', label: '가입·설치 단계', detail: '링크를 열면 바로 참여' },
+        { value: '1', label: '모아엘가 공유 링크', detail: '같은 캘린더로 연결' },
+        { value: '0', label: '새로고침 필요', detail: '날짜 선택이 실시간으로 반영' }
+      ],
+      metricNote: '수치는 사용자 흐름에서 없앤 단계와 동기화 방식에 따른 마찰 감소 지표입니다.',
+      flow: [
+        { icon: 'users', title: '대화방에서 조율', desc: '후보일과 답을 반복해서 취합' },
+        { icon: 'link', title: '모아엘가 링크 공유', desc: '같은 캘린더로 바로 입장' },
+        { icon: 'sync', title: '실시간으로 합의', desc: '가능 날짜가 즉시 함께 보임' }
+      ]
+    },
+    previewContext: {
+      eyebrow: 'MOAELGA CALENDAR · LIVE REFERENCE',
+      title: '한 링크로 모이는 우리 일정',
+      desc: '일정, 장소, 기록을 같은 캘린더에서 함께 확인',
+      pills: ['로그인 없이 참여', '가능 날짜 실시간 반영']
+    },
+    url: 'https://pyw31337.github.io/calendar/?id=cw',
     githubUrl: 'https://github.com/pyw31337/calendar',
     screenshot: 'assets/screenshots/calendar.png',
-    iconPath: 'assets/icons/calendar.png',
+    iconPath: 'assets/icons/framed/calendar.png',
     featured: false
   }
 ];

@@ -28,7 +28,20 @@ const elements = {
   modalTitle: document.getElementById('modal-title'),
   modalSlug: document.getElementById('modal-slug'),
   modalBadge: document.getElementById('modal-badge'),
+  modalIcon: document.getElementById('modal-icon'),
+  modalOriginIcon: document.getElementById('modal-origin-icon'),
+  modalProblemIcon: document.getElementById('modal-problem-icon'),
+  modalSolutionIcon: document.getElementById('modal-solution-icon'),
+  modalImpactIcon: document.getElementById('modal-impact-icon'),
+  modalFlowIcon: document.getElementById('modal-flow-icon'),
+  modalFeatureIcon: document.getElementById('modal-feature-icon'),
+  modalTechIcon: document.getElementById('modal-tech-icon'),
   modalDesc: document.getElementById('modal-desc'),
+  modalProblem: document.getElementById('modal-problem'),
+  modalSolution: document.getElementById('modal-solution'),
+  modalMetrics: document.getElementById('modal-metrics'),
+  modalMetricNote: document.getElementById('modal-metric-note'),
+  modalFlow: document.getElementById('modal-flow'),
   modalHighlights: document.getElementById('modal-highlights'),
   modalTech: document.getElementById('modal-tech'),
   modalLiveLink: document.getElementById('modal-live-link'),
@@ -144,6 +157,16 @@ function renderProjects() {
 
     const hasLiveUrl = Boolean(project.url);
     const hasGithubUrl = Boolean(project.githubUrl);
+    const previewContextHtml = project.previewContext ? `
+      <div class="calendar-reference-layer" aria-label="${escapeHtml(project.previewContext.eyebrow)}">
+        <span class="calendar-reference-eyebrow">${escapeHtml(project.previewContext.eyebrow)}</span>
+        <strong>${escapeHtml(project.previewContext.title)}</strong>
+        <small>${escapeHtml(project.previewContext.desc)}</small>
+        <div class="calendar-reference-pills">
+          ${(project.previewContext.pills || []).map(pill => `<span>${escapeHtml(pill)}</span>`).join('')}
+        </div>
+      </div>
+    ` : '';
 
     return `
       <section class="service-showcase-section" data-project-id="${project.id}" style="--project-glow: ${project.bgGlow}; --project-accent: ${project.accentColor}; --project-accent-glow: ${project.accentGlow};">
@@ -250,6 +273,7 @@ function renderProjects() {
               <!-- High-res Screenshot Container with Interactive Zoom Overlay -->
               <div class="browser-viewport" data-project-id="${project.id}" title="클릭하여 상세 정보 및 큰 화면 보기">
                 <img src="${project.screenshot}" alt="${escapeHtml(project.title)} 실제 서비스 캡처 화면" loading="${idx === 0 ? 'eager' : 'lazy'}" class="service-screenshot">
+                ${previewContextHtml}
                 <div class="browser-viewport-overlay">
                   <span class="preview-zoom-btn">
                     ${getIcon('maximize')}
@@ -267,7 +291,7 @@ function renderProjects() {
   elements.projectsContainer.innerHTML = sectionsHtml;
 }
 
-// Modal Control with Modern Light-Dismiss and Starting-Style
+// Modal control: each product opens as a compact, evidence-led case study.
 function openServiceModal(projectId) {
   const project = PROJECTS.find(p => p.id === projectId);
   if (!project || !elements.serviceModal) return;
@@ -277,13 +301,52 @@ function openServiceModal(projectId) {
   elements.modalTitle.textContent = project.title;
   elements.modalSlug.textContent = `${project.titleEn} (${project.slug})`;
   elements.modalBadge.textContent = project.badge || project.statusLabel;
+  elements.modalIcon.src = project.iconPath;
+  elements.modalIcon.alt = `${project.title} 아이콘`;
   elements.modalDesc.textContent = project.description;
+
+  const story = project.story || {};
+  const problem = story.problem || project.description;
+  const solution = story.solution || project.summary;
+  elements.modalProblem.textContent = problem;
+  elements.modalSolution.textContent = solution;
+
+  const accent = project.accentColor;
+  const setModalIcon = (element, iconName) => {
+    if (element) element.innerHTML = getIcon(iconName);
+  };
+  setModalIcon(elements.modalOriginIcon, 'sparkles');
+  setModalIcon(elements.modalProblemIcon, 'message');
+  setModalIcon(elements.modalSolutionIcon, 'target');
+  setModalIcon(elements.modalImpactIcon, 'chart');
+  setModalIcon(elements.modalFlowIcon, 'arrowRight');
+  setModalIcon(elements.modalFeatureIcon, 'layers');
+  setModalIcon(elements.modalTechIcon, 'code');
+
+  const metrics = story.metrics || [{ value: project.stats || '운영 중', label: '서비스 현황', detail: project.summary }];
+  elements.modalMetrics.innerHTML = metrics.map(metric => `
+    <article class="modal-metric" style="--metric-accent: ${accent};">
+      <strong>${escapeHtml(metric.value)}</strong>
+      <span>${escapeHtml(metric.label)}</span>
+      <small>${escapeHtml(metric.detail || '')}</small>
+    </article>
+  `).join('');
+  elements.modalMetricNote.textContent = story.metricNote || '수치는 공개된 서비스 소개와 기능 설계를 기준으로 정리했습니다.';
+
+  const flow = story.flow || [];
+  elements.modalFlow.innerHTML = flow.map((step, index) => `
+    <li class="modal-flow-step" style="--step-accent: ${accent};">
+      <span class="modal-flow-number">0${index + 1}</span>
+      <span class="modal-flow-icon">${getIcon(step.icon || 'arrowRight')}</span>
+      <span class="modal-flow-copy"><strong>${escapeHtml(step.title)}</strong><small>${escapeHtml(step.desc)}</small></span>
+    </li>
+  `).join('');
 
   elements.modalHighlights.innerHTML = (project.highlights || []).map(h => `
     <li class="modal-highlight-box">
-      <div style="display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.35rem;">
-        <span style="color: ${project.accentColor}; display: flex;">${getIcon(h.icon || 'check')}</span>
-        <h4 style="margin-bottom: 0;">${escapeHtml(h.title)}</h4>
+      <div class="modal-highlight-heading">
+        <span class="modal-highlight-icon" style="--highlight-accent: ${project.accentColor};">${getIcon(h.icon || 'check')}</span>
+        <h4>${escapeHtml(h.title)}</h4>
       </div>
       <p>${escapeHtml(h.desc)}</p>
     </li>

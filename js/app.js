@@ -3,7 +3,7 @@
  * 100% Full-Width Visual Showcase with 3D Realistic App Icons & Wide Backgrounds
  */
 
-import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js?v=20261027-moaelga';
+import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js?v=20261027-editorial-renewal';
 import { getIcon } from './icons.js';
 
 // Application State
@@ -301,6 +301,53 @@ function renderProjects() {
   }).join('');
 
   elements.projectsContainer.innerHTML = sectionsHtml;
+  setupEditorialMotion();
+}
+
+// The catalogue is a reading experience first: reveal each case as it enters
+// the page and let the real product image respond subtly to a pointer.
+function setupEditorialMotion() {
+  const entries = elements.projectsContainer.querySelectorAll('.service-showcase-section');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((observed) => {
+      observed.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+
+    entries.forEach((entry) => {
+      entry.classList.add('index-reveal');
+      observer.observe(entry);
+    });
+
+    // Never leave a case hidden if an embedded browser or an older device
+    // does not dispatch an intersection update while the page is resting.
+    window.setTimeout(() => {
+      entries.forEach((entry) => entry.classList.add('is-visible'));
+    }, 900);
+  }
+
+  entries.forEach((entry) => {
+    const viewport = entry.querySelector('.browser-viewport');
+    if (!viewport || reduceMotion) return;
+
+    viewport.addEventListener('pointermove', (event) => {
+      const bounds = viewport.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      viewport.style.setProperty('--parallax-x', `${x * -8}px`);
+      viewport.style.setProperty('--parallax-y', `${y * -6}px`);
+    });
+
+    viewport.addEventListener('pointerleave', () => {
+      viewport.style.setProperty('--parallax-x', '0px');
+      viewport.style.setProperty('--parallax-y', '0px');
+    });
+  });
 }
 
 // Modal control: each product opens as a compact, evidence-led case study.

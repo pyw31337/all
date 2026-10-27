@@ -1,5 +1,6 @@
 /**
- * PYW Hub - Main Application Script
+ * pyw31337 Hub - Main Application Script
+ * Single-Column Visual Showcase Architecture
  */
 
 import { CATEGORIES, PROJECTS, PORTFOLIO_STATS } from '../data/projects.js';
@@ -19,7 +20,7 @@ const elements = {
   themeIcon: document.getElementById('theme-icon'),
   categoryList: document.getElementById('category-filters'),
   searchInput: document.getElementById('search-input'),
-  projectsGrid: document.getElementById('projects-grid'),
+  projectsContainer: document.getElementById('projects-container'),
   totalCount: document.getElementById('stat-total'),
   liveCount: document.getElementById('stat-live'),
   repoCount: document.getElementById('stat-repos'),
@@ -32,9 +33,7 @@ const elements = {
   modalTech: document.getElementById('modal-tech'),
   modalLiveLink: document.getElementById('modal-live-link'),
   modalGithubLink: document.getElementById('modal-github-link'),
-  modalCloseBtn: document.getElementById('modal-close-btn'),
-  guideModal: document.getElementById('guide-modal'),
-  guideCloseBtn: document.getElementById('guide-close-btn')
+  modalCloseBtn: document.getElementById('modal-close-btn')
 };
 
 // Initialize App
@@ -109,14 +108,14 @@ function getFilteredProjects() {
   });
 }
 
-// Projects Grid Rendering
+// Projects 1-Column Showcase Sections Rendering
 function renderProjects() {
-  if (!elements.projectsGrid) return;
+  if (!elements.projectsContainer) return;
 
   const filtered = getFilteredProjects();
 
   if (filtered.length === 0) {
-    elements.projectsGrid.innerHTML = `
+    elements.projectsContainer.innerHTML = `
       <div class="empty-state">
         <div class="empty-icon">${getIcon('search')}</div>
         <h3>일치하는 서비스가 없습니다</h3>
@@ -126,12 +125,17 @@ function renderProjects() {
     return;
   }
 
-  const projectCardsHtml = filtered.map(project => {
-    const highlightsHtml = (project.highlights || []).slice(0, 3).map(h => `
-      <li class="highlight-item">
-        <span class="highlight-icon">${getIcon('check')}</span>
-        <span class="highlight-text"><strong>${escapeHtml(h.title)}:</strong> ${escapeHtml(h.desc)}</span>
-      </li>
+  const sectionsHtml = filtered.map((project, idx) => {
+    const highlightsHtml = (project.highlights || []).map(h => `
+      <div class="feature-box">
+        <div class="feature-icon" style="color: ${project.accentColor}; background: ${project.accentColor}18;">
+          ${getIcon(h.icon || 'check')}
+        </div>
+        <div class="feature-content">
+          <h4 class="feature-title">${escapeHtml(h.title)}</h4>
+          <p class="feature-desc">${escapeHtml(h.desc)}</p>
+        </div>
+      </div>
     `).join('');
 
     const techTagsHtml = (project.techStack || []).map(tech => `
@@ -142,76 +146,111 @@ function renderProjects() {
     const hasGithubUrl = Boolean(project.githubUrl);
 
     return `
-      <article class="project-card" data-project-id="${project.id}">
-        <div class="card-accent-bar" style="background: ${project.gradient || project.accentColor};"></div>
-        
-        <header class="card-header">
-          <div class="card-title-group">
-            <div class="card-icon-wrap" style="background: ${project.gradient || project.accentColor};">
-              ${project.title.charAt(0)}
+      <article class="service-showcase-section" data-project-id="${project.id}" style="--project-glow: ${project.bgGlow}; --project-accent: ${project.accentColor};">
+        <!-- Ambient Glow and Geometric Graphics in Background -->
+        <div class="section-glow-backdrop"></div>
+        <div class="section-grid-pattern"></div>
+        <div class="section-accent-line" style="background: ${project.gradient};"></div>
+
+        <div class="service-section-container">
+          <!-- Information & Story Column -->
+          <div class="service-info-col">
+            <div class="service-meta-header">
+              <div class="service-brand-pill">
+                <span class="service-brand-avatar" style="background: ${project.gradient};">
+                  ${project.title.charAt(0)}
+                </span>
+                <span class="service-category-tag">${escapeHtml(project.categoryLabel)}</span>
+              </div>
+              <div class="status-pill">
+                <span class="pulse-dot"></span>
+                <span>${escapeHtml(project.badge || project.statusLabel)}</span>
+              </div>
             </div>
-            <div class="card-titles">
-              <h3 class="card-title">${escapeHtml(project.title)}</h3>
-              <span class="card-slug">${escapeHtml(project.titleEn || project.slug)}</span>
+
+            <div class="service-title-wrap">
+              <h2 class="service-title">${escapeHtml(project.title)}</h2>
+              <span class="service-title-en">${escapeHtml(project.titleEn)}</span>
+            </div>
+
+            <p class="service-summary">${escapeHtml(project.summary)}</p>
+
+            <!-- Visual Highlights Grid with Rich Icons -->
+            <div class="service-highlights-grid">
+              ${highlightsHtml}
+            </div>
+
+            <!-- Tech Stack Tags -->
+            <div class="tech-stack-row">
+              ${techTagsHtml}
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="service-actions-row">
+              ${hasLiveUrl ? `
+                <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-primary" title="웹사이트 바로가기">
+                  <span>웹사이트 바로가기</span>
+                  ${getIcon('externalLink')}
+                </a>
+              ` : `
+                <button type="button" class="btn-secondary" style="opacity: 0.6; cursor: default;">
+                  <span>내부 운영</span>
+                </button>
+              `}
+
+              ${hasGithubUrl ? `
+                <a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-secondary" title="GitHub 저장소 보기">
+                  ${getIcon('github')}
+                  <span>GitHub</span>
+                </a>
+              ` : ''}
+
+              <button type="button" class="btn-secondary detail-btn" data-project-id="${project.id}" title="상세 기획 및 구조 보기">
+                ${getIcon('info')}
+                <span>상세보기</span>
+              </button>
             </div>
           </div>
-          
-          <div class="status-pill">
-            <span class="pulse-dot"></span>
-            <span>${escapeHtml(project.badge || project.statusLabel)}</span>
+
+          <!-- Visual Browser Frame & Screenshot Column -->
+          <div class="service-visual-col">
+            <div class="browser-frame">
+              <!-- Browser Window Title Bar -->
+              <div class="browser-topbar">
+                <div class="browser-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="browser-address-bar">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span class="browser-url-text">${escapeHtml(project.url || 'https://pyw31337.github.io/' + project.slug)}</span>
+                </div>
+                ${hasLiveUrl ? `
+                  <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="browser-external-link" title="새 창에서 열기">
+                    ${getIcon('externalLink')}
+                  </a>
+                ` : ''}
+              </div>
+
+              <!-- Live Screenshot Image Container with Zoom Overlay -->
+              <div class="browser-viewport" data-project-id="${project.id}" title="클릭하여 상세 정보 보기">
+                <img src="${project.screenshot}" alt="${escapeHtml(project.title)} 실제 서비스 캡처 화면" loading="${idx === 0 ? 'eager' : 'lazy'}" class="service-screenshot">
+                <div class="browser-viewport-overlay">
+                  <span class="preview-zoom-btn">
+                    ${getIcon('maximize')}
+                    <span>상세보기 및 큰 화면</span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
-        </header>
-
-        <p class="card-summary">${escapeHtml(project.summary)}</p>
-
-        <ul class="card-highlights">
-          ${highlightsHtml}
-        </ul>
-
-        <div class="tech-stack-row">
-          ${techTagsHtml}
         </div>
-
-        <footer class="card-actions">
-          ${hasLiveUrl ? `
-            <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-primary" title="웹사이트 바로가기">
-              <span>서비스 바로가기</span>
-              ${getIcon('externalLink')}
-            </a>
-          ` : `
-            <button type="button" class="btn-secondary" style="opacity: 0.6; cursor: default;" title="내부 운영 서비스">
-              <span>내부 운영</span>
-            </button>
-          `}
-
-          ${hasGithubUrl ? `
-            <a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer" class="btn-secondary" title="GitHub 저장소 보기">
-              ${getIcon('github')}
-            </a>
-          ` : ''}
-
-          <button type="button" class="btn-secondary detail-btn" data-project-id="${project.id}" title="상세 설명 보기">
-            ${getIcon('info')}
-          </button>
-        </footer>
       </article>
     `;
   }).join('');
 
-  // Add Service Prompt Card
-  const addServiceCardHtml = `
-    <article class="add-service-card" id="open-guide-card">
-      <div class="add-service-icon">
-        ${getIcon('sparkles')}
-      </div>
-      <h3 class="add-service-title">새 서비스 추가하기</h3>
-      <p class="add-service-desc">
-        <code>data/projects.js</code> 파일에 간단한 정보만 입력하면 포트폴리오에 자동으로 반영됩니다.
-      </p>
-    </article>
-  `;
-
-  elements.projectsGrid.innerHTML = projectCardsHtml + addServiceCardHtml;
+  elements.projectsContainer.innerHTML = sectionsHtml;
 }
 
 // Modal Control with Modern Light-Dismiss and Starting-Style
@@ -228,7 +267,10 @@ function openServiceModal(projectId) {
 
   elements.modalHighlights.innerHTML = (project.highlights || []).map(h => `
     <li class="modal-highlight-box">
-      <h4>${escapeHtml(h.title)}</h4>
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+        <span style="color: ${project.accentColor}; display: flex;">${getIcon(h.icon || 'check')}</span>
+        <h4 style="margin-bottom: 0;">${escapeHtml(h.title)}</h4>
+      </div>
       <p>${escapeHtml(h.desc)}</p>
     </li>
   `).join('');
@@ -257,18 +299,6 @@ function openServiceModal(projectId) {
 function closeServiceModal() {
   if (elements.serviceModal && elements.serviceModal.open) {
     elements.serviceModal.close();
-  }
-}
-
-function openGuideModal() {
-  if (elements.guideModal) {
-    elements.guideModal.showModal();
-  }
-}
-
-function closeGuideModal() {
-  if (elements.guideModal && elements.guideModal.open) {
-    elements.guideModal.close();
   }
 }
 
@@ -301,9 +331,10 @@ function setupEventListeners() {
     });
   }
 
-  // Card Clicks (Event Delegation)
-  if (elements.projectsGrid) {
-    elements.projectsGrid.addEventListener('click', (e) => {
+  // Container Delegated Clicks
+  if (elements.projectsContainer) {
+    elements.projectsContainer.addEventListener('click', (e) => {
+      // Detail button click
       const detailBtn = e.target.closest('.detail-btn');
       if (detailBtn) {
         const projectId = detailBtn.dataset.projectId;
@@ -311,28 +342,25 @@ function setupEventListeners() {
         return;
       }
 
-      const guideCard = e.target.closest('#open-guide-card');
-      if (guideCard) {
-        openGuideModal();
+      // Browser viewport click to open detail
+      const viewport = e.target.closest('.browser-viewport');
+      if (viewport) {
+        const projectId = viewport.dataset.projectId;
+        openServiceModal(projectId);
         return;
       }
     });
   }
 
-  // Modal Close Buttons
+  // Modal Close Button
   if (elements.modalCloseBtn) {
     elements.modalCloseBtn.addEventListener('click', closeServiceModal);
   }
 
-  if (elements.guideCloseBtn) {
-    elements.guideCloseBtn.addEventListener('click', closeGuideModal);
-  }
-
   // Light Dismiss on Backdrop Click for Modern Dialog
-  [elements.serviceModal, elements.guideModal].forEach(dialog => {
-    if (!dialog) return;
-    dialog.addEventListener('click', (event) => {
-      const rect = dialog.getBoundingClientRect();
+  if (elements.serviceModal) {
+    elements.serviceModal.addEventListener('click', (event) => {
+      const rect = elements.serviceModal.getBoundingClientRect();
       const isInDialog = (
         rect.top <= event.clientY &&
         event.clientY <= rect.top + rect.height &&
@@ -340,10 +368,10 @@ function setupEventListeners() {
         event.clientX <= rect.left + rect.width
       );
       if (!isInDialog) {
-        dialog.close();
+        elements.serviceModal.close();
       }
     });
-  });
+  }
 }
 
 // Helper: Escape HTML

@@ -2,15 +2,15 @@
 <html lang="ko" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PYW Hub | 박영우 서비스 & 프로젝트 아카이브</title>
-  <meta name="description" content="렛츠캠핑, 컬처플로우, 렛츠뷰, 렛츠픽 등 직접 만들고 운영하는 모든 사이트와 서비스를 한곳에서 만나는 포트폴리오 허브">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>pyw31337 Hub | 박영우 서비스 & 프로젝트 아카이브</title>
+  <meta name="description" content="렛츠 캠핑, 컬처플로우, 렛츠 뷰, 렛츠 픽, 렛츠 캘린더 등 직접 설계하고 운영하는 모든 사이트와 서비스를 한눈에 만나는 포트폴리오 쇼케이스">
   
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pyw31337.github.io/all/">
-  <meta property="og:title" content="PYW Hub | 박영우 서비스 & 프로젝트 아카이브">
-  <meta property="og:description" content="캠핑, 문화생활, 실시간 CCTV, 웹 익스텐션, 지하철, 캘린더까지 직접 개발·운영하는 모든 서비스 모음">
+  <meta property="og:title" content="pyw31337 Hub | 박영우 서비스 & 프로젝트 아카이브">
+  <meta property="og:description" content="캠핑, 문화예술 일정, 실시간 교통 CCTV, 브라우저 확장도구, 일정 캘린더까지 직접 개발·운영하는 프로덕트 컬렉션">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/1029199?v=4">
 
   <!-- Theme Color -->
@@ -31,7 +31,7 @@
       <div class="brand">
         <div class="brand-logo">P</div>
         <div class="brand-text">
-          <span class="brand-title">PYW Hub</span>
+          <span class="brand-title">pyw31337 Hub</span>
           <span class="brand-subtitle">Products & Services Archive</span>
         </div>
       </div>
@@ -54,28 +54,28 @@
     <section class="hero-section">
       <div class="hero-pill">
         <span>✨</span>
-        <span>직접 설계하고 운영하는 프로덕트 아카이브</span>
+        <span>직접 설계하고 운영하는 프로덕트 쇼케이스</span>
       </div>
       <h1 class="hero-title">
         Ideas into <span class="gradient-text">Living Products</span>
       </h1>
       <p class="hero-desc">
-        캠핑, 문화예술 일정, 실시간 교통 CCTV, 브라우저 확장도구, 지하철 모빌리티부터 가족 OS까지.<br>
-        실생활의 문제를 기술로 해결하며 끊임없이 발전시키는 프로덕트 컬렉션입니다.
+        캠핑, 문화예술 일정, 실시간 교통 CCTV, 브라우저 확장도구, 사모임 일정 조율까지.<br>
+        실생활의 필요와 아이디어를 직접 기술로 완성하고 운영하는 프로덕트 컬렉션입니다.
       </p>
 
       <!-- Stats Ribbon -->
       <div class="stats-bar">
         <div class="stat-item">
-          <span class="stat-number" id="stat-total">7</span>
+          <span class="stat-number" id="stat-total">5</span>
           <span class="stat-label">등록된 서비스</span>
         </div>
-        <div class="stat-item" style="border-left: 1px solid var(--border-subtle); padding-left: 2rem;">
-          <span class="stat-number" id="stat-live" style="color: var(--accent-emerald);">7</span>
+        <div class="stat-item">
+          <span class="stat-number" id="stat-live" style="color: var(--accent-emerald);">5</span>
           <span class="stat-label">라이브 운영</span>
         </div>
-        <div class="stat-item" style="border-left: 1px solid var(--border-subtle); padding-left: 2rem;">
-          <span class="stat-number" id="stat-repos" style="color: var(--accent-primary);">6+</span>
+        <div class="stat-item">
+          <span class="stat-number" id="stat-repos" style="color: var(--accent-primary);">5</span>
           <span class="stat-label">오픈소스 레포</span>
         </div>
       </div>
@@ -99,11 +99,9 @@
       </div>
     </section>
 
-    <!-- Projects Grid Section -->
-    <section class="projects-container">
-      <div class="projects-grid" id="projects-grid">
-        <!-- Dynamically Rendered Projects Cards -->
-      </div>
+    <!-- 1-Column Projects Showcase Container -->
+    <section class="projects-container" id="projects-container">
+      <!-- Dynamically Rendered Service Showcase Sections -->
     </section>
   </main>
 
@@ -156,65 +154,12 @@
     </div>
   </dialog>
 
-  <!-- Add Service Guide Modal (<dialog>) -->
-  <dialog class="service-modal" id="guide-modal" aria-labelledby="guide-title">
-    <div class="modal-header">
-      <div class="modal-title-wrap">
-        <h3 id="guide-title" style="font-size: 1.25rem; font-weight: 700;">새로운 서비스 추가 방법</h3>
-      </div>
-      <button type="button" class="modal-close-btn" id="guide-close-btn" aria-label="닫기">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-      </button>
-    </div>
-
-    <div class="modal-body">
-      <p class="modal-desc" style="margin-bottom: 1.25rem;">
-        포트폴리오에 새로운 사이트나 서비스를 추가하려면, <code>data/projects.js</code> 파일의 <code>PROJECTS</code> 배열에 아래 형식의 객체를 하나 추가하기만 하면 됩니다.
-      </p>
-
-      <div style="background: var(--bg-input); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); overflow-x: auto; font-family: var(--font-mono); font-size: 0.8125rem; line-height: 1.5; color: #a5b4fc; margin-bottom: 1.5rem;">
-<pre>{
-  id: 'my-service',
-  slug: 'my-service',
-  title: '서비스명',
-  titleEn: 'My Service',
-  category: 'travel', // travel | culture | mobility | tools | lifestyle
-  categoryLabel: '여행 & 아웃도어',
-  status: 'live',
-  statusLabel: '운영 중',
-  badge: '대표 특징 뱃지',
-  accentColor: '#3b82f6',
-  gradient: 'linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)',
-  summary: '한 줄 소개글',
-  description: `상세 소개 및 개발 배경`,
-  highlights: [
-    { title: '핵심 장점 1', desc: '상세 설명' },
-    { title: '핵심 장점 2', desc: '상세 설명' }
-  ],
-  techStack: ['React', 'Next.js', 'Tailwind CSS'],
-  url: 'https://...',
-  githubUrl: 'https://github.com/pyw31337/...'
-}</pre>
-      </div>
-
-      <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5;">
-        자세한 가이드는 프로젝트 루트의 <code>ADDING_PROJECT.md</code> 문서를 참고해주세요.
-      </p>
-    </div>
-
-    <div class="modal-footer">
-      <button type="button" class="btn-primary" onclick="document.getElementById('guide-modal').close()">
-        확인 완료
-      </button>
-    </div>
-  </dialog>
-
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-brand">PYW Hub</div>
+      <div class="footer-brand">pyw31337 Hub</div>
       <p class="footer-desc">
-        사용자에게 실질적인 가치를 제공하는 프로덕트를 끊임없이 탐구하고 만듭니다.
+        사용자에게 실질적인 가치를 제공하는 프로덕트를 설계하고 만듭니다.
       </p>
       <div class="footer-links">
         <a href="https://github.com/pyw31337" target="_blank" rel="noopener noreferrer">GitHub (@pyw31337)</a>

@@ -1,7 +1,7 @@
-# PYW Hub | 박영우 서비스 & 프로젝트 아카이브
+# pyw31337 Hub | 박영우 서비스 & 프로젝트 아카이브
 
 > **공식 서비스 URL:** [https://pyw31337.github.io/all/](https://pyw31337.github.io/all/)  
-> 박영우([@pyw31337](https://github.com/pyw31337))가 직접 설계하고 개발·운영하는 모든 사이트와 프로덕트를 한눈에 모아보고 탐색할 수 있는 올인원 포트폴리오 허브입니다.
+> 박영우([@pyw31337](https://github.com/pyw31337))가 직접 설계하고 개발·운영하는 프로덕트들을 한눈에 모아보고 탐색할 수 있는 1단 비주얼 쇼케이스 허브입니다.
 
 ---
 
@@ -9,56 +9,45 @@
 
 | 서비스명 | 영문명/슬러그 | 카테고리 | 핵심 요약 | 라이브 링크 | 저장소 |
 | :--- | :--- | :--- | :--- | :---: | :---: |
-| **렛츠캠핑** | Let's Camp (`camp`) | 여행 & 아웃도어 | 전국 3,500+ 캠핑장 사양·예약 일정·날씨 비교 포털 | [바로가기](https://pyw31337.github.io/camp/) | [GitHub](https://github.com/pyw31337/camp) |
+| **렛츠 캠핑** | Let's Camp (`camp`) | 여행 & 아웃도어 | 전국 3,500+ 캠핑장 사양·예약 일정·날씨 비교 포털 | [바로가기](https://pyw31337.github.io/camp/) | [GitHub](https://github.com/pyw31337/camp) |
 | **컬처플로우** | Culture Flow (`culture`) | 문화 & 라이프 | 전국 공연·전시·영화·스포츠 통합 문화 캘린더 (PWA) | [바로가기](https://pyw31337.github.io/culture/) | [GitHub](https://github.com/pyw31337/culture) |
 | **렛츠 뷰** | Let's View (`cctv`) | 모빌리티 & 인프라 | 전국 고속도로·국도·도심 실시간 도로/재난 CCTV 뷰어 | [바로가기](https://pyw31337.github.io/cctv/) | [GitHub](https://github.com/pyw31337/cctv) |
 | **렛츠 픽** | Let's Pick (`pick`) | 생산성 & 도구 | 원본 미디어·SVG·CSS 토큰 원클릭 추출 확장도구 (v1.4.9) | [바로가기](https://pyw31337.github.io/pick/) | [GitHub](https://github.com/pyw31337/pick) |
 | **렛츠 캘린더** | Let's Calendar (`calendar`) | 문화 & 라이프 | 로그인 없는 실시간 모임 일정 조율 & 가능 날짜 웹 달력 | [바로가기](https://pyw31337.github.io/calendar/?id=kkot) | [GitHub](https://github.com/pyw31337/calendar) |
-| **메트로 라이브** | Metro Live (`metro`) | 모빌리티 & 인프라 | 수도권 지하철 실시간 열차 위치 지도 & 경로/편의시설 안내 | [바로가기](https://pyw31337.github.io/metro/) | [GitHub](https://github.com/pyw31337/metro) |
-| **라임리** | Limery (`limery`) | 가족 & 라이프 | 18년 가계부 + 1,200곳 장소 아카이브 + AI 가족 라이프 OS | [바로가기](https://limery.pages.dev) | *(Private)* |
 
 ---
 
 ## 🚀 포트폴리오 웹사이트 주요 특징
 
-1. **포트폴리오 맞춤형 세련된 UI/UX**
-   - 현대적인 글래스모피즘과 다크/라이트 테마 자동 감지 및 원클릭 토글
-   - 실시간 카테고리 필터링(여행, 문화, 모빌리티, 도구, 가족 등)
-   - 서비스명, 설명, 기술 스택, 키워드를 즉시 검색하는 반응형 실시간 검색창
-   - 서비스별 고유 브랜드 그라디언트 및 라이브 운영 펄싱 닷(Live Dot) 인디케이터
+1. **1단 대형 비주얼 쇼케이스 (Single-Column Feature Sections)**
+   - 3단 카드 대신, 서비스 하나하나가 하나의 독립된 섹션처럼 웅장하게 펼쳐지는 1단 레이아웃.
+   - 각 서비스별 고유 앰비언트 글로우 그래픽 배경과 모던 기하학 패턴 적용.
+   - 실제 운영 중인 서비스의 고화질 캡처 화면을 브라우저 윈도우 프레임 목업에 탑재하여 시각적 직관성 극대화.
 
-2. **모던 웹 표준 기반 구축 (Modern Web Standards)**
-   - 최신 웹 표준 `<dialog>` 기반의 상세 모달 및 Light-Dismiss (바깥 클릭/Esc 닫기)
-   - `@starting-style` 및 CSS 이산 트랜지션 기반 부드러운 모달 진입/종료 애니메이션
-   - `prefers-reduced-motion` 미디어 쿼리를 통한 모션 민감 사용자 배려
-   - 외부 무거운 프레임워크 의존 없는 순수 모던 Vanilla JS (ES Modules) 초고속 로딩
+2. **한글 가독성 및 반응형 모바일 최적화 (320px 완벽 지원)**
+   - 모든 한글 텍스트에 `word-break: keep-all;`을 전면 적용하여 단어 중간에 어색한 줄바꿈 발생 방지.
+   - 모바일 320px(초소형 화면)부터 태블릿, 데스크톱까지 사파리, 크롬, 웨일 브라우저 완벽 대응.
+   - iOS 사파리 주소창 인풋 줌인 버그 방지(`font-size: 16px`) 및 Safe Area Inset(노치/홈바) 적용.
 
-3. **데이터 주도형 구조 (Easy to Extend)**
-   - 모든 서비스 데이터가 [`data/projects.js`](data/projects.js)에 구조화되어 있어, 새로운 서비스를 코드 수정 없이 JSON/객체 추가만으로 즉시 포트폴리오에 반영 가능
-   - 자세한 안내는 [`ADDING_PROJECT.md`](ADDING_PROJECT.md) 참고
+3. **풍부한 아이콘 & 인터랙티브 기능**
+   - 각 기능과 장점마다 맞춤형 SVG 아이콘 배지 장착.
+   - 실시간 카테고리 필터링(여행, 문화, 모빌리티, 도구 등) 및 실시간 검색.
+   - `<dialog>` 기반의 상세 모달 및 Light-Dismiss (바깥 클릭/Esc 닫기).
+   - 다크 모드 / 라이트 모드 실시간 토글.
+
+4. **데이터 주도형 구조 (Easy to Extend)**
+   - 새로운 서비스는 [`data/projects.js`](data/projects.js)에 객체를 추가하기만 하면 포트폴리오 쇼케이스에 자동으로 반영됩니다.
+   - 상세 설명은 [`ADDING_PROJECT.md`](ADDING_PROJECT.md)를 참고하세요.
 
 ---
 
 ## 🛠️ 로컬 실행 방법
 
-별도의 복잡한 빌드나 설치 과정 없이 정적 웹 서버로 즉시 구동 가능합니다.
-
 ```bash
-# 저장소 복제
-git clone https://github.com/pyw31337/all.git
-cd all
-
-# 로컬 서버 실행 (예: Python 또는 Node)
+# 로컬 웹 서버 실행 (별도 빌드 필요 없음)
 python3 -m http.server 8000
 # 또는
 npx serve .
 ```
 
 브라우저에서 `http://localhost:8000` 을 열면 바로 확인할 수 있습니다.
-
----
-
-## 📦 자동 배포 파이프라인
-
-`main` 브랜치에 코드를 푸시하면 GitHub Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml))가 자동으로 GitHub Pages에 배포합니다.
-배포 상태는 저장소의 Actions 탭에서 실시간으로 확인할 수 있습니다.

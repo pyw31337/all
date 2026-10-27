@@ -302,6 +302,71 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     screenshot: 'assets/screenshots/calendar.png',
     iconPath: 'assets/icons/framed/calendar.png',
     featured: false
+  },
+  {
+    id: 'hair',
+    slug: 'hair',
+    title: '렛츠 헤어',
+    titleEn: "Let's Hair",
+    releaseDate: '24.03.28',
+    category: 'tools',
+    categoryLabel: '생산성 & 도구',
+    status: 'live',
+    statusLabel: '운영 중',
+    badge: '실시간 예약 & 멀티 숍 SaaS',
+    accentColor: '#f43f5e', // rose
+    accentGlow: 'rgba(244, 63, 94, 0.35)',
+    gradient: 'linear-gradient(135deg, #e11d48 0%, #fb7185 100%)',
+    bgGlow: 'radial-gradient(ellipse at 85% 25%, rgba(244, 63, 94, 0.22) 0%, transparent 65%)',
+    summary: '1인 미용실과 뷰티숍을 위해 링크 하나로 로그인 없이 예약하고, 아이디 발급만으로 누구나 무료 매장 예약 시스템을 개설하는 실시간 예약 솔루션',
+    description: `시술 중 끊임없이 걸려오는 예약 문의 전화와 대화방 조율의 불편함을 해소하기 위해 탄생한 미용실 전용 실시간 예약 시스템입니다.
+고객은 회원가입이나 앱 설치 없이 링크 하나로 원하는 날짜와 시술 항목을 선택하여 10초 만에 예약할 수 있으며, 휴대폰 뒷번호로 간편하게 취소할 수 있습니다.
+또한 아이디 발급만으로 어떤 매장이든 자신만의 예약 캘린더와 관리자 대시보드를 즉시 개설할 수 있는 멀티 테넌트 SaaS 구조로 확장되었습니다.`,
+    highlights: [
+      {
+        icon: 'link',
+        title: '링크 기반 10초 무가입 예약',
+        desc: '회원가입과 앱 설치 없이 매장 링크만 열어 1시간 단위 슬롯에서 원하는 시술을 즉시 예약합니다.'
+      },
+      {
+        icon: 'sync',
+        title: 'Firestore 실시간 중복 방지',
+        desc: '동시 접속 환경에서도 실시간 스냅샷 동기화를 통해 예약 즉시 다른 화면에서 마감 처리되어 이중 예약을 차단합니다.'
+      },
+      {
+        icon: 'share',
+        title: '원클릭 멀티 테넌트 숍 개설',
+        desc: '아이디 하나만 발급받으면 독립된 매장명, 영업시간, 휴무일, 시술 메뉴, 관리자 모드를 가진 예약 시스템이 즉시 생성됩니다.'
+      }
+    ],
+    techStack: ['Vanilla JS', 'Firebase Firestore', 'CSS 3D Flip', 'PWA', 'GitHub Pages'],
+    stats: '무가입 10초 예약 · 멀티 SaaS',
+    story: {
+      problem: '시술 중 걸려오는 예약 문의 전화로 작업 흐름이 끊기고, 문자 조율의 번거로움과 상용 솔루션의 고가 수수료 부담이 있었습니다.',
+      solution: '로그인 없는 링크형 예약과 실시간 Firestore 동기화, 뒷번호 간편 취소, 멀티 숍 무료 개설 시스템을 구축했습니다.',
+      metrics: [
+        { value: '0단계', label: '가입·설치 과정', detail: '링크를 열면 10초 만에 예약 완료' },
+        { value: '0원', label: '월 운영 수수료', detail: '서버리스 BaaS 구조로 무료 운영' },
+        { value: '100%', label: '실시간 중복 차단', detail: 'Firestore 리스너로 즉시 마감 반영' }
+      ],
+      metricNote: '수치는 사용자 흐름 마찰 제거 및 Firestore 실시간 동기화로 검증된 개선 지표입니다.',
+      flow: [
+        { icon: 'phone', title: '전화·문자 조율', desc: '시술 중 전화 응대와 대화 반복' },
+        { icon: 'link', title: '예약 링크 공유', desc: '날짜·시간대 실시간 선택' },
+        { icon: 'sync', title: '10초 예약 완료', desc: '중복 차단 및 뒷번호 간편 취소' }
+      ]
+    },
+    previewContext: {
+      eyebrow: 'LETS HAIR · MULTI-TENANT SAAS',
+      title: '전화 없는 편안한 시술 예약',
+      desc: '로그인 없이 10초 예약, 아이디 발급으로 내 매장 즉시 개설',
+      pills: ['무가입 10초 예약', '실시간 중복 방지', '멀티 숍 SaaS']
+    },
+    url: 'https://pyw31337.github.io/jhair/?shop=jhair',
+    githubUrl: 'https://github.com/pyw31337/jhair',
+    screenshot: 'assets/screenshots/jhair.png',
+    iconPath: 'assets/icons/framed/jhair.png',
+    featured: false
   }
 ];
 

@@ -17,6 +17,12 @@ document.addEventListener('click', e => {
   if (b) location.href = 'mai' + 'lto:' + b.dataset.u + '\u0040' + b.dataset.d;
 });
 
+/* Mobile menu */
+const mt = $('#menu-toggle'), mn = $('#mnav');
+const setMenu = v => { mn.hidden = !v; mt.setAttribute('aria-expanded', v); mt.setAttribute('aria-label', v ? '메뉴 닫기' : '메뉴 열기'); document.body.classList.toggle('menu-open', v); };
+mt.addEventListener('click', () => setMenu(mn.hidden));
+mn.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 /* Nav state */
 const nav = $('#nav');
 const onScroll = () => nav.classList.toggle('is-solid', scrollY > 40);
@@ -27,8 +33,9 @@ const ORDER = ['calendar', 'culture', 'cctv'];
 const featured = ORDER.map(id => PROJECTS.find(p => p.id === id)).filter(Boolean)
   .concat(PROJECTS.filter(p => p.featured && !ORDER.includes(p.id)));
 const others = PROJECTS.filter(p => !featured.includes(p));
-$('#project-count').textContent = PROJECTS.length;
-$('#project-count').dataset.count = PROJECTS.length;
+const shipped = PROJECTS.filter(p => p.status !== 'archived').length;
+$('#project-count').textContent = shipped;
+$('#project-count').dataset.count = shipped;
 
 const rows = p => `
   <dl class="iwb">

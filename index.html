@@ -16,7 +16,7 @@
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 768px)">
   <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 767px)">
-  <link rel="stylesheet" href="css/portfolio.css?v=20261028-4">
+  <link rel="stylesheet" href="css/portfolio.css?v=20261028-5">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23ffffff%22/><circle cx=%2250%22 cy=%2250%22 r=%2212%22 fill=%22%231F3A8A%22/></svg>">
 </head>
 <body>
@@ -27,18 +27,28 @@
       <svg class="nav__mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="22" rx="5"/><path d="M3 12h26M10 3v6M22 3v6"/><path class="nav__mark-line" d="M8 22l5-5 4 3 7-7"/></svg>
     </a>
     <nav class="nav__links" aria-label="주요 메뉴">
+      <a href="#proof">증명<small lang="en">Proof</small></a>
       <a href="#about">철학<small lang="en">About</small></a>
       <a href="#career">경력<small lang="en">Career</small></a>
       <a href="#projects">프로젝트<small lang="en">Projects</small></a>
       <a href="#profile">프로필<small lang="en">Profile</small></a>
     </nav>
     <div class="nav__actions">
+      <button type="button" class="icon-btn nav__burger" id="menu-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mnav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
       <button type="button" class="icon-btn" id="theme-toggle" aria-label="라이트/다크 테마 전환">
         <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
     </div>
   </header>
+
+  <nav class="mnav" id="mnav" aria-label="모바일 메뉴" hidden>
+    <a href="#proof">증명<small lang="en">Proof</small></a>
+    <a href="#about">철학<small lang="en">About</small></a>
+    <a href="#career">경력<small lang="en">Career</small></a>
+    <a href="#projects">프로젝트<small lang="en">Projects</small></a>
+    <a href="#profile">프로필<small lang="en">Profile</small></a>
+  </nav>
 
   <main id="main">
     <!-- HERO -->
@@ -67,11 +77,56 @@
 
     <!-- STATS -->
     <section class="stats wrap" id="stats" aria-label="숫자로 보는 박영우">
-      <div class="stat reveal"><b data-count="1997">1997</b><span>처음 웹을 만든 해<small lang="en">First web page</small></span></div>
-      <div class="stat reveal"><b><i data-count="20">20</i>년</b><span>매일 쓴 가계부·일정<small lang="en">Years of daily records</small></span></div>
-      <div class="stat reveal"><b><i data-count="40">40</i>분</b><span>홈쇼핑 1억 원 완판<small lang="en">Sold out ₩100M on TV</small></span></div>
-      <div class="stat reveal"><b><i data-count="2">2</i>건</b><span>특허 출원<small lang="en">Patents filed</small></span></div>
-      <div class="stat reveal"><b><i data-count="7" id="project-count">7</i>개</b><span>직접 만든 서비스<small lang="en">Self-built services</small></span></div>
+      <div class="stat reveal"><b><i data-count="19">19</i>년</b><span>디자인 커리어<small lang="en">Years in design</small></span></div>
+      <div class="stat reveal"><b><i data-count="6" id="project-count">6</i>개</b><span>혼자 기획·출시한 서비스<small lang="en">Services shipped solo</small></span></div>
+      <div class="stat reveal"><b><i data-count="40">40</i>분</b><span>1시간 편성, 1억 원 완판<small lang="en">₩100M sold out in 40 min</small></span></div>
+      <div class="stat reveal"><b><i data-count="2">2</i>건</b><span>직접 디자인한 특허 출원<small lang="en">Patents filed</small></span></div>
+      <div class="stat reveal"><b><i data-count="6">6</i>편+</b><span>맥스무비 명예의 전당<small lang="en">Hall-of-fame film ads</small></span></div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="section proof" id="proof">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="eyebrow">00 — Proof</p>
+          <h2>시키지 않아도,<br>끝까지 만들어 왔습니다.</h2>
+          <p class="sec-head__en" lang="en">Nobody asked. I built it anyway — and saw it through.</p>
+        </header>
+        <div class="proofs">
+          <article class="pf pf--wide tilt reveal">
+            <span class="pf__k">코리아센터 디자인본부</span>
+            <h3>시키지 않아도 만든 도구가<br><mark class="hlm">본부 표준</mark>이 되다</h3>
+            <p>카카오톡으로 JPG 시안을 주고받던 방식을 바꾸고 싶었습니다. 시안 이력을 모아 모바일에서도 슬라이드로 넘겨 보는 공유 페이지를 직접 만들었고, 이후 본부의 <b>모든 프로젝트 공유와 납품</b>이 이 방식으로 이뤄졌습니다.</p>
+          </article>
+          <article class="pf tilt reveal">
+            <span class="pf__k">대학로 청음샵 ‘이어폰샵’</span>
+            <h3>로고타입이<br><mark class="hlm">진짜 간판</mark>이 되다</h3>
+            <p>텍스트 간판뿐이던 매장의 쇼핑몰을 만들며 로고타입을 디자인했습니다. 사장님이 마음에 들어 하셔서, 그 로고가 매장 간판에 올라갔습니다.</p>
+          </article>
+          <article class="pf tilt reveal">
+            <span class="pf__k">현대홈쇼핑 · 2014</span>
+            <h3>1시간 편성,<br><mark class="hlm">40분 만에 1억</mark> 완판</h3>
+            <p>생활 속 불편에서 시작해 직접 디자인한 유수분 분리 접시. 특허 2건을 출원하고 제품으로 만들어 방송까지 갔습니다.</p>
+          </article>
+          <article class="pf tilt reveal">
+            <span class="pf__k">맥스무비 · 디자인정글</span>
+            <h3>명예의 전당<br><mark class="hlm">단골</mark></h3>
+            <p>영화 플래시 배너·특수광고로 맥스무비 명예의 전당에 여러 차례. 캘리세상 풀플래시 사이트로 디자인정글 명예의 전당에 올라 인터뷰도 실렸습니다.</p>
+            <ul class="films" aria-label="대표작"><li>트랜스포머3</li><li>토르</li><li>미션임파서블: 고스트 프로토콜</li><li>7광구</li><li>마다가스카</li><li>메가마인드</li></ul>
+          </article>
+          <article class="pf tilt reveal">
+            <span class="pf__k">크레소티 · 재직 중</span>
+            <h3>흩어진 사내 시스템을<br><mark class="hlm">하나로</mark></h3>
+            <p>새 그룹웨어로 구버전의 파편화된 기능을 통합하고, 외부 유료 서비스를 내부에서 운영하게 되었으며, 중요한 자료가 밖으로 나가지 않게 했습니다.</p>
+          </article>
+          <article class="pf pf--wide pf--navy tilt reveal">
+            <span class="pf__k">개인 프로젝트 · 2024–</span>
+            <h3>기획 → 디자인 → 구현 → 배포,<br><mark class="hlm">혼자서 6개 서비스</mark></h3>
+            <p>누가 시키지 않아도 필요한 서비스를 직접 기획하고, 화면을 디자인하고, 만들어서 공개했습니다. 사용자를 모으는 마케팅보다는 <b>끝까지 완성해 실제로 쓸 수 있게 만드는 것</b>에 집중했습니다. 코리아센터에서도 카라반테일 등 신규 서비스를 기획부터 오픈까지 맡았습니다.</p>
+            <a class="btn btn--light btn--sm" href="#projects">서비스 보기 <span lang="en">/ Projects</span></a>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT / NARRATIVE -->
@@ -102,7 +157,7 @@
             <span class="chapter__no">숫자</span>
             <div>
               <h3>아이디어를 매출로<small lang="en">From idea to sales</small></h3>
-              <p>불편해서 그려 본 접시 한 장이 특허 2건이 되었고, 현대홈쇼핑에서 <mark class="hlm">1억 원어치가 40분 만에 완판</mark>됐습니다.</p>
+              <p>불편해서 그려 본 접시 한 장이 특허 2건이 되었고, 현대홈쇼핑 1시간 편성에서 <mark class="hlm">40분 만에 1억 원어치가 완판</mark>됐습니다.</p>
             </div>
           </article>
           <article class="chapter reveal">
@@ -171,7 +226,7 @@
         </header>
 
         <ul class="highlights">
-          <li class="hl reveal"><b>40분 · 1억</b><span>현대홈쇼핑 완판</span><small>유수분분리기능 접시 · 2014.09</small></li>
+          <li class="hl reveal"><b>40분 · 1억</b><span>1시간 편성 중 완판</span><small>유수분분리기능 접시 · 2014.09</small></li>
           <li class="hl reveal"><b>특허 2건</b><span>직접 기획·출원</span><small>접시 2013.03 · 뚜껑 2014.03</small></li>
           <li class="hl reveal"><b>10년</b><span>코리아센터 팀장</span><small>메이크샵 · 몰테일 UI/UX</small></li>
           <li class="hl reveal"><b>공동창업</b><span>캘리세상</span><small>기획·운영·마케팅 총괄</small></li>
@@ -180,8 +235,8 @@
         </ul>
 
         <ol class="timeline reveal">
-          <li><time>2022.12 — 재직중</time><strong>크레소티</strong><span>개발기획부 책임매니저 · 그룹웨어 통합 설계, 온·누리POS UI 고도화, 마케팅 비주얼 총괄</span></li>
-          <li class="is-key"><time>2012.02 — 2022.11</time><strong>코리아센터</strong><span>디자인UX본부 과장(팀장) · 메이크샵·몰테일 UI/UX 최적화, 글로벌 커머스 비주얼 아이덴티티</span></li>
+          <li><time>2022.12 — 재직중</time><strong>크레소티</strong><span>개발기획부 책임매니저 · 신규 그룹웨어로 파편화된 기능 통합·외부 유료 서비스 내재화, 온·누리POS UI 고도화, 마케팅 비주얼 총괄</span></li>
+          <li class="is-key"><time>2012.02 — 2022.11</time><strong>코리아센터</strong><span>디자인UX본부 과장(팀장) · 몰테일 운영 디자인, 카라반테일 등 신규 서비스 기획~오픈, 시안 공유 방식 본부 표준화</span></li>
           <li><time>2010.07 — 2012.01</time><strong>아트서비스</strong><span>디자인팀 · 영화 홍보 모션그래픽·인터랙티브 광고 디자인</span></li>
           <li><time>2010.02 — 2010.06</time><strong>대대에프씨</strong><span>디자인팀 · 프랜차이즈 브랜드 온·오프라인 마케팅 디자인</span></li>
           <li class="is-key"><time>2007.12 — 2009.12</time><strong>캘리세상</strong><span>디자인 총괄/차장 · 캘리그라피 스튜디오 공동 창업, 비즈니스 전 과정 총괄</span></li>
@@ -191,14 +246,14 @@
           <summary>학력 · 수상 · 성과 · 기술 · 자격 전체 보기 <span lang="en">/ Full details</span></summary>
           <div class="more__grid">
             <div><h4>회사별 주요 업무</h4><ul>
-              <li><b>코리아센터</b> — 몰테일·위네바고 코리아·카라반테일·횡성축협한우몰·블루커피·이어폰샵 PC/모바일 웹디자인, 테일리스트·파트테일·몰테일 앱 인트로 영상</li>
-              <li><b>아트서비스</b> — 네이버·CJ·롯데 등 매체 영화 광고 제작, 맥스무비 ‘명예의 전당’ 다수 선정</li>
+              <li><b>코리아센터</b> — 시안 공유 페이지를 만들어 본부 표준으로 정착 · 이어폰샵 로고타입이 실제 매장 간판으로 · 몰테일·위네바고 코리아·카라반테일·횡성축협한우몰·블루커피·이어폰샵 PC/모바일 웹디자인, 테일리스트·파트테일·몰테일 앱 인트로 영상</li>
+              <li><b>아트서비스</b> — 네이버·CJ·롯데 등 매체 영화 광고 제작, 맥스무비 ‘명예의 전당’ 다수 (트랜스포머3, 토르, 미션임파서블: 고스트 프로토콜, 7광구, 마다가스카, 메가마인드 등)</li>
               <li><b>대대에프씨</b> — 마케팅팀: 보도자료·인터뷰·컨벤션 보고서, 신규 브랜드 런칭·전시 부스 디자인</li>
-              <li><b>캘리세상</b> — 3인 공동 창업(전북 익산): 캘리그라피 디자인, 상품 개발, 배송, CS, 온라인 마케팅, 회계까지</li>
+              <li><b>캘리세상</b> — 3인 공동 창업(전북 익산): 캘리그라피 디자인, 상품 개발, 배송, CS, 온라인 마케팅, 회계까지 · 회사 소개 풀플래시 사이트로 디자인정글 명예의 전당·인터뷰 게재</li>
               <li><b>로컬파인더</b> — ‘One-Day Trip 추천’ 반응형 웹서비스 기획·디자인 (2017, 종료)</li>
               <li><b>초기 경력</b> — 중학교 교사 대상 홈페이지 제작 강의(1999), 필묵 인턴·캘리그라피 지원, 필묵아트센터 그래픽 강의, 진경여고 그래픽 특강</li></ul>
               <h4>주요 성과</h4><ul>
-              <li>현대홈쇼핑 유수분분리기능 접시 1억 원 매출 40분 완판 (2014.09) — 아이디어오디션 제안으로 직접 생산</li>
+              <li>현대홈쇼핑 유수분분리기능 접시 — 1시간 편성 중 40분 만에 1억 원 완판 (2014.09) — 아이디어오디션 제안으로 직접 생산</li>
               <li>특허출원 유수분분리기능 뚜껑 (2014.03)</li>
               <li>특허출원 유수분분리기능 접시 (2013.03)</li>
               <li>명예의전당 맥스무비 플래시 특수광고 다수 등록 — 토르, 트랜스포머, 7광구, 미션임파서블 등 (2011.07)</li>
@@ -239,15 +294,16 @@
       <div class="wrap">
         <header class="sec-head reveal">
           <p class="eyebrow">04 — Profile</p>
-          <h2>디자이너 박영우</h2>
-          <p class="sec-head__en" lang="en">Designer, with a head for tech and business.</p>
+          <h2>다음 팀을 찾고 있습니다</h2>
+          <p class="sec-head__en" lang="en">Designer, with a head for tech and business — open to new roles.</p>
         </header>
         <div class="profile__grid">
           <div class="profile__intro reveal">
-            <p class="profile__lead">디자인으로 시작해 <mark class="hlm">창업·마케팅·광고·커머스</mark>를 거쳤습니다. 지금은 흩어진 기록을 데이터로 잇는 서비스를 직접 만들고 운영합니다.</p>
-            <p class="profile__lead-en" lang="en">Started in design, crossed into founding, marketing, advertising and e-commerce. Now I build and run services that connect scattered records.</p>
+            <p class="profile__lead">19년 동안 디자인을 중심에 두고 창업·마케팅·광고·커머스를 거쳤습니다. 화면만 그리는 대신 <mark class="hlm">문제를 정의하고 끝까지 출시하는 디자이너</mark>로 일하고 싶습니다.</p>
+            <p class="profile__ask">채용·협업 제안은 언제든 반갑게 읽겠습니다.</p>
+            <p class="profile__lead-en" lang="en">19 years with design at the core, across founding, marketing, advertising and e-commerce. Open to roles where a designer defines the problem and ships the answer.</p>
             <div class="profile__cta">
-              <button type="button" class="btn btn--accent js-email" data-u="pyw213" data-d="naver.com" aria-label="이메일 보내기 / Send email">이메일 보내기 <span lang="en">/ Email</span></button>
+              <button type="button" class="btn btn--accent js-email" data-u="pyw213" data-d="naver.com" aria-label="이메일 보내기 / Send email">제안 보내기 <span lang="en">/ Get in touch</span></button>
               <a class="btn btn--ghost" href="https://github.com/pyw31337" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
@@ -269,6 +325,6 @@
     <span lang="en">Designed by Park Young Woo.</span>
   </footer>
 
-  <script type="module" src="js/portfolio.js?v=20261028-4"></script>
+  <script type="module" src="js/portfolio.js?v=20261028-5"></script>
 </body>
 </html>

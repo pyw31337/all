@@ -357,7 +357,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     summaryEn: "10-second, sign-up-free booking for neighborhood salons.",
     intent: "링크 하나로 10초 만에 끝나는 무가입 미용실 예약",
     why: "20년째 미용실을 하시는 어머니가 시술 중에도 전화 예약을 받는 모습을 보고 만들었습니다.",
-    benefit: "네이버 예약도 어려운 40~60대 고객은 쉽게 예약하고, 1인 미용실 원장님은 전화 응대 부담에서 벗어납니다.",
+    benefit: "1인 가게의 온라인 예약을 링크 하나, 가입 없이, 몇 번의 터치로 끝나도록 줄였습니다.",
     releaseDate: '24.03.28',
     category: 'tools',
     categoryLabel: '생산성 & 도구',

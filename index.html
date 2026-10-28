@@ -16,7 +16,7 @@
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 768px)">
   <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 767px)">
-  <link rel="stylesheet" href="css/portfolio.css?v=20261028-3">
+  <link rel="stylesheet" href="css/portfolio.css?v=20261028-4">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23ffffff%22/><circle cx=%2250%22 cy=%2250%22 r=%2212%22 fill=%22%231F3A8A%22/></svg>">
 </head>
 <body>
@@ -24,20 +24,19 @@
 
   <header class="nav" id="nav">
     <a class="nav__brand" href="#top" aria-label="맨 위로">
-      <span class="nav__dot" aria-hidden="true"></span>
-      <span>박영우 <em lang="en">Park Young Woo</em></span>
+      <svg class="nav__mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="22" rx="5"/><path d="M3 12h26M10 3v6M22 3v6"/><path class="nav__mark-line" d="M8 22l5-5 4 3 7-7"/></svg>
     </a>
     <nav class="nav__links" aria-label="주요 메뉴">
       <a href="#about">철학<small lang="en">About</small></a>
       <a href="#career">경력<small lang="en">Career</small></a>
       <a href="#projects">프로젝트<small lang="en">Projects</small></a>
+      <a href="#profile">프로필<small lang="en">Profile</small></a>
     </nav>
     <div class="nav__actions">
       <button type="button" class="icon-btn" id="theme-toggle" aria-label="라이트/다크 테마 전환">
         <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
-      <button type="button" class="btn btn--pill js-email" data-u="pyw213" data-d="naver.com" aria-label="이메일 보내기 / Send email">이메일 <span lang="en">/ Email</span></button>
     </div>
   </header>
 
@@ -51,16 +50,16 @@
       </picture>
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="hero__inner wrap">
-        <p class="eyebrow hero__eyebrow" data-hero>Designer · Park Young Woo</p>
+        <p class="eyebrow hero__eyebrow" data-hero>Designer · Records · Business</p>
         <h1 class="hero__title" data-hero>
           <span class="ln"><span class="pt">흩어진</span> <b class="kw kw--1">기록</b><span class="pt">을</span></span>
           <span class="ln"><b class="kw kw--2">데이터</b><span class="pt">로 연결하여,</span></span>
           <span class="ln"><b class="kw kw--3">인사이트</b><span class="pt">를</span> <b class="kw kw--4">비지니스</b><span class="pt">로</span></span>
         </h1>
         <p class="hero__en" lang="en" data-hero>Connecting scattered records into data, turning insight into business.</p>
-        <div="hero__cta" data-hero>
+        <div class="hero__cta" data-hero>
           <a class="btn btn--light" href="#projects">프로젝트 보기 <span lang="en">/ Projects</span></a>
-          <a class="btn btn--ghost" href="#about">나는 어떤 사람인가 <span lang="en">/ About</span></a>
+          <a class="btn btn--ghost" href="#profile">프로필 보기 <span lang="en">/ Profile</span></a>
         </div>
       </div>
       <a class="hero__scroll" href="#stats" aria-label="아래로 스크롤"><span></span></a>
@@ -68,8 +67,8 @@
 
     <!-- STATS -->
     <section class="stats wrap" id="stats" aria-label="숫자로 보는 박영우">
-      <div class="stat reveal"><b data-count="1997">1997</b><span>인터넷을 처음 만난 해<small lang="en">First met the web</small></span></div>
-      <div class="stat reveal"><b><i data-count="20">20</i>년</b><span>가계부·일정 기록 습관<small lang="en">Years of daily records</small></span></div>
+      <div class="stat reveal"><b data-count="1997">1997</b><span>처음 웹을 만든 해<small lang="en">First web page</small></span></div>
+      <div class="stat reveal"><b><i data-count="20">20</i>년</b><span>매일 쓴 가계부·일정<small lang="en">Years of daily records</small></span></div>
       <div class="stat reveal"><b><i data-count="40">40</i>분</b><span>홈쇼핑 1억 원 완판<small lang="en">Sold out ₩100M on TV</small></span></div>
       <div class="stat reveal"><b><i data-count="2">2</i>건</b><span>특허 출원<small lang="en">Patents filed</small></span></div>
       <div class="stat reveal"><b><i data-count="7" id="project-count">7</i>개</b><span>직접 만든 서비스<small lang="en">Self-built services</small></span></div>
@@ -80,44 +79,44 @@
       <div class="wrap">
         <header class="sec-head reveal">
           <p class="eyebrow">01 — About</p>
-          <h2>기록하고, 연결하고,<br>숫자 속에서 의미를 찾습니다.</h2>
-          <p class="sec-head__en" lang="en">I record, I connect, and I look for meaning in the numbers.</p>
+          <h2>기록하고, 연결하고,<br>숫자로 증명합니다.</h2>
+          <p class="sec-head__en" lang="en">I record, I connect, and I prove it in numbers.</p>
         </header>
 
         <div class="story">
           <article class="chapter reveal">
             <span class="chapter__no">1997</span>
             <div>
-              <h3>인터넷에서 시작된 디자인<small lang="en">Design, since the first web page</small></h3>
-              <p>1997년 처음 인터넷을 만나 화면을 만드는 일에 빠져들었고, 2002년 대덕대학 21c 웹컨테스트 장려상과 기장군 청년회의소 홈페이지 경진대회 금상을 받았습니다. 그때부터 저는 화면 너머의 구조, 사람들이 무엇을 왜 클릭하는지가 늘 궁금했습니다.</p>
+              <h3>화면 너머가 궁금했던 아이<small lang="en">Curious about what's behind the screen</small></h3>
+              <p>중학생 때 이미 <mark class="hlm">선생님들께 홈페이지 제작을 가르쳤고</mark>, 2002년 웹 경진대회 두 곳에서 상을 받았습니다.</p>
             </div>
           </article>
           <article class="chapter reveal">
             <span class="chapter__no">경계</span>
             <div>
-              <h3>디자인에서 비즈니스로<small lang="en">Crossing borders: design → business</small></h3>
-              <p>캘리그라피 스튜디오를 공동 창업해 상품 기획부터 운영·마케팅까지 직접 책임졌고, 프랜차이즈 마케팅, 영화 모션 광고, 그리고 이커머스 플랫폼에서 10년을 보냈습니다. 디자인이 매출이 되고, 매출이 다시 다음 디자인의 근거가 되는 과정을 몸으로 배웠습니다.</p>
+              <h3>디자인만 하지 않았습니다<small lang="en">Never just design</small></h3>
+              <p>창업, 프랜차이즈 마케팅, 영화 광고, 이커머스 10년. 그 사이 <mark class="hlm">디자인이 매출이 되는 과정</mark>을 직접 겪었습니다.</p>
             </div>
           </article>
           <article class="chapter reveal">
             <span class="chapter__no">숫자</span>
             <div>
-              <h3>결과로 증명하는 디자인<small lang="en">Design proven by numbers</small></h3>
-              <p>유수분 분리 접시와 뚜껑으로 특허를 출원하고 직접 생산해, 현대홈쇼핑에서 1억 원어치를 40분 만에 완판했습니다. 20년 동안 가계부와 일정을 기록해 온 습관 덕분에, 저는 비즈니스를 감이 아니라 숫자의 변화로 읽습니다.</p>
+              <h3>아이디어를 매출로<small lang="en">From idea to sales</small></h3>
+              <p>불편해서 그려 본 접시 한 장이 특허 2건이 되었고, 현대홈쇼핑에서 <mark class="hlm">1억 원어치가 40분 만에 완판</mark>됐습니다.</p>
             </div>
           </article>
           <article class="chapter reveal">
             <span class="chapter__no">연결</span>
             <div>
-              <h3>기록이 연결될 때<small lang="en">When records start to connect</small></h3>
-              <p>경제·비즈니스·마케팅 인사이트를 모으고 기억하는 걸 좋아합니다. 흩어진 기록 사이에서 연결을 찾는 일, 최근에야 그것을 <strong>온톨로지</strong>라고 부른다는 걸 알았습니다. 그렇게 20년치 사진·지도·일정을 하나로 잇는 <strong>라임리</strong>가 시작되었습니다.</p>
+              <h3>기록은 연결될 때 의미가 됩니다<small lang="en">Records matter when they connect</small></h3>
+              <p>경제·마케팅 인사이트를 모으고, 20년째 가계부와 일정을 씁니다. 흩어진 사진·장소·일정·지출을 <mark class="hlm">‘그날’ 하나로 잇는 구조</mark>가 제 서비스들의 공통 설계입니다.</p>
             </div>
           </article>
           <article class="chapter reveal">
             <span class="chapter__no">다시</span>
             <div>
               <h3>작게, 다시, 끝까지<small lang="en">Smaller, again, to the end</small></h3>
-              <p>라임리는 데이터가 너무 방대해 멈췄습니다. 그 덕분에 범위를 소모임으로 줄인 <strong>렛츠 캘린더</strong>가 나올 수 있었고, 처음엔 제가 공연을 찾으려 만든 <strong>컬처플로우</strong>는 다른 서비스들을 받쳐주는 허브가 되었습니다. 저는 제가 만든 서비스의 첫 번째 사용자이고, 불편한 점이 보이면 끝까지 고칩니다.</p>
+              <p>너무 크게 시작해 멈춘 프로젝트도 있습니다. 그래서 <mark class="hlm">범위를 줄여 끝까지 운영</mark>합니다. 렛츠 캘린더와 컬처플로우가 그렇게 나왔고, 저는 늘 첫 번째 사용자입니다.</p>
             </div>
           </article>
         </div>
@@ -128,7 +127,7 @@
           <figcaption id="onto-cap">
             <p class="eyebrow">Ontology</p>
             <h3>하루라는 하나의 축 위에서</h3>
-            <p>사진, 장소, 사람, 일정, 지출, 메모, 영상, 주변 행사. 따로 흩어져 있던 기록이 "그날"을 중심으로 연결되면, 누구와 어디서 무엇을 했는지가 하나의 이야기가 됩니다. 렛츠 캘린더가 풀고 있는 문제입니다.</p>
+            <p>사진·장소·사람·일정·지출이 따로 있으면 그냥 기록입니다. <mark class="hlm">“그날”을 중심으로 이어지면 이야기</mark>가 됩니다. 렛츠 캘린더가 푸는 문제입니다.</p>
             <p class="en" lang="en">Scattered records become one story when they meet on a single timeline.</p>
           </figcaption>
         </figure>
@@ -136,7 +135,7 @@
         <!-- PRINCIPLES -->
         <div class="principles">
           <blockquote class="quote reveal">
-            <p>“유사한 건 세상에 너무 많습니다. 차별화의 시작은,<br>같은 주제라도 <mark>무엇을 부각할지</mark>가 명확한 것입니다.”</p>
+            <p>“유사한 건 세상에 너무 많습니다. 차별화의 시작은,<br>같은 주제라도 <mark class="hlm">무엇을 부각할지</mark>가 명확한 것입니다.”</p>
             <footer lang="en">Differentiation starts with knowing what to highlight.</footer>
           </blockquote>
           <ol class="cards4">
@@ -145,7 +144,7 @@
             <li class="pcard reveal"><span>03</span><h4>무엇을<small lang="en">What</small></h4><p>그 사람에게 무엇을 보여줄 것인가.</p></li>
             <li class="pcard reveal"><span>04</span><h4>우선순위<small lang="en">Priority</small></h4><p>그중 무엇을 가장 먼저 둘 것인가.</p></li>
           </ol>
-          <p class="principle-note reveal">시간과 노력이 더 들더라도 완성도를 택합니다. 직접 써보며, 불편함이 사라질 때까지 고칩니다.<span lang="en">I use what I build, and I keep fixing it until the friction is gone.</span></p>
+          <p class="principle-note reveal">시간이 더 들어도 완성도를 택합니다. <mark class="hlm">불편함이 사라질 때까지</mark> 직접 써 보며 고칩니다.<span lang="en">I use what I build, and I keep fixing it until the friction is gone.</span></p>
         </div>
 
         <!-- LINEAGE -->
@@ -191,8 +190,15 @@
         <details class="more reveal">
           <summary>학력 · 수상 · 성과 · 기술 · 자격 전체 보기 <span lang="en">/ Full details</span></summary>
           <div class="more__grid">
-            <div><h4>주요 성과</h4><ul>
-              <li>현대홈쇼핑 유수분분리기능 접시 1억 원 매출 40분 완판 (2014.09)</li>
+            <div><h4>회사별 주요 업무</h4><ul>
+              <li><b>코리아센터</b> — 몰테일·위네바고 코리아·카라반테일·횡성축협한우몰·블루커피·이어폰샵 PC/모바일 웹디자인, 테일리스트·파트테일·몰테일 앱 인트로 영상</li>
+              <li><b>아트서비스</b> — 네이버·CJ·롯데 등 매체 영화 광고 제작, 맥스무비 ‘명예의 전당’ 다수 선정</li>
+              <li><b>대대에프씨</b> — 마케팅팀: 보도자료·인터뷰·컨벤션 보고서, 신규 브랜드 런칭·전시 부스 디자인</li>
+              <li><b>캘리세상</b> — 3인 공동 창업(전북 익산): 캘리그라피 디자인, 상품 개발, 배송, CS, 온라인 마케팅, 회계까지</li>
+              <li><b>로컬파인더</b> — ‘One-Day Trip 추천’ 반응형 웹서비스 기획·디자인 (2017, 종료)</li>
+              <li><b>초기 경력</b> — 중학교 교사 대상 홈페이지 제작 강의(1999), 필묵 인턴·캘리그라피 지원, 필묵아트센터 그래픽 강의, 진경여고 그래픽 특강</li></ul>
+              <h4>주요 성과</h4><ul>
+              <li>현대홈쇼핑 유수분분리기능 접시 1억 원 매출 40분 완판 (2014.09) — 아이디어오디션 제안으로 직접 생산</li>
               <li>특허출원 유수분분리기능 뚜껑 (2014.03)</li>
               <li>특허출원 유수분분리기능 접시 (2013.03)</li>
               <li>명예의전당 맥스무비 플래시 특수광고 다수 등록 — 토르, 트랜스포머, 7광구, 미션임파서블 등 (2011.07)</li>
@@ -209,7 +215,7 @@
               <h4>자격 · 병역</h4><ul>
               <li>운전면허 1종 대형/특수 (2009.10), 1종 보통 (2008.10)</li>
               <li>대한상공회의소 워드프로세서 1급 (2001.12)</li>
-              <li>육군 병장 만기전역 (2005.03–2007.03)</li></ul></div>
+              <li>육군 2기갑여단 사령부 경리과 관리회계병 만기전역 (2005.03–2007.03)</li></ul></div>
           </div>
         </details>
       </div>
@@ -228,15 +234,31 @@
       </div>
     </section>
 
-    <!-- CLOSING -->
-    <section class="closing">
-      <div class="wrap reveal">
-        <p class="eyebrow">Contact</p>
-        <h2>같은 주제라도, 다르게 보여드리겠습니다.</h2>
-        <p class="sec-head__en" lang="en">Let's talk about what's worth highlighting.</p>
-        <div class="closing__cta">
-          <button type="button" class="btn btn--accent js-email" data-u="pyw213" data-d="naver.com" aria-label="이메일 보내기 / Send email">이메일 보내기 <span lang="en">/ Email</span></button>
-          <a class="btn btn--ghost" href="https://github.com/pyw31337" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <!-- PROFILE -->
+    <section class="section profile" id="profile">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="eyebrow">04 — Profile</p>
+          <h2>디자이너 박영우</h2>
+          <p class="sec-head__en" lang="en">Designer, with a head for tech and business.</p>
+        </header>
+        <div class="profile__grid">
+          <div class="profile__intro reveal">
+            <p class="profile__lead">디자인으로 시작해 <mark class="hlm">창업·마케팅·광고·커머스</mark>를 거쳤습니다. 지금은 흩어진 기록을 데이터로 잇는 서비스를 직접 만들고 운영합니다.</p>
+            <p class="profile__lead-en" lang="en">Started in design, crossed into founding, marketing, advertising and e-commerce. Now I build and run services that connect scattered records.</p>
+            <div class="profile__cta">
+              <button type="button" class="btn btn--accent js-email" data-u="pyw213" data-d="naver.com" aria-label="이메일 보내기 / Send email">이메일 보내기 <span lang="en">/ Email</span></button>
+              <a class="btn btn--ghost" href="https://github.com/pyw31337" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+          <dl class="profile__facts reveal">
+            <div class="tilt"><dt>지금</dt><dd>크레소티 개발기획부 책임매니저</dd></div>
+            <div class="tilt"><dt>10년</dt><dd>코리아센터 디자인UX본부 팀장</dd></div>
+            <div class="tilt"><dt>공동창업</dt><dd>캘리그라피 스튜디오 캘리세상</dd></div>
+            <div class="tilt"><dt>수석입학</dt><dd>청강문화산업대 컴퓨터그래픽디자인</dd></div>
+            <div class="tilt"><dt>관심</dt><dd>경제 · 경영 · 심리 · 스타트업</dd></div>
+            <div class="tilt"><dt>도구</dt><dd>Photoshop · Illustrator · Figma · After Effects</dd></div>
+          </dl>
         </div>
       </div>
     </section>
@@ -247,6 +269,6 @@
     <span lang="en">Designed by Park Young Woo.</span>
   </footer>
 
-  <script type="module" src="js/portfolio.js?v=20261028-3"></script>
+  <script type="module" src="js/portfolio.js?v=20261028-4"></script>
 </body>
 </html>

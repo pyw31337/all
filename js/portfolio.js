@@ -111,7 +111,15 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   e.target.classList.add('is-in'); io.unobserve(e.target);
   e.target.querySelectorAll('[data-count]').forEach(countUp);
 }), { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal, .onto, .lineage').forEach(el => io.observe(el));
+/* sketch underline under section heads */
+document.querySelectorAll('.sec-head h2').forEach(h => h.insertAdjacentHTML('afterend', '<svg class="sketch-ul" viewBox="0 0 260 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 11 C 50 5, 110 14, 160 8 S 230 6, 257 10"/><path d="M40 15 C 90 11, 150 16, 210 12"/></svg>'));
+/* floating sketch icons */
+const ICONS = ['<rect x="4" y="6" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v5M15 3v5"/>', '<path d="M12 4 3 20h18Z"/><path d="M12 4v16M9 20l3-6 3 6"/>', '<path d="M4 8h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4Z"/><path d="M14 8v10" stroke-dasharray="2 2"/>', '<path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/>', '<path d="M4 20V10M10 20V5M16 20v-7M22 20H2"/>', '<rect x="3" y="7" width="13" height="8" rx="2"/><path d="M16 10l4-2v6l-4-2M8 15v4h6"/>', '<path d="M3 17l6-6 4 3 8-8"/><path d="M15 6h6v6"/>'];
+const floaties = (host, n) => { if (!host) return; const w = document.createElement('div'); w.className = 'floaties'; w.setAttribute('aria-hidden', 'true');
+  w.innerHTML = Array.from({ length: n }, (_, i) => `<svg viewBox="0 0 24 24" style="left:${(i * 37 + 7) % 92}%;top:${(i * 53 + 11) % 80}%;--s:${[28, 44, 64, 36, 52][i % 5]}px;--r:${(i * 23) % 40 - 20}deg;--t:${7 + i % 5}s;--d:${-i * 1.3}s;--fx:${i % 2 ? 14 : -12}px;--fy:${i % 3 ? -16 : 12}px">${ICONS[i % ICONS.length]}</svg>`).join('');
+  host.prepend(w); };
+floaties($('#stats'), 7); floaties($('#profile'), 9);
+document.querySelectorAll('.reveal, .onto, .lineage, mark.hlm, .sketch-ul').forEach(el => io.observe(el));
 function countUp(n) {
   const to = +n.dataset.count; if (reduce || !to) { n.textContent = to; return; }
   const from = to > 1000 ? to - 40 : 0, t0 = performance.now(), dur = 1200;
@@ -119,9 +127,28 @@ function countUp(n) {
   requestAnimationFrame(tick);
 }
 
-/* Hero parallax */
+/* Hero parallax (scroll + cursor) */
+const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 if (!reduce) {
-  const media = $('.hero__media');
-  addEventListener('scroll', () => { const y = scrollY; if (y < innerHeight) media.style.transform = `translate3d(0,${y * 0.25}px,0) scale(1.06)`; }, { passive: true });
+  const media = $('.hero__media'), inner = $('.hero__inner'), hero = $('.hero');
+  let sy = 0, mx = 0, my = 0, raf = 0;
+  const paint = () => { raf = 0; media.style.transform = `translate3d(${mx * -18}px,${sy * 0.25 + my * -12}px,0) scale(1.08)`; inner.style.transform = `translate3d(${mx * 8}px,${my * 6}px,0)`; };
+  const req = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  addEventListener('scroll', () => { sy = scrollY < innerHeight ? scrollY : sy; req(); }, { passive: true });
+  if (fine) hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5; req(); });
+}
+/* Card tilt + cursor spotlight + magnetic buttons */
+if (!reduce && fine) {
+  const tiltSel = '.fp__shot, .op, .hl, .stat, .pcard, .tilt';
+  document.addEventListener('pointermove', e => {
+    const el = e.target.closest(tiltSel);
+    document.querySelectorAll('.is-hover').forEach(x => { if (x !== el) { x.classList.remove('is-hover'); x.style.transform = ''; } });
+    if (el) { const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      el.classList.add('is-hover'); el.style.setProperty('--mx', x * 100 + '%'); el.style.setProperty('--my', y * 100 + '%');
+      const k = el.matches('.stat') ? 4 : 6; el.style.transform = `perspective(900px) rotateX(${(.5 - y) * k}deg) rotateY(${(x - .5) * k}deg) translateY(-4px)`; }
+    const b = e.target.closest('.btn');
+    document.querySelectorAll('.btn.is-mag').forEach(x => { if (x !== b) { x.classList.remove('is-mag'); x.style.transform = ''; } });
+    if (b) { const r = b.getBoundingClientRect(); b.classList.add('is-mag'); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .18}px,${(e.clientY - r.top - r.height / 2) * .25}px)`; }
+  }, { passive: true });
 }
 document.documentElement.classList.add('is-ready');

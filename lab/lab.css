@@ -1,0 +1,21 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+:root{--brand:#1F3A8A;--brand-700:#162C6B;--brand-400:#4A64B8;--brand-50:#EEF2FB;--ink:#111418;--ink2:#2A2F38;--ink3:#5B6270;--line:#E4E7EC;--hl:#FF8A1F;--pencil:#3b3f47;--ease:cubic-bezier(.2,.7,.1,1)}
+*{box-sizing:border-box}html,body{margin:0}body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var(--ink);background:#fff;word-break:keep-all;-webkit-font-smoothing:antialiased}
+.lh{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:center;background:#fff}
+.paper::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .45 0 0 0 0 .5 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.lh__in{position:relative;z-index:3;width:100%;max-width:1280px;margin:0 auto;padding:120px clamp(20px,5vw,64px) 80px;pointer-events:none}
+.lh__in a,.lh__in button{pointer-events:auto}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brand);margin:0 0 22px}
+.t{margin:0;font-size:clamp(40px,6.4vw,98px);line-height:1.08;letter-spacing:-.05em;font-weight:300}
+.t .ln{display:block}.t .pt{font-weight:300;color:var(--ink2);font-size:.74em;letter-spacing:-.03em}
+.t .kw{font-weight:900;background:linear-gradient(180deg,var(--brand-400),var(--brand) 55%,var(--brand-700));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.t .kw--1{background:none;-webkit-text-fill-color:var(--ink)}
+.en{margin:28px 0 0;font-size:clamp(15px,1.5vw,20px);color:#5a5f68;max-width:44ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:15px 26px;border-radius:99px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid #14161a;color:#14161a;background:transparent}.btn--dark{background:#14161a;color:#fff}
+.lab-tag{position:fixed;z-index:10;top:16px;left:16px;display:flex;gap:8px;align-items:center;font-size:12px;font-weight:700;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.9);border:1px solid var(--line);color:var(--brand);text-decoration:none;backdrop-filter:blur(8px)}
+.lab-tag b{color:var(--ink)}
+.stage{position:absolute;inset:0;z-index:1}
+@media (max-width:767px){.lh{align-items:flex-end}.lh__in{padding:46svh 20px 48px}.lh__in::before{content:"";position:absolute;inset:38svh 0 0;background:linear-gradient(rgba(255,255,255,0),#fff 22%);z-index:-1}.btn{padding:13px 20px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

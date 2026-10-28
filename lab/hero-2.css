@@ -1,0 +1,5 @@
+#stage{display:block}
+.steps{position:absolute;z-index:4;right:clamp(20px,5vw,64px);bottom:36px;list-style:none;margin:0;padding:6px;display:flex;gap:4px;border-radius:99px;background:rgba(255,255,255,.9);border:1px solid var(--line);font-size:12px;font-weight:700}
+.steps li{padding:7px 12px;border-radius:99px;color:var(--ink3);transition:.3s}.steps li.on{background:var(--brand);color:#fff}
+.hint{position:absolute;z-index:4;left:50%;bottom:40px;font-size:12px;color:var(--ink3)}
+@media (max-width:767px){.steps{top:14px;bottom:auto;right:14px}.hint{display:none}}

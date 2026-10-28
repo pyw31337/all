@@ -30,7 +30,7 @@
 - [x] 라임리 서술 흐름 확정
 - [x] 크레소티 포함 전체 이력 표시 OK (단, 컴팩트)
 
-- [x] 이메일: pyw213@naver.com — **텍스트 노출 금지, '이메일 / Email' mailto 버튼만**, JS 조합으로 HTML 원문 노출 방지
+- [x] 이메일: 이메일 주소는 연락 버튼 JS에 분할 저장 (아이디: pyw213 / 도메인: naver.com 형태로만 기록) — **텍스트 노출 금지, '이메일 / Email' mailto 버튼만**, JS 조합으로 HTML 원문 노출 방지
 - [x] 라임리: 서비스 종료, 라이브 링크 없음, 스크린샷 확보 시 사용 OK (비공개 레포 `limery` 링크 금지)
 - [x] 이중 언어: 한국어 주 + 영어 보조(서브타이틀). 히어로 영문: "Connecting scattered records into data, and turning insight into business."
 - [x] 도메인: 없음, github.io 유지(추후 CNAME 가능)
@@ -42,7 +42,7 @@
 - [ ] 히어로 이미지 생성(인물 없음, 흩어진 기록 → 연결 → 인사이트) 후 `assets/`에 최적화(WebP/AVIF) 저장
 - [ ] `data/projects.js`에 `intent / why / benefit` 필드 추가(옵션, 기존 렌더 유지)
 - [ ] 라임리 항목 추가(status 'archived', url/githubUrl null)
-- [ ] (선택) 비공개 `pyw31337/limery`를 로컬 정적 서빙해 UI 스크린샷 확보
+- [ ] 라임리 스크린샷: 추후 비공개 `pyw31337/limery`의 index.html을 로컬 서빙 + 샘플 데이터로 캡처
 - [ ] 영문 병기 필드(`summaryEn` 등) 추가
 - [ ] 이메일 버튼(JS 난독화) 구현
 - [ ] Hero → Narrative → Career → Projects 섹션 구현

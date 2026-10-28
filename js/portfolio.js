@@ -33,9 +33,6 @@ const ORDER = ['calendar', 'culture', 'cctv'];
 const featured = ORDER.map(id => PROJECTS.find(p => p.id === id)).filter(Boolean)
   .concat(PROJECTS.filter(p => p.featured && !ORDER.includes(p.id)));
 const others = PROJECTS.filter(p => !featured.includes(p));
-const shipped = PROJECTS.filter(p => p.status !== 'archived').length;
-$('#project-count').textContent = shipped;
-$('#project-count').dataset.count = shipped;
 
 const rows = p => `
   <dl class="iwb">
@@ -59,14 +56,14 @@ $('#featured').innerHTML = featured.map((p, i) => `
     <a class="fp__shot" ${p.url ? `href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"` : ''} aria-label="${esc(p.title)} 화면">
       ${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : ''}
     </a>
-    <div class="fp__body"><span class="fp__no">03.${i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
+    <div class="fp__body"><span class="fp__no">04-${i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
   </article>`).join('');
 
 $('#others').innerHTML = others.map((p, i) => `
   <article class="op reveal ${p.status === 'archived' ? 'is-archived' : ''}" style="--accent:${esc('var(--brand)')}">
     <div class="op__shot">${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : `<div class="op__ph" aria-hidden="true"><span>${esc(p.titleEn || p.title)}</span></div>`}
       ${p.status === 'archived' ? `<span class="badge">Archived · ${esc(p.badge || '')}</span>` : ''}</div>
-    <div class="op__body"><span class="fp__no op__no">03.${featured.length + i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
+    <div class="op__body"><span class="fp__no op__no">04-${featured.length + i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
   </article>`).join('');
 
 /* Ontology: living force-directed graph (canvas, no libs) */
@@ -211,3 +208,13 @@ if (!reduce && fine) {
   }, { passive: true });
 }
 document.documentElement.classList.add('is-ready');
+
+/* Scroll parallax (subtle) */
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const els = [...document.querySelectorAll('[data-speed]')];
+  document.querySelectorAll('.fp__shot img, .op__shot img').forEach(img => { img.dataset.speed = '-.05'; img.style.scale = '1.08'; els.push(img); });
+  let tick = false;
+  const run = () => { tick = false; const vh = innerHeight; els.forEach(el => { const r = (el.parentElement || el).getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return; const c = r.top + r.height / 2 - vh / 2; el.style.translate = `0 ${(c * +el.dataset.speed).toFixed(1)}px`; }); };
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true }); run();
+})();

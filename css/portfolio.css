@@ -377,3 +377,27 @@ mark.hlm.is-in,.is-in mark.hlm{background-size:100% .78em}
 .onto>figcaption{background:transparent!important;pointer-events:none}
 .onto>figcaption mark{pointer-events:none}
 .onto.is-drag,.onto.is-drag *{user-select:none;-webkit-user-select:none}
+/* v6: reference box, flow, quote, parallax */
+.ref{margin:18px 0 0;padding:14px 16px;border-radius:14px;background:var(--bg2);border:1px solid var(--line);max-width:62ch}
+.ref__t{margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink3);text-transform:uppercase}
+.ref ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ref li{display:grid;grid-template-columns:minmax(92px,auto) 1fr;gap:12px;font-size:13px;line-height:1.55;color:var(--ink2)}
+.ref time{font-variant-numeric:tabular-nums;color:var(--ink3);font-weight:600;white-space:nowrap}
+.ref ul.chips{display:flex;gap:6px}.ref ul.chips li{display:block}
+.ref--links a{color:var(--ink2);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}.ref--links a:hover{border-color:currentColor}
+.ref--links b{color:var(--ink);font-weight:700;margin-right:4px}
+.said{margin:18px 0 0;padding:0 0 0 16px;border-left:2px solid var(--hl);font-size:15px;line-height:1.7;color:var(--ink2);max-width:60ch}
+.said cite{display:block;margin-top:6px;font-style:normal;font-size:12px;color:var(--ink3)}
+.pf__flow{margin:0;display:grid;gap:10px}
+.pf__flow>div{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:baseline}
+.pf__flow dt{font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--brand);padding:3px 0;border-top:1.5px solid currentColor}
+.pf__flow dd{margin:0;font-size:14.5px;line-height:1.7;color:var(--ink2)}.pf__flow b{color:var(--ink)}
+.pf--navy .pf__flow dt{color:#C3CFF5}.pf--navy .pf__flow dd{color:#E4E9F7}
+.pf__gain{margin-top:4px}.pf__gain li{background:var(--brand-50);border-color:transparent;color:var(--brand-700)}
+@media (max-width:560px){.ref li{grid-template-columns:1fr;gap:0}.pf__flow>div{grid-template-columns:1fr;gap:4px}.pf__flow dt{border-top:0;padding:0}}
+.section{position:relative}
+.px-deco{position:absolute;z-index:0;pointer-events:none;fill:none;stroke:var(--brand);stroke-width:1.4;stroke-linecap:round;opacity:.12;will-change:transform}
+.px-deco .o{stroke:var(--hl);opacity:.9}
+.section>.wrap{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.px-deco,[data-speed]{transform:none!important}}
+.proofs .pf--navy{grid-column:1/-1}

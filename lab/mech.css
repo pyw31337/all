@@ -1,0 +1,4 @@
+#stage{display:block}
+.lh{background:radial-gradient(55% 70% at 74% 48%,#F3F6FC 0%,#fff 72%)}
+.lh__in::before{content:"";position:absolute;inset:-40px auto -40px -10vw;width:min(62vw,820px);background:linear-gradient(90deg,rgba(255,255,255,.92) 55%,rgba(255,255,255,0));z-index:-1;pointer-events:none}
+@media (max-width:767px){.lh__in::before{inset:38svh 0 0;width:auto;background:linear-gradient(rgba(255,255,255,0),#fff 22%)}}

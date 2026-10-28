@@ -218,3 +218,13 @@ document.documentElement.classList.add('is-ready');
   const run = () => { tick = false; const vh = innerHeight; els.forEach(el => { const r = (el.parentElement || el).getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return; const c = r.top + r.height / 2 - vh / 2; el.style.translate = `0 ${(c * +el.dataset.speed).toFixed(1)}px`; }); };
   addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true }); run();
 })();
+
+// v8: film poster tooltips — tap to toggle on touch, Esc / outside to close
+(() => {
+  const films = [...document.querySelectorAll('.film')];
+  if (!films.length) return;
+  const close = (except) => films.forEach((f) => f !== except && f.classList.remove('is-open'));
+  films.forEach((f) => f.addEventListener('click', (e) => { e.stopPropagation(); const o = !f.classList.contains('is-open'); close(f); f.classList.toggle('is-open', o); }));
+  document.addEventListener('click', () => close());
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+})();

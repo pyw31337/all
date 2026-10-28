@@ -13,3 +13,9 @@
 - 성능/접근성: 화면 밖·탭 숨김 시 rAF 정지, 모바일 노드 40%, prefers-reduced-motion은 도킹 완료 정적 프레임, JS 없음은 `<noscript>` 포스터(assets/hero-v7*.webp/png). 다크 테마는 캔버스 invert+hue-rotate.
 - HUD 언어 확장(절제): 섹션 패럴랙스 장식을 눈금자·레티클·크로스헤어 라벨(01 · HIGHLIGHTS 등)로 교체, 투명도 .22, 모바일 숨김. 하이라이트 장식이 우측 모서리 밖으로 넘치던 문제 해결(섹션 overflow-x: clip, 뷰포트 안 배치).
 - 공유: OG/Twitter 이미지 assets/og.png(1200×630, 실제 히어로 렌더), 국문+영문 설명, 파비콘은 내비 마크(달력+오렌지 추세선) SVG + apple-touch-icon.
+
+## v8 copy & icon round (2026-10-28)
+- 숫자 카드는 의미가 드러나게: ‘10년’ = 한 회사(코리아센터)에서 이끈 이커머스 디자인(근속+역할), 홈쇼핑은 매출(약 1억 원)을 앞세움.
+- 아이콘: Lucide 라인 아이콘(ISC, stroke 1.6, 브랜드 네이비) 인라인 스프라이트. 디자인 툴은 Adobe식 정사각 배지(Ps/Ai/Ae/Pr, 자체 제작) + Simple Icons(Figma/HTML5/CSS/PHP, CC0).
+- 영화 태그: 호버/포커스/탭 시 포스터 말풍선. 포스터는 영문 위키백과 비자유(공정 이용) 저해상도 이미지를 240px webp로 축소(assets/posters/), 출처 표기.
+- 보도는 사건별 1건씩(탄생 배경·매진·창업 스토리·제품)만 유지.

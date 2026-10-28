@@ -292,7 +292,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
       {
         icon: 'share',
         title: '공유용 전용 미리보기',
-        desc: '캘런더 전용 공유 URL은 모임 이름과 현황을 담은 미리보기 카드를 메신저에서 보여줍니다.'
+        desc: '캘린더 전용 공유 URL은 모임 이름과 현황을 담은 미리보기 카드를 메신저에서 보여줍니다.'
       }
     ],
     techStack: ['Vanilla JS', 'Firebase Firestore', 'CSS Grid', 'GitHub Pages'],

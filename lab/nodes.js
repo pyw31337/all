@@ -5,7 +5,7 @@ const K = ['calendar', 'tent', 'cctv', 'ticket', 'dropper', 'scissors'];
 const VAL = [5, 3, 4, 6, 2, 4];               // records per project (visual only)
 const HOME = [[.3, .35], [.72, .22], [.88, .6], [.52, .7], [.18, .75], [.6, .42]];
 const PATH = Object.fromEntries(K.map(k => [k, new Path2D(ICONS[k])]));
-const STAGES = ['기록', '데이터', '인사이트', '비지니스'];
+const STAGES = ['기록', '데이터', '인사이트', '비즈니스'];
 let W, H, R, dpr, mob, hubs = [], recs = [], mx = -1, my = -1, act = -1e9, f = 0;
 const lerp = (a, b, t) => a + (b - a) * t, ease = t => t < .5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2, cl = v => Math.max(0, Math.min(1, v));
 const build = () => {

@@ -369,3 +369,11 @@ mark.hlm.is-in,.is-in mark.hlm{background-size:100% .78em}
 .bx--wide{grid-column:span 3}.bx__tag{color:#fff}.ach__c b small{display:inline}
 @media (max-width:980px){.bx--wide{grid-column:span 2}}
 @media (max-width:560px){.bento .bx--num>b{font-size:44px}}
+/* v5d: graph as full-box background */
+.onto{position:relative;isolation:isolate}
+.onto__cv{position:absolute;inset:0;z-index:0;display:block}
+.onto>figcaption,.onto__stage{position:relative;z-index:1}
+.onto__stage{min-height:clamp(360px,44vw,600px)}
+.onto>figcaption{background:transparent!important;pointer-events:none}
+.onto>figcaption mark{pointer-events:none}
+.onto.is-drag,.onto.is-drag *{user-select:none;-webkit-user-select:none}

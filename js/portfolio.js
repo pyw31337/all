@@ -72,25 +72,25 @@ $('#others').innerHTML = others.map((p, i) => `
 /* Ontology: living force-directed graph (canvas, no libs) */
 (function graph() {
   const el = $('#onto'); if (!el) return;
-  const cv = document.createElement('canvas'); el.appendChild(cv); const ctx = cv.getContext('2d');
+  const box = el.closest('.onto'), cap = box.querySelector('figcaption'); const cv = document.createElement('canvas'); cv.className = 'onto__cv'; box.prepend(cv); const ctx = cv.getContext('2d');
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const P = [['사진','Photos'],['장소','Places'],['사람','People'],['일정','Events'],['지출','Expenses'],['메모','Notes'],['영상','Media'],['주변 행사','Culture']];
   const S = [['카페',1],['영수증',4],['가족',2],['공연',7],['산책',1],['생일',3],['날씨',3],['캠핑장',1],['친구',2],['리뷰',5],['가계부',4],['브이로그',6],['전시',7],['스크린샷',0],['동선',1],['일기',5]];
-  let W = 0, H = 0, dpr = 1;
+  let W = 0, H = 0, dpr = 1, G = { x: 0, y: 0, w: 1, h: 1 }, C = null; const PAD = 30;
   const N = [{ t: '그날', e: 'The Day', r: 38, k: 0 }];
   P.forEach(([t, e]) => N.push({ t, e, r: 26, k: 1 }));
   S.forEach(([t, p]) => N.push({ t, r: 6, k: 2, p: p + 1 }));
   const base = []; for (let i = 1; i <= P.length; i++) base.push([0, i, 1]);
   N.forEach((n, i) => { if (n.k === 2) base.push([n.p, i, 1]); });
   [[1,2],[3,4],[3,8],[5,6],[2,3]].forEach(([a,b]) => base.push([a, b, .5]));
-  const fit = () => { const w = el.clientWidth; W = w; H = Math.min(w, 620); dpr = Math.min(2, devicePixelRatio || 1); cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
-  fit(); new ResizeObserver(fit).observe(el);
-  N.forEach((n, i) => { const a = i * 2.4; const d = n.k === 0 ? 0 : n.k === 1 ? .3 : .42; n.x = W / 2 + Math.cos(a) * W * d; n.y = H / 2 + Math.sin(a) * H * d; n.vx = n.vy = 0; n.ph = Math.random() * 6.28; n.a = 0; });
+  const fit = () => { const b = box.getBoundingClientRect(), s = el.getBoundingClientRect(), c = cap.getBoundingClientRect(); W = b.width; H = b.height; G = { x: s.left - b.left, y: s.top - b.top, w: s.width, h: s.height }; C = { l: c.left - b.left - 20, t: c.top - b.top - 20, r: c.right - b.left + 20, b: c.bottom - b.top + 20 }; dpr = Math.min(2, devicePixelRatio || 1); cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  fit(); new ResizeObserver(fit).observe(box);
+  N.forEach((n, i) => { const a = i * 2.4; const d = n.k === 0 ? 0 : n.k === 1 ? .3 : .42; n.x = G.x + G.w / 2 + Math.cos(a) * G.w * d; n.y = G.y + G.h / 2 + Math.sin(a) * G.h * d; n.vx = n.vy = 0; n.ph = Math.random() * 6.28; n.a = 0; });
   const dyn = new Map(); // proximity links: key -> alpha
   let hover = -1, drag = -1, t = 0, run = false, raf = 0;
   const nb = i => { const s = new Set([i]); base.forEach(([a, b]) => { if (a === i) s.add(b); if (b === i) s.add(a); }); dyn.forEach((v, k) => { if (v > .3) { const [a, b] = k.split('-').map(Number); if (a === i) s.add(b); if (b === i) s.add(a); } }); return s; };
   const step = () => {
-    t += .008; const cx = W / 2, cy = H / 2, sc = Math.min(W, H) / 600;
+    t += .008; const cx = G.x + G.w / 2, cy = G.y + G.h / 2, sc = Math.min(G.w, G.h) / 600;
     for (let i = 0; i < N.length; i++) for (let j = i + 1; j < N.length; j++) {
       const a = N[i], b = N[j]; let dx = b.x - a.x, dy = b.y - a.y, d2 = dx * dx + dy * dy + .01, d = Math.sqrt(d2);
       const f = (a.k === 2 && b.k === 2 ? 900 : 2600) * sc / d2; dx /= d; dy /= d;
@@ -100,9 +100,11 @@ $('#others').innerHTML = others.map((p, i) => `
     base.forEach(([i, j, w]) => { const a = N[i], b = N[j]; const L = (a.k === 0 ? 170 : b.k === 2 ? 62 : 150) * sc; const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1; const f = (d - L) * .004 * w; a.vx += dx / d * f; a.vy += dy / d * f; b.vx -= dx / d * f; b.vy -= dy / d * f; });
     N.forEach((n, i) => {
       n.vx += (cx - n.x) * .0009 + Math.cos(t * 1.3 + n.ph) * .05; n.vy += (cy - n.y) * .0009 + Math.sin(t + n.ph * 1.7) * .05;
-      if (i === drag) return; if (n.k === 0) { n.vx += (cx - n.x) * .01; n.vy += (cy - n.y) * .01; }
+      const m = n.r + (n.k === 2 ? 22 : 8) + PAD;
+      if (i === drag) { n.x = Math.max(m, Math.min(W - m, n.x)); n.y = Math.max(m, Math.min(H - m, n.y)); return; }
+      if (C && n.x > C.l - n.r && n.x < C.r + n.r && n.y > C.t - n.r && n.y < C.b + n.r) { n.vx += (cx - n.x) * .006; n.vy += (cy - n.y) * .004; } if (n.k === 0) { n.vx += (cx - n.x) * .01; n.vy += (cy - n.y) * .01; }
       n.vx *= .9; n.vy *= .9; n.x += n.vx; n.y += n.vy;
-      n.x = Math.max(n.r + 4, Math.min(W - n.r - 4, n.x)); n.y = Math.max(n.r + 4, Math.min(H - n.r - 4, n.y));
+      n.x = Math.max(m, Math.min(W - m, n.x)); n.y = Math.max(m, Math.min(H - m, n.y));
     });
   };
   const css = getComputedStyle(document.documentElement);
@@ -131,12 +133,12 @@ $('#others').innerHTML = others.map((p, i) => `
   for (let k = 0; k < 260; k++) step(); draw();
   if (RM) { new MutationObserver(draw).observe(document.documentElement, { attributes: true }); return; }
   new IntersectionObserver(([e]) => { run = e.isIntersecting; cancelAnimationFrame(raf); if (run) loop(); }).observe(el);
-  const pos = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  const pos = e => { const r = box.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
   const pick = (x, y) => { let best = -1, bd = 1e9; N.forEach((n, i) => { const d = Math.hypot(n.x - x, n.y - y); if (d < Math.max(n.r, 14) + 4 && d < bd) { bd = d; best = i; } }); return best; };
-  cv.addEventListener('pointermove', e => { const [x, y] = pos(e); if (drag >= 0) { N[drag].x = x; N[drag].y = y; N[drag].vx = N[drag].vy = 0; } else { hover = pick(x, y); cv.style.cursor = hover >= 0 ? 'grab' : 'default'; } });
-  cv.addEventListener('pointerdown', e => { const [x, y] = pos(e); drag = pick(x, y); if (drag >= 0) { hover = drag; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; e.preventDefault(); } });
-  const up = () => { drag = -1; cv.style.cursor = 'default'; }; cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
-  cv.addEventListener('pointerleave', () => { if (drag < 0) hover = -1; });
+  box.addEventListener('pointermove', e => { const [x, y] = pos(e); if (drag >= 0) { N[drag].x = x; N[drag].y = y; N[drag].vx = N[drag].vy = 0; } else { hover = pick(x, y); box.style.cursor = hover >= 0 ? 'grab' : ''; } });
+  box.addEventListener('pointerdown', e => { const [x, y] = pos(e); drag = pick(x, y); if (drag >= 0) { hover = drag; box.classList.add('is-drag'); getSelection().removeAllRanges(); box.setPointerCapture(e.pointerId); box.style.cursor = 'grabbing'; e.preventDefault(); } });
+  const up = () => { drag = -1; box.classList.remove('is-drag'); box.style.cursor = ''; }; box.addEventListener('pointerup', up); box.addEventListener('pointercancel', up);
+  box.addEventListener('pointerleave', () => { if (drag < 0) hover = -1; });
 })();
 
 /* Lineage map */

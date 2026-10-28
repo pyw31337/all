@@ -48,7 +48,7 @@ const head = p => `
   ${p.summaryEn ? `<p class="pen" lang="en">${esc(p.summaryEn)}</p>` : ''}`;
 
 $('#featured').innerHTML = featured.map((p, i) => `
-  <article class="fp reveal" style="--accent:${esc(p.accentColor || '#f5a524')}">
+  <article class="fp reveal" style="--accent:${esc('var(--brand)')}">
     <a class="fp__shot" ${p.url ? `href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"` : ''} aria-label="${esc(p.title)} 화면">
       ${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : ''}
     </a>
@@ -56,7 +56,7 @@ $('#featured').innerHTML = featured.map((p, i) => `
   </article>`).join('');
 
 $('#others').innerHTML = others.map(p => `
-  <article class="op reveal ${p.status === 'archived' ? 'is-archived' : ''}" style="--accent:${esc(p.accentColor || '#f5a524')}">
+  <article class="op reveal ${p.status === 'archived' ? 'is-archived' : ''}" style="--accent:${esc('var(--brand)')}">
     <div class="op__shot">${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : `<div class="op__ph" aria-hidden="true"><span>${esc(p.titleEn || p.title)}</span></div>`}
       ${p.status === 'archived' ? `<span class="badge">Archived · ${esc(p.badge || '')}</span>` : ''}</div>
     <div class="op__body">${head(p)}${rows(p)}${links(p)}</div>
@@ -67,7 +67,7 @@ $('#others').innerHTML = others.map(p => `
   const el = $('#onto'); if (!el) return;
   const nodes = [['사진', 'Photos'], ['장소', 'Places'], ['사람', 'People'], ['일정', 'Events'], ['지출', 'Expenses'], ['메모', 'Notes'], ['영상', 'Media'], ['주변 행사', 'Culture']];
   const W = 600, H = 600, cx = 300, cy = 300, R = 220;
-  let s = `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true"><defs><radialGradient id="og"><stop offset="0" stop-color="#f5a524" stop-opacity=".55"/><stop offset="1" stop-color="#f5a524" stop-opacity="0"/></radialGradient></defs>`;
+  let s = `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true"><defs><radialGradient id="og"><stop offset="0" stop-color="#1F3A8A" stop-opacity=".55"/><stop offset="1" stop-color="#1F3A8A" stop-opacity="0"/></radialGradient></defs>`;
   s += `<circle cx="${cx}" cy="${cy}" r="${R}" class="o-ring"/><circle cx="${cx}" cy="${cy}" r="${R * .55}" class="o-ring"/>`;
   const pts = nodes.map((n, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / nodes.length; return [cx + R * Math.cos(a), cy + R * Math.sin(a)]; });
   pts.forEach((p, i) => { const q = pts[(i + 3) % pts.length]; s += `<path class="o-cross" d="M${p[0]},${p[1]} Q${cx},${cy} ${q[0]},${q[1]}"/>`; });

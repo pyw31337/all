@@ -80,5 +80,5 @@ export function reticle(S, c, rad, now) {
   ctx.beginPath(); for (const [a, b] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) { ctx.moveTo(a * (rad + 4), b * (rad + 4)); ctx.lineTo(a * (rad + 12), b * (rad + 12)); } ctx.stroke();
   ctx.fillStyle = 'rgba(31,58,138,.6)'; ctx.font = '8px ui-monospace,Menlo,monospace'; ctx.textAlign = 'left'; ctx.fillText(`X ${c.x | 0}  Y ${c.y | 0}`, rad + 8, -rad - 4); ctx.restore();
 }
-export function loop(fn) { if (RM) { for (let i = 0; i < 400; i++) fn(performance.now() + i * 16, true); fn(performance.now() + 7000, false); return; }
+export function loop(fn) { if (RM) { setTimeout(() => { const t0 = performance.now(); for (let i = 0; i < 400; i++) fn(t0 + i * 16, true); fn(t0 + 7000, false); }, 50); return; }
   const f = now => { fn(now, false); requestAnimationFrame(f); }; requestAnimationFrame(f); }

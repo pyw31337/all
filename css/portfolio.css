@@ -474,3 +474,7 @@ mark.hlm{color:var(--ink)}
 .pf--navy mark.hlm,.bx--intro mark.hlm{color:#fff}
 .bx--intro mark.hlm,.pf--navy mark.hlm{background-image:linear-gradient(100deg,rgba(255,138,31,0),rgba(255,138,31,.5) 2%,rgba(255,150,46,.42) 60%,rgba(255,138,31,.55) 97%,rgba(255,138,31,0))}
 [data-theme=dark] .film:hover,[data-theme=dark] .film:focus-visible,[data-theme=dark] .film.is-open{background:#8FA4E8;color:#0b0d12}
+/* v10 */
+.pf__en{margin:-6px 0 0;font-size:13px;color:#C3CFF5}
+.tools__sub{margin:18px 0 8px;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ink3)}.tools__sub span{font-weight:500}
+.tools--sub li{font-size:12.5px;color:var(--ink2)}

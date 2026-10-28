@@ -1,4 +1,4 @@
-import { PROJECTS } from '../data/projects.js?v=20261028-17';
+import { PROJECTS } from '../data/projects.js?v=20261028-18';
 
 const $ = (s, el = document) => el.querySelector(s);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -14,7 +14,9 @@ $('#theme-toggle').addEventListener('click', () => {
 /* Email (address assembled only on click) */
 document.addEventListener('click', e => {
   const b = e.target.closest('.js-email');
-  if (b) location.href = 'mai' + 'lto:' + b.dataset.u + '\u0040' + b.dataset.d;
+  if (!b || !e.isTrusted || !b.dataset.m) return;
+  const a = String.fromCharCode(...b.dataset.m.split('.').map(n => n - 7)).split('').reverse().join('');
+  location.href = ['mai', 'lto:'].join('') + a;
 });
 
 /* Mobile menu */

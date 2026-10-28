@@ -440,7 +440,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     stats: '아카이브',
     url: null,
     githubUrl: null,
-    screenshot: null,
+    screenshot: 'assets/screenshots/limery.webp',
     featured: false
   }
 ];

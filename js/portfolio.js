@@ -59,34 +59,84 @@ $('#featured').innerHTML = featured.map((p, i) => `
     <a class="fp__shot" ${p.url ? `href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"` : ''} aria-label="${esc(p.title)} 화면">
       ${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : ''}
     </a>
-    <div class="fp__body"><span class="fp__no">0${i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
+    <div class="fp__body"><span class="fp__no">03.${i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
   </article>`).join('');
 
-$('#others').innerHTML = others.map(p => `
+$('#others').innerHTML = others.map((p, i) => `
   <article class="op reveal ${p.status === 'archived' ? 'is-archived' : ''}" style="--accent:${esc('var(--brand)')}">
     <div class="op__shot">${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : `<div class="op__ph" aria-hidden="true"><span>${esc(p.titleEn || p.title)}</span></div>`}
       ${p.status === 'archived' ? `<span class="badge">Archived · ${esc(p.badge || '')}</span>` : ''}</div>
-    <div class="op__body">${head(p)}${rows(p)}${links(p)}</div>
+    <div class="op__body"><span class="fp__no op__no">03.${featured.length + i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
   </article>`).join('');
 
-/* Ontology visualization */
-(function onto() {
+/* Ontology: living force-directed graph (canvas, no libs) */
+(function graph() {
   const el = $('#onto'); if (!el) return;
-  const nodes = [['사진', 'Photos'], ['장소', 'Places'], ['사람', 'People'], ['일정', 'Events'], ['지출', 'Expenses'], ['메모', 'Notes'], ['영상', 'Media'], ['주변 행사', 'Culture']];
-  const W = 600, H = 600, cx = 300, cy = 300, R = 220;
-  let s = `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true"><defs><radialGradient id="og"><stop offset="0" stop-color="#1F3A8A" stop-opacity=".55"/><stop offset="1" stop-color="#1F3A8A" stop-opacity="0"/></radialGradient></defs>`;
-  s += `<circle cx="${cx}" cy="${cy}" r="${R}" class="o-ring"/><circle cx="${cx}" cy="${cy}" r="${R * .55}" class="o-ring"/>`;
-  const pts = nodes.map((n, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / nodes.length; return [cx + R * Math.cos(a), cy + R * Math.sin(a)]; });
-  pts.forEach((p, i) => { const q = pts[(i + 3) % pts.length]; s += `<path class="o-cross" d="M${p[0]},${p[1]} Q${cx},${cy} ${q[0]},${q[1]}"/>`; });
-  pts.forEach((p, i) => { s += `<line class="o-line" style="--d:${i * 0.12}s" x1="${p[0]}" y1="${p[1]}" x2="${cx}" y2="${cy}" data-i="${i}"/>`; });
-  s += `<circle cx="${cx}" cy="${cy}" r="110" fill="url(#og)" class="o-glow"/><circle cx="${cx}" cy="${cy}" r="46" class="o-core"/><text x="${cx}" y="${cy - 2}" class="o-core-t">그날</text><text x="${cx}" y="${cy + 18}" class="o-core-e">ONE DAY</text>`;
-  pts.forEach((p, i) => { s += `<g class="o-node" tabindex="0" data-i="${i}" style="--d:${0.3 + i * 0.08}s"><circle cx="${p[0]}" cy="${p[1]}" r="34"/><text x="${p[0]}" y="${p[1] - 1}">${nodes[i][0]}</text><text x="${p[0]}" y="${p[1] + 15}" class="e">${nodes[i][1]}</text></g>`; });
-  el.innerHTML = s + '</svg>';
-  el.querySelectorAll('.o-node').forEach(g => {
-    const on = v => () => { el.querySelector(`.o-line[data-i="${g.dataset.i}"]`).classList.toggle('is-on', v); g.classList.toggle('is-on', v); };
-    g.addEventListener('mouseenter', on(true)); g.addEventListener('mouseleave', on(false));
-    g.addEventListener('focus', on(true)); g.addEventListener('blur', on(false));
-  });
+  const cv = document.createElement('canvas'); el.appendChild(cv); const ctx = cv.getContext('2d');
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const P = [['사진','Photos'],['장소','Places'],['사람','People'],['일정','Events'],['지출','Expenses'],['메모','Notes'],['영상','Media'],['주변 행사','Culture']];
+  const S = [['카페',1],['영수증',4],['가족',2],['공연',7],['산책',1],['생일',3],['날씨',3],['캠핑장',1],['친구',2],['리뷰',5],['가계부',4],['브이로그',6],['전시',7],['스크린샷',0],['동선',1],['일기',5]];
+  let W = 0, H = 0, dpr = 1;
+  const N = [{ t: '그날', e: 'The Day', r: 38, k: 0 }];
+  P.forEach(([t, e]) => N.push({ t, e, r: 26, k: 1 }));
+  S.forEach(([t, p]) => N.push({ t, r: 6, k: 2, p: p + 1 }));
+  const base = []; for (let i = 1; i <= P.length; i++) base.push([0, i, 1]);
+  N.forEach((n, i) => { if (n.k === 2) base.push([n.p, i, 1]); });
+  [[1,2],[3,4],[3,8],[5,6],[2,3]].forEach(([a,b]) => base.push([a, b, .5]));
+  const fit = () => { const w = el.clientWidth; W = w; H = Math.min(w, 620); dpr = Math.min(2, devicePixelRatio || 1); cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + 'px'; cv.style.height = H + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  fit(); new ResizeObserver(fit).observe(el);
+  N.forEach((n, i) => { const a = i * 2.4; const d = n.k === 0 ? 0 : n.k === 1 ? .3 : .42; n.x = W / 2 + Math.cos(a) * W * d; n.y = H / 2 + Math.sin(a) * H * d; n.vx = n.vy = 0; n.ph = Math.random() * 6.28; n.a = 0; });
+  const dyn = new Map(); // proximity links: key -> alpha
+  let hover = -1, drag = -1, t = 0, run = false, raf = 0;
+  const nb = i => { const s = new Set([i]); base.forEach(([a, b]) => { if (a === i) s.add(b); if (b === i) s.add(a); }); dyn.forEach((v, k) => { if (v > .3) { const [a, b] = k.split('-').map(Number); if (a === i) s.add(b); if (b === i) s.add(a); } }); return s; };
+  const step = () => {
+    t += .008; const cx = W / 2, cy = H / 2, sc = Math.min(W, H) / 600;
+    for (let i = 0; i < N.length; i++) for (let j = i + 1; j < N.length; j++) {
+      const a = N[i], b = N[j]; let dx = b.x - a.x, dy = b.y - a.y, d2 = dx * dx + dy * dy + .01, d = Math.sqrt(d2);
+      const f = (a.k === 2 && b.k === 2 ? 900 : 2600) * sc / d2; dx /= d; dy /= d;
+      a.vx -= dx * f; a.vy -= dy * f; b.vx += dx * f; b.vy += dy * f;
+      if (a.k === 2 && b.k === 2) { const key = i + '-' + j, near = d < 80 * sc; const v = dyn.get(key) || 0; const nv = Math.max(0, Math.min(1, v + (near ? .02 : -.02))); nv ? dyn.set(key, nv) : dyn.delete(key); }
+    }
+    base.forEach(([i, j, w]) => { const a = N[i], b = N[j]; const L = (a.k === 0 ? 170 : b.k === 2 ? 62 : 150) * sc; const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1; const f = (d - L) * .004 * w; a.vx += dx / d * f; a.vy += dy / d * f; b.vx -= dx / d * f; b.vy -= dy / d * f; });
+    N.forEach((n, i) => {
+      n.vx += (cx - n.x) * .0009 + Math.cos(t * 1.3 + n.ph) * .05; n.vy += (cy - n.y) * .0009 + Math.sin(t + n.ph * 1.7) * .05;
+      if (i === drag) return; if (n.k === 0) { n.vx += (cx - n.x) * .01; n.vy += (cy - n.y) * .01; }
+      n.vx *= .9; n.vy *= .9; n.x += n.vx; n.y += n.vy;
+      n.x = Math.max(n.r + 4, Math.min(W - n.r - 4, n.x)); n.y = Math.max(n.r + 4, Math.min(H - n.r - 4, n.y));
+    });
+  };
+  const css = getComputedStyle(document.documentElement);
+  const draw = () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    const brand = dark ? '#8EA3E6' : '#1F3A8A', ink = dark ? '#E7EAF2' : '#111418', soft = dark ? 'rgba(142,163,230,' : 'rgba(31,58,138,';
+    ctx.clearRect(0, 0, W, H); const hs = hover >= 0 ? nb(hover) : null;
+    const line = (a, b, al, w) => { ctx.strokeStyle = soft + al + ')'; ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); };
+    base.forEach(([i, j, w]) => { const on = hs && hs.has(i) && hs.has(j) && (i === hover || j === hover); line(N[i], N[j], hs ? (on ? .9 : .08) : (N[i].k === 0 ? .35 : .22) * w + .05, on ? 2 : 1); });
+    dyn.forEach((v, k) => { const [i, j] = k.split('-').map(Number); ctx.setLineDash([3, 4]); line(N[i], N[j], (hs ? .1 : .45) * v, 1); ctx.setLineDash([]); });
+    N.forEach((n, i) => {
+      const dim = hs && !hs.has(i) ? .25 : 1; ctx.globalAlpha = dim;
+      if (n.k === 0) { const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 2.6); g.addColorStop(0, soft + '.25)'); g.addColorStop(1, soft + '0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 2.6, 0, 7); ctx.fill(); }
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r * (i === hover ? 1.12 : 1), 0, 7);
+      if (n.k === 0) { ctx.fillStyle = brand; ctx.fill(); }
+      else if (n.k === 1) { ctx.fillStyle = dark ? '#131721' : '#fff'; ctx.fill(); ctx.strokeStyle = brand; ctx.lineWidth = i === hover ? 2.4 : 1.4; ctx.stroke(); }
+      else { ctx.fillStyle = i === hover ? '#FF8A1F' : soft + '.55)'; ctx.fill(); }
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      if (n.k === 0) { ctx.fillStyle = '#fff'; ctx.font = '800 17px Pretendard Variable, sans-serif'; ctx.fillText(n.t, n.x, n.y - 5); ctx.font = '600 9.5px Pretendard Variable, sans-serif'; ctx.fillText(n.e, n.x, n.y + 11); }
+      else if (n.k === 1) { ctx.fillStyle = ink; ctx.font = '700 13px Pretendard Variable, sans-serif'; ctx.fillText(n.t, n.x, n.y); }
+      else { ctx.fillStyle = dark ? '#AEB6C6' : '#5B6270'; ctx.font = '500 11px Pretendard Variable, sans-serif'; ctx.fillText(n.t, n.x, n.y + 15); }
+      ctx.globalAlpha = 1;
+    });
+  };
+  const loop = () => { step(); draw(); if (run) raf = requestAnimationFrame(loop); };
+  for (let k = 0; k < 260; k++) step(); draw();
+  if (RM) { new MutationObserver(draw).observe(document.documentElement, { attributes: true }); return; }
+  new IntersectionObserver(([e]) => { run = e.isIntersecting; cancelAnimationFrame(raf); if (run) loop(); }).observe(el);
+  const pos = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  const pick = (x, y) => { let best = -1, bd = 1e9; N.forEach((n, i) => { const d = Math.hypot(n.x - x, n.y - y); if (d < Math.max(n.r, 14) + 4 && d < bd) { bd = d; best = i; } }); return best; };
+  cv.addEventListener('pointermove', e => { const [x, y] = pos(e); if (drag >= 0) { N[drag].x = x; N[drag].y = y; N[drag].vx = N[drag].vy = 0; } else { hover = pick(x, y); cv.style.cursor = hover >= 0 ? 'grab' : 'default'; } });
+  cv.addEventListener('pointerdown', e => { const [x, y] = pos(e); drag = pick(x, y); if (drag >= 0) { hover = drag; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; e.preventDefault(); } });
+  const up = () => { drag = -1; cv.style.cursor = 'default'; }; cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+  cv.addEventListener('pointerleave', () => { if (drag < 0) hover = -1; });
 })();
 
 /* Lineage map */
@@ -125,7 +175,7 @@ const ICONS = ['<rect x="4" y="6" width="16" height="15" rx="3"/><path d="M4 10h
 const floaties = (host, n) => { if (!host) return; const w = document.createElement('div'); w.className = 'floaties'; w.setAttribute('aria-hidden', 'true');
   w.innerHTML = Array.from({ length: n }, (_, i) => `<svg viewBox="0 0 24 24" style="left:${(i * 37 + 7) % 92}%;top:${(i * 53 + 11) % 80}%;--s:${[28, 44, 64, 36, 52][i % 5]}px;--r:${(i * 23) % 40 - 20}deg;--t:${7 + i % 5}s;--d:${-i * 1.3}s;--fx:${i % 2 ? 14 : -12}px;--fy:${i % 3 ? -16 : 12}px">${ICONS[i % ICONS.length]}</svg>`).join('');
   host.prepend(w); };
-floaties($('#stats'), 7); floaties($('#profile'), 9);
+floaties($('#stats'), 7);
 document.querySelectorAll('.reveal, .onto, .lineage, mark.hlm, .sketch-ul').forEach(el => io.observe(el));
 function countUp(n) {
   const to = +n.dataset.count; if (reduce || !to) { n.textContent = to; return; }

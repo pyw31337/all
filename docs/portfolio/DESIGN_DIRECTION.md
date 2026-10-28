@@ -66,3 +66,11 @@
 - 구조: Hero → 숫자 → **Proof(증명 카드 6)** → About → Career → Projects → Profile(채용 지향 CTA).
 - 지표 원칙: 셀 수 있는 사실만. 사용자 수·매출·전환율 등 미확인 수치 금지.
 - 모바일 메뉴(햄버거) 추가 — 프로필까지 접근 가능.
+
+### v5b — 레퍼런스 & 반영
+- Moritz Petersen — https://moritzpetersen.com/ (OPL: https://onepagelove.com/moritz-petersen): 벤토 그리드, 카드별 위계, 은은한 보더 글로우.
+- Robin Holešínský — https://www.rh.design/ (OPL: https://onepagelove.com/robin): 지표·바이오·CTA 푸터를 벤토로 묶은 구성.
+- Michael Pumo — https://onepagelove.com/michael-pumo : 강한 타이포 위계, 절제된 장식.
+- Michał Stencel — https://contra.com/p/kAbY7bPZ-michalstencelcom-or-web-design-webflow-rive-spline : 살아있는 타일(상태·위치) 개념.
+- Obsidian Graph view — https://help.obsidian.md/Plugins/Graph+view : 온톨로지 그래프 인터랙션 기준.
+- 반영: 프로필 = 4열 벤토(네이비 인트로 2×2 + 큰 숫자 + 소속 + 칩), 랜덤 플로팅 낙서 제거 → 의도된 차트 라인 1개. 경력 상세 = 세로 타임라인·성과 카드·미니 그리드. 번호 = 섹션 하위 00.1 / 03.1 체계. 온톨로지 = 캔버스 포스 그래프(드리프트·근접 링크 생성/소멸·hover 이웃 강조·드래그, 화면 밖 정지, reduced-motion 정적).

@@ -18,7 +18,7 @@
 - 라이트/다크, 모바일 320px, `keep-all`, 접근성, `prefers-reduced-motion`.
 
 ## Don't
-- 주소·전화번호·생년월일·이메일 등 **개인 연락처 커밋 금지**. 경력기술서 원본 PDF/이미지 커밋 금지.
+- 주소·전화번호·생년월일 **커밋 금지**. 이메일은 mailto 버튼(JS 조합)으로만, 평문 텍스트 금지. 경력기술서 원본 PDF/이미지 커밋 금지.
 - 라임리를 성공작처럼 포장 금지 — "시작 → 방치 → 렛츠 캘린더의 출발점"으로.
 - 히어로에 인물/초상 이미지 금지.
 - `docs/`는 Pages로 함께 공개됨을 기억할 것.
@@ -30,15 +30,21 @@
 - [x] 라임리 서술 흐름 확정
 - [x] 크레소티 포함 전체 이력 표시 OK (단, 컴팩트)
 
+- [x] 이메일: pyw213@naver.com — **텍스트 노출 금지, '이메일 / Email' mailto 버튼만**, JS 조합으로 HTML 원문 노출 방지
+- [x] 라임리: 서비스 종료, 라이브 링크 없음, 스크린샷 확보 시 사용 OK (비공개 레포 `limery` 링크 금지)
+- [x] 이중 언어: 한국어 주 + 영어 보조(서브타이틀). 히어로 영문: "Connecting scattered records into data, and turning insight into business."
+- [x] 도메인: 없음, github.io 유지(추후 CNAME 가능)
+
 ## 아직 미결정
-- [ ] 연락처(이메일) 공개 여부 — 미정이면 미노출
-- [ ] 라임리 링크/스크린샷 노출 여부
-- [ ] 영문 병기 여부, 도메인
+- (없음)
 
 ## 다음 단계
 - [ ] 히어로 이미지 생성(인물 없음, 흩어진 기록 → 연결 → 인사이트) 후 `assets/`에 최적화(WebP/AVIF) 저장
 - [ ] `data/projects.js`에 `intent / why / benefit` 필드 추가(옵션, 기존 렌더 유지)
-- [ ] 라임리 항목 추가(status 예: 'archived')
+- [ ] 라임리 항목 추가(status 'archived', url/githubUrl null)
+- [ ] (선택) 비공개 `pyw31337/limery`를 로컬 정적 서빙해 UI 스크린샷 확보
+- [ ] 영문 병기 필드(`summaryEn` 등) 추가
+- [ ] 이메일 버튼(JS 난독화) 구현
 - [ ] Hero → Narrative → Career → Projects 섹션 구현
 - [ ] 온톨로지 연결 시각화 인터랙션
 - [ ] Lighthouse·모바일 점검 후 main 푸시, Actions 배포 확인

@@ -3,271 +3,250 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>pyw31337 Hub | 박영우 서비스 & 프로젝트 아카이브</title>
-  <meta name="description" content="렛츠 캠핑, 컬처플로우, 렛츠 뷰, 렛츠 픽, 렛츠 캘린더 등 직접 설계하고 운영하는 모든 사이트와 서비스를 한눈에 만나는 포트폴리오 쇼케이스">
-  
-  <!-- Open Graph / Social Sharing -->
+  <title>박영우 PARK YOUNG WOO — 흩어진 기록을 데이터로 연결하고, 인사이트를 비지니스로</title>
+  <meta name="description" content="디자인으로 시작해 기록·데이터·비즈니스를 잇는 박영우의 포트폴리오. 렛츠 캘린더, 컬처플로우, 렛츠 뷰, 렛츠 캠핑, 렛츠 픽, 렛츠 헤어.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pyw31337.github.io/all/">
-  <meta property="og:title" content="pyw31337 Hub | 박영우 서비스 & 프로젝트 아카이브">
-  <meta property="og:description" content="캠핑, 문화예술 일정, 실시간 교통 CCTV, 브라우저 확장도구, 일정 캘린더까지 직접 개발·운영하는 프로덕트 컬렉션">
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/1029199?v=4">
-
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="css/style.css?v=20261027-editorial-renewal-3">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <meta property="og:title" content="박영우 — 흩어진 기록을 데이터로 연결하고, 인사이트를 비지니스로 만들어갑니다.">
+  <meta property="og:description" content="Connecting scattered records into data, and turning insight into business.">
+  <meta property="og:image" content="https://pyw31337.github.io/all/assets/hero.jpg">
+  <meta name="theme-color" content="#0b0d12">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 768px)">
+  <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 767px)">
+  <link rel="stylesheet" href="css/portfolio.css?v=20261028-1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%230b0d12%22/><circle cx=%2250%22 cy=%2250%22 r=%2212%22 fill=%22%23f5a524%22/></svg>">
 </head>
 <body>
+  <a class="skip" href="#main">본문 바로가기</a>
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <div class="brand">
-        <div class="brand-logo">P</div>
-        <div class="brand-text">
-          <span class="brand-title">pyw31337 Hub</span>
-          <span class="brand-subtitle">Products & Services Archive</span>
-        </div>
-      </div>
-
-      <div class="header-actions">
-        <button type="button" class="icon-button" id="theme-toggle" aria-label="테마 전환" title="테마 전환">
-          <span id="theme-icon"></span>
-        </button>
-        <a href="https://github.com/pyw31337" target="_blank" rel="noopener noreferrer" class="github-link-btn" title="GitHub 프로필">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          <span>GitHub</span>
-        </a>
-      </div>
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="맨 위로">
+      <span class="nav__dot" aria-hidden="true"></span>
+      <span>박영우 <em lang="en">Park Young Woo</em></span>
+    </a>
+    <nav class="nav__links" aria-label="주요 메뉴">
+      <a href="#about">철학<small lang="en">About</small></a>
+      <a href="#career">경력<small lang="en">Career</small></a>
+      <a href="#projects">프로젝트<small lang="en">Projects</small></a>
+    </nav>
+    <div class="nav__actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="라이트/다크 테마 전환">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+      <button type="button" class="btn btn--pill js-email" data-u="pyw213" data-d="naver.com" aria-label="이메일 보내기 / Send email">이메일 <span lang="en">/ Email</span></button>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-paper-noise" aria-hidden="true"></div>
-      <div class="hero-editorial">
-        <div class="hero-copy">
-          <div class="hero-index-marker" aria-label="제품 인덱스 1번부터 6번까지">
-            <span>01—06</span>
-            <span>INDEPENDENT PRODUCTS</span>
-          </div>
-          <div class="hero-pill">
-            <span>ALL / 2026</span>
-            <span>작동하는 일상 도구</span>
-          </div>
-          <h1 class="hero-title">
-            불편한 하루를<br>
-            <span class="gradient-text">작동하는 제품</span>으로.
-          </h1>
-          <p class="hero-desc">
-            사소하지만 반복되는 탐색, 확인, 조율의 마찰을 관찰하고<br>
-            사람들이 바로 쓸 수 있는 서비스로 만듭니다.
-          </p>
-          <p class="hero-note">FEATURED CASE · LET’S CALENDAR / 모아엘가</p>
-          <p class="hero-argument"><span aria-hidden="true"></span>기능을 나열하는 대신, 반복되는 불편이 사라지는 순간을 설계합니다.</p>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <picture class="hero__media" aria-hidden="true">
+        <source media="(max-width: 767px)" srcset="assets/hero-mobile.webp" type="image/webp">
+        <source srcset="assets/hero.webp" type="image/webp">
+        <img src="assets/hero.jpg" alt="" width="1280" height="720" fetchpriority="high">
+      </picture>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__inner wrap">
+        <p class="eyebrow hero__eyebrow" data-hero>Designer · Records · Data · Business</p>
+        <h1 class="hero__title" data-hero>
+          <span>흩어진 기록을 데이터로 연결하고,</span>
+          <span>인사이트를 비지니스로 만들어갑니다.</span>
+        </h1>
+        <p class="hero__en" lang="en" data-hero>Connecting scattered records into data, and turning insight into business.</p>
+        <div class="hero__cta" data-hero>
+          <a class="btn btn--light" href="#projects">프로젝트 보기 <span lang="en">/ Projects</span></a>
+          <a class="btn btn--ghost" href="#about">나는 어떤 사람인가 <span lang="en">/ About</span></a>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#stats" aria-label="아래로 스크롤"><span></span></a>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats wrap" id="stats" aria-label="숫자로 보는 박영우">
+      <div class="stat reveal"><b data-count="1997">1997</b><span>인터넷을 처음 만난 해<small lang="en">First met the web</small></span></div>
+      <div class="stat reveal"><b><i data-count="20">20</i>년</b><span>가계부·일정 기록 습관<small lang="en">Years of daily records</small></span></div>
+      <div class="stat reveal"><b><i data-count="40">40</i>분</b><span>홈쇼핑 1억 원 완판<small lang="en">Sold out ₩100M on TV</small></span></div>
+      <div class="stat reveal"><b><i data-count="2">2</i>건</b><span>특허 출원<small lang="en">Patents filed</small></span></div>
+      <div class="stat reveal"><b><i data-count="7" id="project-count">7</i>개</b><span>직접 만든 서비스<small lang="en">Self-built services</small></span></div>
+    </section>
+
+    <!-- ABOUT / NARRATIVE -->
+    <section class="section about" id="about">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="eyebrow">01 — About</p>
+          <h2>기록하고, 연결하고,<br>숫자 속에서 의미를 찾습니다.</h2>
+          <p class="sec-head__en" lang="en">I record, I connect, and I look for meaning in the numbers.</p>
+        </header>
+
+        <div class="story">
+          <article class="chapter reveal">
+            <span class="chapter__no">1997</span>
+            <div>
+              <h3>인터넷에서 시작된 호기심<small lang="en">Curiosity, since the first web page</small></h3>
+              <p>1997년 처음 인터넷을 만났고, 고등학생 때 웹 컨테스트에서 상을 받으며 디자인을 시작했습니다. 그때부터 저는 화면 너머의 구조, 사람들이 무엇을 왜 클릭하는지가 늘 궁금했습니다.</p>
+            </div>
+          </article>
+          <article class="chapter reveal">
+            <span class="chapter__no">경계</span>
+            <div>
+              <h3>디자인에서 비즈니스로<small lang="en">Crossing borders: design → business</small></h3>
+              <p>캘리그라피 스튜디오를 공동 창업해 상품 기획부터 운영·마케팅까지 직접 책임졌고, 프랜차이즈 마케팅, 영화 모션 광고, 그리고 이커머스 플랫폼에서 10년을 보냈습니다. 디자인이 매출이 되고, 매출이 다시 다음 디자인의 근거가 되는 과정을 몸으로 배웠습니다.</p>
+            </div>
+          </article>
+          <article class="chapter reveal">
+            <span class="chapter__no">숫자</span>
+            <div>
+              <h3>결과로 증명하는 디자인<small lang="en">Design proven by numbers</small></h3>
+              <p>유수분 분리 접시와 뚜껑으로 특허를 출원하고 직접 생산해, 현대홈쇼핑에서 1억 원어치를 40분 만에 완판했습니다. 20년 동안 가계부와 일정을 기록해 온 습관 덕분에, 저는 비즈니스를 감이 아니라 숫자의 변화로 읽습니다.</p>
+            </div>
+          </article>
+          <article class="chapter reveal">
+            <span class="chapter__no">연결</span>
+            <div>
+              <h3>기록이 연결될 때<small lang="en">When records start to connect</small></h3>
+              <p>경제·비즈니스·마케팅 인사이트를 모으고 기억하는 걸 좋아합니다. 흩어진 기록 사이에서 연결을 찾는 일, 최근에야 그것을 <strong>온톨로지</strong>라고 부른다는 걸 알았습니다. 그렇게 20년치 사진·지도·일정을 하나로 잇는 <strong>라임리</strong>가 시작되었습니다.</p>
+            </div>
+          </article>
+          <article class="chapter reveal">
+            <span class="chapter__no">다시</span>
+            <div>
+              <h3>작게, 다시, 끝까지<small lang="en">Smaller, again, to the end</small></h3>
+              <p>라임리는 데이터가 너무 방대해 멈췄습니다. 그 덕분에 범위를 소모임으로 줄인 <strong>렛츠 캘린더</strong>가 나올 수 있었고, 처음엔 제가 공연을 찾으려 만든 <strong>컬처플로우</strong>는 다른 서비스들을 받쳐주는 허브가 되었습니다. 저는 제가 만든 서비스의 첫 번째 사용자이고, 불편한 점이 보이면 끝까지 고칩니다.</p>
+            </div>
+          </article>
         </div>
 
-        <figure class="hero-product-shot">
-          <span class="hero-frame-label hero-frame-label-top">FIELD NOTE / 01</span>
-          <div class="hero-product-orbit" aria-hidden="true"></div>
-          <img src="https://raw.githubusercontent.com/pyw31337/calendar/main/designv2/parity-shots/unit-loop/hero-aurora/home-full-pc.png" alt="모아엘가 공유 캘린더 실제 서비스 화면">
-          <figcaption>
-            <span>REAL PRODUCT VIEW</span>
-            <strong>함께 보는 일정이, 대화의 기준점이 되는 순간</strong>
+        <!-- ONTOLOGY VIZ -->
+        <figure class="onto reveal" aria-labelledby="onto-cap">
+          <div class="onto__stage" id="onto" role="img" aria-label="사진, 장소, 사람, 일정, 지출, 메모, 영상, 행사 데이터가 하나의 하루 타임라인으로 연결되는 구조도"></div>
+          <figcaption id="onto-cap">
+            <p class="eyebrow">Ontology</p>
+            <h3>하루라는 하나의 축 위에서</h3>
+            <p>사진, 장소, 사람, 일정, 지출, 메모, 영상, 주변 행사. 따로 흩어져 있던 기록이 "그날"을 중심으로 연결되면, 누구와 어디서 무엇을 했는지가 하나의 이야기가 됩니다. 렛츠 캘린더가 풀고 있는 문제입니다.</p>
+            <p class="en" lang="en">Scattered records become one story when they meet on a single timeline.</p>
           </figcaption>
-          <span class="hero-frame-label hero-frame-label-bottom">SCROLL TO EXPLORE ↓</span>
+        </figure>
+
+        <!-- PRINCIPLES -->
+        <div class="principles">
+          <blockquote class="quote reveal">
+            <p>“유사한 건 세상에 너무 많습니다. 차별화의 시작은,<br>같은 주제라도 <mark>무엇을 부각할지</mark>가 명확한 것입니다.”</p>
+            <footer lang="en">Differentiation starts with knowing what to highlight.</footer>
+          </blockquote>
+          <ol class="cards4">
+            <li class="pcard reveal"><span>01</span><h4>왜<small lang="en">Why</small></h4><p>왜 만들고, 왜 리뉴얼하는가.</p></li>
+            <li class="pcard reveal"><span>02</span><h4>누구에게<small lang="en">For whom</small></h4><p>누구에게 보여주고 싶은가.</p></li>
+            <li class="pcard reveal"><span>03</span><h4>무엇을<small lang="en">What</small></h4><p>그 사람에게 무엇을 보여줄 것인가.</p></li>
+            <li class="pcard reveal"><span>04</span><h4>우선순위<small lang="en">Priority</small></h4><p>그중 무엇을 가장 먼저 둘 것인가.</p></li>
+          </ol>
+          <p class="principle-note reveal">시간과 노력이 더 들더라도 완성도를 택합니다. 직접 써보며, 불편함이 사라질 때까지 고칩니다.<span lang="en">I use what I build, and I keep fixing it until the friction is gone.</span></p>
+        </div>
+
+        <!-- LINEAGE -->
+        <figure class="lineage reveal" aria-labelledby="lin-cap">
+          <figcaption id="lin-cap">
+            <p class="eyebrow">Connected Products</p>
+            <h3>서비스는 따로 만들어도, 서로 이어집니다.</h3>
+            <p class="en" lang="en">Each project feeds the next.</p>
+          </figcaption>
+          <div class="lineage__map" id="lineage"></div>
         </figure>
       </div>
+    </section>
 
-      <!-- Stats Ribbon -->
-      <div class="stats-bar">
-        <div class="stat-item">
-          <span class="stat-number" id="stat-total">5</span>
-          <span class="stat-label">등록된 서비스</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" id="stat-live" style="color: var(--accent-emerald);">5</span>
-          <span class="stat-label">라이브 운영</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" id="stat-repos" style="color: var(--accent-primary);">5</span>
-          <span class="stat-label">오픈소스 레포</span>
-        </div>
+    <!-- CAREER (compact) -->
+    <section class="section career" id="career">
+      <div class="wrap">
+        <header class="sec-head sec-head--row reveal">
+          <div>
+            <p class="eyebrow">02 — Career</p>
+            <h2>걸어온 길</h2>
+            <p class="sec-head__en" lang="en">Design, marketing, development and founding — 2007 to now.</p>
+          </div>
+        </header>
+
+        <ul class="highlights">
+          <li class="hl reveal"><b>40분 · 1억</b><span>현대홈쇼핑 완판</span><small>유수분분리기능 접시 · 2014.09</small></li>
+          <li class="hl reveal"><b>특허 2건</b><span>직접 기획·출원</span><small>접시 2013.03 · 뚜껑 2014.03</small></li>
+          <li class="hl reveal"><b>10년</b><span>코리아센터 팀장</span><small>메이크샵 · 몰테일 UI/UX</small></li>
+          <li class="hl reveal"><b>공동창업</b><span>캘리세상</span><small>기획·운영·마케팅 총괄</small></li>
+          <li class="hl reveal"><b>20년</b><span>기록 습관</span><small>가계부 · 일정 관리</small></li>
+          <li class="hl reveal"><b>수석입학</b><span>청강문화산업대학</span><small>성적장학 3학기</small></li>
+        </ul>
+
+        <ol class="timeline reveal">
+          <li><time>2022.12 — 재직중</time><strong>크레소티</strong><span>개발기획부 책임매니저 · 그룹웨어 통합 설계, 온·누리POS UI 고도화, 마케팅 비주얼 총괄</span></li>
+          <li class="is-key"><time>2012.02 — 2022.11</time><strong>코리아센터</strong><span>디자인UX본부 과장(팀장) · 메이크샵·몰테일 UI/UX 최적화, 글로벌 커머스 비주얼 아이덴티티</span></li>
+          <li><time>2010.07 — 2012.01</time><strong>아트서비스</strong><span>디자인팀 · 영화 홍보 모션그래픽·스크립트 코딩</span></li>
+          <li><time>2010.02 — 2010.06</time><strong>대대에프씨</strong><span>디자인팀 · 프랜차이즈 브랜드 온·오프라인 마케팅 디자인</span></li>
+          <li class="is-key"><time>2007.12 — 2009.12</time><strong>캘리세상</strong><span>디자인 총괄/차장 · 캘리그라피 스튜디오 공동 창업, 비즈니스 전 과정 총괄</span></li>
+        </ol>
+
+        <details class="more reveal">
+          <summary>학력 · 수상 · 성과 · 기술 · 자격 전체 보기 <span lang="en">/ Full details</span></summary>
+          <div class="more__grid">
+            <div><h4>주요 성과</h4><ul>
+              <li>현대홈쇼핑 유수분분리기능 접시 1억 원 매출 40분 완판 (2014.09)</li>
+              <li>특허출원 유수분분리기능 뚜껑 (2014.03)</li>
+              <li>특허출원 유수분분리기능 접시 (2013.03)</li>
+              <li>명예의전당 맥스무비 플래시 특수광고 다수 등록 — 토르, 트랜스포머, 7광구, 미션임파서블 등 (2011.07)</li>
+              <li>명예의전당 디자인정글 UCC정글 웹디자인 부문 (2008.04)</li></ul></div>
+            <div><h4>학력</h4><ul>
+              <li>청강문화산업대학 컴퓨터그래픽디자인과 (2004.03–2008.02) · 수석입학 · 성적장학 1-1 1등(4.3), 1-2 2등(4.05), 2-1 1등(4.38)</li>
+              <li>해운대고등학교 인문계열 이과 (2001.03–2004.02)</li></ul>
+              <h4>수상</h4><ul>
+              <li>금상 · 부산시 기장군 청년회의소 홈페이지 경진대회 (2002.12)</li>
+              <li>장려상 · 대덕대학 산업부장관배 21c 웹컨테스트 (2002.06)</li></ul></div>
+            <div><h4>기술</h4><ul>
+              <li>Photoshop · Illustrator · Figma · After Effects · Premiere</li>
+              <li>PHP · MySQL · HTML · CSS · jQuery · WordPress</li>
+              <li>AI 에이전트 협업 개발 · 정적 웹 · Firebase · 데이터 파이프라인</li></ul>
+              <h4>자격 · 병역</h4><ul>
+              <li>운전면허 1종 대형/특수 (2009.10), 1종 보통 (2008.10)</li>
+              <li>대한상공회의소 워드프로세서 1급 (2001.12)</li>
+              <li>육군 병장 만기전역 (2005.03–2007.03)</li></ul></div>
+          </div>
+        </details>
       </div>
     </section>
 
-    <!-- Controls Section: Categories & Search -->
-    <section class="controls-section">
-      <div class="controls-row">
-        <!-- Category Filter Tabs -->
-        <div class="category-filters" id="category-filters" role="tablist" aria-label="서비스 카테고리">
-          <!-- Dynamically Rendered -->
-        </div>
-
-        <!-- Search Input -->
-        <div class="search-box">
-          <span class="search-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          </span>
-          <input type="search" class="search-input" id="search-input" placeholder="서비스명, 기술 스택, 키워드 검색..." aria-label="서비스 검색">
-        </div>
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="eyebrow">03 — Projects</p>
+          <h2>제가 먼저 쓰고 싶어서 만든 것들</h2>
+          <p class="sec-head__en" lang="en">Things I built because I needed them first.</p>
+        </header>
+        <div id="featured" class="featured"></div>
+        <div id="others" class="others"></div>
       </div>
     </section>
 
-    <!-- 1-Column Projects Showcase Container -->
-    <section class="projects-container" id="projects-container">
-      <!-- Dynamically Rendered Service Showcase Sections -->
+    <!-- CLOSING -->
+    <section class="closing">
+      <div class="wrap reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>같은 주제라도, 다르게 보여드리겠습니다.</h2>
+        <p class="sec-head__en" lang="en">Let's talk about what's worth highlighting.</p>
+        <div class="closing__cta">
+          <button type="button" class="btn btn--accent js-email" data-u="pyw213" data-d="naver.com" aria-label="이메일 보내기 / Send email">이메일 보내기 <span lang="en">/ Email</span></button>
+          <a class="btn btn--ghost" href="https://github.com/pyw31337" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- Service Detail Modal (<dialog>) -->
-  <dialog class="service-modal" id="service-modal" aria-labelledby="modal-title">
-    <div class="modal-header">
-      <div class="modal-title-wrap">
-        <div class="modal-app-icon" aria-hidden="true">
-          <img id="modal-icon" src="" alt="">
-        </div>
-        <div>
-          <span class="modal-kicker" id="modal-kicker">Product case study</span>
-          <h3 id="modal-title">서비스 이름</h3>
-          <span id="modal-slug">slug</span>
-        </div>
-        <span id="modal-badge" class="status-pill">운영 중</span>
-      </div>
-      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="닫기">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-      </button>
-    </div>
-
-    <div class="modal-body">
-      <section class="modal-hero" aria-labelledby="modal-origin-title">
-        <div class="modal-hero-icon" aria-hidden="true" id="modal-origin-icon"></div>
-        <div>
-          <span class="modal-section-eyebrow">SERVICE ORIGIN</span>
-          <h4 id="modal-origin-title">왜 이 서비스를 만들었나</h4>
-          <p class="modal-desc" id="modal-desc">서비스 소개 내용이 들어갑니다.</p>
-        </div>
-      </section>
-
-      <section class="modal-screen-story" aria-labelledby="modal-screen-story-title">
-        <div class="modal-section-title">
-          <span class="modal-section-title-icon" id="modal-screen-icon" aria-hidden="true"></span>
-          <div>
-            <span class="modal-section-eyebrow">REAL PRODUCT VIEW</span>
-            <h4 id="modal-screen-story-title">실제 화면에서 확인되는 구현</h4>
-          </div>
-        </div>
-        <div class="modal-screen-layout">
-          <figure class="modal-real-screen">
-            <img id="modal-screen-image" src="" alt="">
-            <div class="modal-screen-pins" id="modal-screen-pins" aria-hidden="true"></div>
-            <figcaption id="modal-screen-caption">실제 운영 화면을 바탕으로 기능을 설명합니다.</figcaption>
-          </figure>
-          <div class="modal-screen-callouts" id="modal-screen-callouts" aria-label="화면의 주요 구현 설명"></div>
-        </div>
-        <p class="modal-screen-detail" id="modal-screen-detail" aria-live="polite"></p>
-      </section>
-
-      <section class="modal-story-grid" aria-label="문제와 해결 방식">
-        <article class="modal-story-card modal-problem-card">
-          <div class="modal-story-icon" id="modal-problem-icon" aria-hidden="true"></div>
-          <span class="modal-section-eyebrow">BEFORE</span>
-          <h4>불편했던 지점</h4>
-          <p id="modal-problem">문제 상황</p>
-        </article>
-        <article class="modal-story-card modal-solution-card">
-          <div class="modal-story-icon" id="modal-solution-icon" aria-hidden="true"></div>
-          <span class="modal-section-eyebrow">AFTER</span>
-          <h4>바뀐 경험</h4>
-          <p id="modal-solution">해결 방식</p>
-        </article>
-      </section>
-
-      <section class="modal-impact-section" aria-labelledby="modal-impact-title">
-        <div class="modal-section-title">
-          <span class="modal-section-title-icon" id="modal-impact-icon" aria-hidden="true"></span>
-          <div>
-            <span class="modal-section-eyebrow">IMPACT BY DESIGN</span>
-            <h4 id="modal-impact-title">줄어든 탐색·조율 마찰</h4>
-          </div>
-        </div>
-        <div class="modal-metrics-grid" id="modal-metrics"></div>
-        <p class="modal-metric-note" id="modal-metric-note"></p>
-      </section>
-
-      <section class="modal-flow-section" aria-labelledby="modal-flow-title">
-        <div class="modal-section-title">
-          <span class="modal-section-title-icon" id="modal-flow-icon" aria-hidden="true"></span>
-          <div>
-            <span class="modal-section-eyebrow">EXPERIENCE FLOW</span>
-            <h4 id="modal-flow-title">한 번에 이어지는 흐름</h4>
-          </div>
-        </div>
-        <ol class="modal-flow" id="modal-flow"></ol>
-      </section>
-
-      <div class="modal-section-title">
-        <span class="modal-section-title-icon" id="modal-feature-icon" aria-hidden="true"></span>
-        <div>
-          <span class="modal-section-eyebrow">CAPABILITIES</span>
-          <h4>구현으로 만든 차이</h4>
-        </div>
-      </div>
-      <ul class="modal-highlights-list" id="modal-highlights">
-        <!-- Dynamically filled -->
-      </ul>
-
-      <div class="modal-section-title">
-        <span class="modal-section-title-icon" id="modal-tech-icon" aria-hidden="true"></span>
-        <div>
-          <span class="modal-section-eyebrow">BUILT WITH</span>
-          <h4>적용 기술 스택</h4>
-        </div>
-      </div>
-      <div class="tech-stack-row modal-tech-stack" id="modal-tech">
-        <!-- Dynamically filled -->
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <a href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="modal-github-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-        <span>GitHub 보기</span>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" id="modal-live-link">
-        <span>사이트 바로가기</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </a>
-    </div>
-  </dialog>
-
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-brand">pyw31337 Hub</div>
-      <p class="footer-desc">
-        사용자에게 실질적인 가치를 제공하는 프로덕트를 설계하고 만듭니다.
-      </p>
-      <div class="footer-links">
-        <a href="https://github.com/pyw31337" target="_blank" rel="noopener noreferrer">GitHub (@pyw31337)</a>
-        <a href="https://github.com/pyw31337/all" target="_blank" rel="noopener noreferrer">저장소 (pyw31337/all)</a>
-      </div>
-      <div class="copyright">
-        &copy; 2026 Youngwoo Park (pyw31337). All rights reserved.
-      </div>
-    </div>
+  <footer class="foot wrap">
+    <span>© 2026 박영우 Park Young Woo</span>
+    <span lang="en">Built & maintained by hand — with AI agents.</span>
   </footer>
 
-  <!-- Application Logic -->
-  <script type="module" src="js/app.js?v=20261027-editorial-renewal-2"></script>
+  <script type="module" src="js/portfolio.js?v=20261028-1"></script>
 </body>
 </html>

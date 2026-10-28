@@ -48,3 +48,16 @@
 - [ ] Hero → Narrative → Career → Projects 섹션 구현
 - [ ] 온톨로지 연결 시각화 인터랙션
 - [ ] Lighthouse·모바일 점검 후 main 푸시, Actions 배포 확인
+
+
+## 진행 현황 (2026-10-28 KST)
+- [x] 1차 리뉴얼 구현: `index.html` + `css/portfolio.css` + `js/portfolio.js` (구 `css/style.css`, `js/app.js`는 제거 — git 히스토리에 있음)
+- [x] 히어로 이미지 생성(인물 없음): `assets/hero.webp`(데스크톱), `assets/hero-mobile.webp`(모바일 세로 크롭), `assets/hero.jpg`(폴백·OG)
+- [x] `data/projects.js`에 `summaryEn/intent/why/benefit` 추가, 라임리(`status: 'archived'`, 링크 없음) 추가, featured = 렛츠 캘린더·컬처플로우·렛츠 뷰
+- [x] 온톨로지 SVG 시각화(호버/포커스 인터랙션), 서비스 관계도, 경력 컴팩트(하이라이트 6 + 타임라인 + 접이식 상세)
+- [x] 이메일 버튼(아이디/도메인 분할 data 속성, 클릭 시 JS 조합)
+- [x] 라이트/다크, `prefers-reduced-motion`, 모바일 390px 확인, 콘솔 에러 0
+- [ ] 라임리 스크린샷(로컬 서빙 + 샘플 데이터) → `screenshot` 필드에 연결
+- [ ] 관계도 모바일: 현재 가로 스크롤(min-width 640px) → 세로 레이아웃 개선 여지
+- [ ] 히어로 이미지 고해상도(현재 1280px 원본) 재생성 검토
+- [ ] 렛츠 캘린더 스크린샷이 외부(raw.githubusercontent) URL → 로컬 `assets/screenshots/`로 교체 권장

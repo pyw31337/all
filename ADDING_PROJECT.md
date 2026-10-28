@@ -17,9 +17,13 @@
   slug: 'service-slug',               // 표시용 슬러그
   title: '서비스 한글명',             // 예: '렛츠캠핑'
   titleEn: 'Service English Name',    // 예: "Let's Camp"
+  summaryEn: 'One-line English subtitle', // (선택) 영문 보조 문구
+  intent: '이 서비스는 무엇인가 (의도)',   // 프로젝트 카드 '의도' 행
+  why: '왜 만들었는가',                  // 프로젝트 카드 '왜' 행
+  benefit: '누구에게 어떤 이익인가',      // 프로젝트 카드 '이익' 행
   category: 'travel',                 // 카테고리 (아래 분류표 참고)
   categoryLabel: '여행 & 아웃도어',   // 카테고리 한글명
-  status: 'live',                     // 'live' (운영 중) | 'beta' (베타) | 'in-progress' (개발 중)
+  status: 'live',                     // 'live' | 'beta' | 'in-progress' | 'archived' (종료 — url/githubUrl null 권장)
   statusLabel: '운영 중',             // 상태 텍스트
   badge: '대표 특징 뱃지',            // 카드 우측 상단 뱃지 텍스트
   accentColor: '#3b82f6',             // 테마 대표 색상
@@ -45,11 +49,13 @@
   stats: '대표 수치 (선택 사항)',     // 예: '전국 3,500+ 캠핑장', 'v1.4.9' 등
   url: 'https://...',                 // 라이브 서비스 접속 URL (없으면 null)
   githubUrl: 'https://github.com/pyw31337/...', // GitHub 저장소 (없거나 비공개면 null)
-  featured: false                     // 강조 여부 (true/false)
+  featured: false                     // true면 대형 대표작 섹션에 노출 (렛츠 캘린더·컬처플로우·렛츠 뷰 순서는 js/portfolio.js ORDER)
 }
 ```
 
 ---
+
+> 렌더링: `js/portfolio.js`가 `PROJECTS`를 읽어 자동으로 카드를 그립니다. `intent/why/benefit`이 없으면 `summary`가 '의도'로 쓰입니다.
 
 ## 3. 지원 카테고리 목록
 

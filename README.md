@@ -5,7 +5,7 @@
 
 ---
 
-> 🧭 **포트폴리오 리뉴얼 진행 중** — 인터뷰·분석·디자인 방향 문서: [`docs/portfolio/AGENTS.md`](docs/portfolio/AGENTS.md)
+> 🧭 **포트폴리오 리뉴얼 1차 적용 완료 (2026-10-28)** — Hero → About(철학·온톨로지·관계도) → Career → Projects 구조. 파일: `index.html`, `css/portfolio.css`, `js/portfolio.js`, 데이터 `data/projects.js`. — 인터뷰·분석·디자인 방향 문서: [`docs/portfolio/AGENTS.md`](docs/portfolio/AGENTS.md)
 
 ---
 

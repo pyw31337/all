@@ -7,7 +7,8 @@ export const CATEGORIES = [
   { id: 'travel', label: '여행 & 아웃도어', icon: 'tent' },
   { id: 'culture', label: '문화 & 라이프', icon: 'ticket' },
   { id: 'mobility', label: '모빌리티 & 인프라', icon: 'video' },
-  { id: 'tools', label: '생산성 & 도구', icon: 'tool' }
+  { id: 'tools', label: '생산성 & 도구', icon: 'tool' },
+  { id: 'lifestyle', label: '가족 & 라이프', icon: 'heart' }
 ];
 
 export const PROJECTS = [
@@ -16,6 +17,10 @@ export const PROJECTS = [
     slug: 'camp',
     title: '렛츠 캠핑',
     titleEn: "Let's Camp",
+    summaryEn: "Compare campsites by spec — like a price-comparison site.",
+    intent: "캠핑장을 '다나와처럼' 표준 스펙으로 비교·선택하는 플랫폼",
+    why: "캠핏·땡큐캠핑 등 기존 서비스의 수만 개 업장 데이터가 정규화되지 않고 파편화되어, 일일이 비교·매칭하기 어려웠습니다.",
+    benefit: "캠퍼는 사양·예약 오픈·날씨를 같은 기준으로 비교해 고르고, 예약 타이밍을 놓치지 않습니다.",
     releaseDate: '26.10.22(목)',
     category: 'travel',
     categoryLabel: '여행 & 아웃도어',
@@ -66,13 +71,17 @@ export const PROJECTS = [
     githubUrl: 'https://github.com/pyw31337/camp',
     screenshot: 'assets/screenshots/camp.png',
     iconPath: 'assets/icons/camp.svg',
-    featured: true
+    featured: false
   },
   {
     id: 'culture',
     slug: 'culture',
     title: '컬처플로우',
     titleEn: 'Culture Flow',
+    summaryEn: "A cultural events hub that now powers my other services.",
+    intent: "공연·전시·지역 행사를 한곳에 모은 문화 캘린더 허브",
+    why: "콘서트·뮤지컬·지역 행사를 직접 찾아다니기 좋으려고 만들었고, 이후 렛츠 캠핑·렛츠 캘린더에 연동되며 허브가 되었습니다.",
+    benefit: "문화 생활자는 흩어진 예매처를 오가지 않고, 제 다른 서비스들은 주변 행사 데이터를 그대로 재사용합니다.",
     releaseDate: '26.01.30',
     category: 'culture',
     categoryLabel: '문화 & 라이프',
@@ -130,6 +139,10 @@ export const PROJECTS = [
     slug: 'cctv',
     title: '렛츠 뷰',
     titleEn: "Let's View",
+    summaryEn: "See every camera along a road or around a spot — at once.",
+    intent: "길 하나, 스팟 하나 주변의 CCTV를 한 화면에 모아 보는 뷰어",
+    why: "지도 앱에서 지점을 하나씩 눌러 영상을 여는 불편함에서 시작했습니다. 다만 UTIC·NTIC 원천 소스가 불안정해 품질 관리가 숙제로 남아 있습니다.",
+    benefit: "운전자와 여행자는 경로 전체의 교통량과 날씨를 한 번에 확인하고, 해외 라이브 영상까지 둘러볼 수 있습니다.",
     releaseDate: '26.01.15',
     category: 'mobility',
     categoryLabel: '모빌리티 & 인프라',
@@ -187,6 +200,10 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     slug: 'pick',
     title: '렛츠 픽',
     titleEn: "Let's Pick",
+    summaryEn: "Extract original media, SVG and CSS tokens in one click.",
+    intent: "원본 이미지·SVG·CSS 토큰을 바로 추출하는 디자이너용 확장 프로그램",
+    why: "원본 이미지를 찾으려고 매번 개발자 모드를 여는 번거로움에서 시작해, 디자이너에게 필요한 추출 기능으로 확장하며 계속 다듬고 있습니다.",
+    benefit: "디자이너는 레퍼런스 수집과 분석에 드는 시간을 줄이고, 코드 없이 디자인 토큰을 가져옵니다.",
     releaseDate: '26.10.08',
     category: 'tools',
     categoryLabel: '생산성 & 도구',
@@ -237,13 +254,17 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     secondaryRepoUrl: 'https://github.com/pyw31337/source-lens',
     screenshot: 'assets/screenshots/pick.png',
     iconPath: 'assets/icons/framed/pick.png',
-    featured: true
+    featured: false
   },
   {
     id: 'calendar',
     slug: 'calendar',
     title: '렛츠 캘린더',
     titleEn: "Let's Calendar",
+    summaryEn: "One timeline for who, where, what and how much — per gathering.",
+    intent: "모임의 하루를 사람·장소·사진·일정·지출로 엮는 타임라인 온톨로지",
+    why: "20년치 삶의 데이터를 잇고 싶었던 라임리가 멈춘 자리에서, 범위를 소모임 단위로 줄여 다시 시작했습니다.",
+    benefit: "모임 구성원은 누구와 어디서 무엇을 했는지 한눈에 보고, 지출은 투명하게 정산하며, 장소·인물 기준으로 기록을 다시 찾습니다.",
     releaseDate: '26.08.12',
     category: 'culture',
     categoryLabel: '문화 & 라이프',
@@ -326,13 +347,17 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     githubUrl: 'https://github.com/pyw31337/calendar',
     screenshot: 'https://raw.githubusercontent.com/pyw31337/calendar/main/designv2/parity-shots/unit-loop/hero-aurora/home-full-pc.png',
     iconPath: 'assets/icons/framed/calendar.png',
-    featured: false
+    featured: true
   },
   {
     id: 'hair',
     slug: 'hair',
     title: '렛츠 헤어',
     titleEn: "Let's Hair",
+    summaryEn: "10-second, sign-up-free booking for neighborhood salons.",
+    intent: "링크 하나로 10초 만에 끝나는 무가입 미용실 예약",
+    why: "경기도 구리에서 20년째 한자리에서 미용실을 운영하시는 어머니가, 시술 중에도 식사 중에도 전화 예약을 받는 모습을 보고 만들었습니다.",
+    benefit: "네이버 예약도 어려운 40~60대 고객은 쉽게 예약하고, 1인 미용실 원장님은 전화 응대 부담에서 벗어납니다.",
     releaseDate: '24.03.28',
     category: 'tools',
     categoryLabel: '생산성 & 도구',
@@ -391,6 +416,31 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     githubUrl: 'https://github.com/pyw31337/hair',
     screenshot: 'assets/screenshots/jhair.png',
     iconPath: 'assets/icons/framed/jhair.png',
+    featured: false
+  },
+  {
+    id: 'limery',
+    slug: 'limery',
+    title: '라임리',
+    titleEn: 'Limery',
+    summaryEn: 'Where it started — and why it paused.',
+    intent: '20년간 쌓인 사진·지도·일정 데이터를 하나로 잇는 가족 OS (Live your memory)',
+    why: '기록을 연결하고 싶다는 생각에서 그렇게 시작되었지만, 데이터가 너무 방대해 에이전트들이 컨텍스트 한계로 거듭 멈췄고, 개발자가 아닌 제가 감당하기엔 규모와 제약이 컸습니다.',
+    benefit: '그래서 방치되었고, 그로 인해 범위를 소모임으로 줄인 렛츠 캘린더가 나올 수 있었습니다.',
+    category: 'lifestyle',
+    categoryLabel: '가족 & 라이프',
+    status: 'archived',
+    statusLabel: '아카이브',
+    badge: '렛츠 캘린더의 출발점',
+    accentColor: '#84cc16',
+    summary: '20년 삶의 데이터를 잇고자 했던 첫 온톨로지 실험 — 지금은 멈춰 있는 프로젝트',
+    description: '',
+    highlights: [],
+    techStack: ['JavaScript', 'Supabase', 'Cloudflare'],
+    stats: '아카이브',
+    url: null,
+    githubUrl: null,
+    screenshot: null,
     featured: false
   }
 ];

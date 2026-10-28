@@ -452,3 +452,25 @@ details summary span[lang=en]{white-space:nowrap}
 [data-theme=dark] .tb{background:#000}
 @media (prefers-reduced-motion:reduce){.film__tip{transition:none}}
 .stat b .u{font-style:normal;font-size:.62em;letter-spacing:-.03em;margin-left:.06em;white-space:nowrap}
+/* v9 bento: 관심(1) + 도구(2) */
+.bx--int .chips,.bx--tools .chips{margin-top:14px}
+.bento .bx--tools{grid-column:span 2}
+@media (max-width:980px){.bento .bx--tools{grid-column:span 2}}
+
+/* v9 contrast fixes (WCAG AA) */
+.nav__links small{opacity:.78}
+.hero__cta .btn--ghost{opacity:1}.hero__cta .btn span[lang]{opacity:.78}
+.bx--intro .bx__tag{color:#fff;background:rgba(255,255,255,.16)}
+.bx--intro .profile__lead-en{color:#D5DDF5}
+[data-theme=dark] .hero__title .pt{color:#C9CED6}
+[data-theme=dark] .hero__en{color:#C2C7D0}
+[data-theme=dark]{--ink3:#9DA3AE}
+[data-theme=dark] .pf--navy,[data-theme=dark] .bx--intro{background:linear-gradient(160deg,#14275E,#1F3A8A)}
+[data-theme=dark] .ach__c--navy{background:#1F3A8A}
+[data-theme=dark] .l-node.key rect{fill:#2A4AA8;stroke:#8FA4E8}
+[data-theme=dark] mark.hlm{color:var(--ink);background-image:linear-gradient(100deg,rgba(255,138,31,0) 0,rgba(255,138,31,.30) 1.2%,rgba(255,150,46,.26) 40%,rgba(255,138,31,.34) 85%,rgba(255,138,31,.14) 99%,rgba(255,138,31,0) 100%)}
+[data-theme=dark] .pf--navy mark.hlm,[data-theme=dark] .bx--intro mark.hlm{color:#fff}
+mark.hlm{color:var(--ink)}
+.pf--navy mark.hlm,.bx--intro mark.hlm{color:#fff}
+.bx--intro mark.hlm,.pf--navy mark.hlm{background-image:linear-gradient(100deg,rgba(255,138,31,0),rgba(255,138,31,.5) 2%,rgba(255,150,46,.42) 60%,rgba(255,138,31,.55) 97%,rgba(255,138,31,0))}
+[data-theme=dark] .film:hover,[data-theme=dark] .film:focus-visible,[data-theme=dark] .film.is-open{background:#8FA4E8;color:#0b0d12}

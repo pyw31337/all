@@ -188,7 +188,7 @@ const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 if (!reduce) {
   const media = $('.hero__media'), inner = $('.hero__inner'), hero = $('.hero');
   let sy = 0, mx = 0, my = 0, raf = 0;
-  const paint = () => { raf = 0; media.style.transform = `translate3d(${mx * -18}px,${sy * 0.25 + my * -12}px,0) scale(1.08)`; inner.style.transform = `translate3d(${mx * 8}px,${my * 6}px,0)`; };
+  const paint = () => { raf = 0; if (media) media.style.transform = `translate3d(${mx * -18}px,${sy * 0.25 + my * -12}px,0) scale(1.08)`; inner.style.transform = `translate3d(${mx * 8}px,${my * 6}px,0)`; };
   const req = () => { if (!raf) raf = requestAnimationFrame(paint); };
   addEventListener('scroll', () => { sy = scrollY < innerHeight ? scrollY : sy; req(); }, { passive: true });
   if (fine) hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5; req(); });

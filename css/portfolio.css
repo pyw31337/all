@@ -401,3 +401,25 @@ mark.hlm.is-in,.is-in mark.hlm{background-size:100% .78em}
 .section>.wrap{position:relative;z-index:1}
 @media (prefers-reduced-motion:reduce){.px-deco,[data-speed]{transform:none!important}}
 .proofs .pf--navy{grid-column:1/-1}
+
+/* ===== v7: live assembly hero (from lab 11) ===== */
+.hero{background:radial-gradient(55% 70% at 74% 48%,#F3F6FC 0%,#fff 72%)}
+.hero__stage{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;touch-action:pan-y}
+.hero__poster{transform:none!important}.hero__poster img{animation:none!important;object-fit:cover}
+.hero__scrim{pointer-events:none;background:linear-gradient(90deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.86) 30%,rgba(255,255,255,.4) 44%,rgba(255,255,255,0) 54%)}
+.hero__inner{pointer-events:none}.hero__inner a,.hero__inner button{pointer-events:auto}
+@media (max-width:767px){.hero__scrim{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 44%,rgba(255,255,255,.92) 54%,#fff 64%)}}
+[data-theme=dark] .hero{background:radial-gradient(55% 70% at 74% 48%,#121a2e 0%,var(--bg) 72%)}
+[data-theme=dark] .hero__stage{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+[data-theme=dark] .hero__scrim{background:linear-gradient(90deg,rgba(11,13,18,.94) 0%,rgba(11,13,18,.82) 32%,rgba(11,13,18,0) 54%)}
+@media (max-width:767px){[data-theme=dark] .hero__scrim{background:linear-gradient(180deg,transparent 44%,rgba(11,13,18,.92) 54%,var(--bg) 64%)}}
+@media (max-width:767px){.hero__scroll{display:none}}
+
+/* v7: HUD accents (rulers, reticles, crosshair labels) carried from the hero */
+.section{overflow-x:clip}
+.hud-deco{opacity:.22;stroke-width:1;overflow:visible}
+.hud-deco text{fill:var(--brand);stroke:none;font:600 8px ui-monospace,Menlo,monospace;letter-spacing:.06em}
+.hud-deco .o{opacity:1}.hud-deco .f{fill:var(--hl);stroke:none}
+@media (max-width:767px){.hud-deco{width:150px!important;opacity:.16}}
+details summary span[lang=en]{white-space:nowrap}
+@media (max-width:767px){.hud-deco{display:none}}

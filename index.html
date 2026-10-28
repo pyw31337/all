@@ -4,20 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>박영우 PARK YOUNG WOO — 흩어진 기록을 데이터로 연결하여, 인사이트를 비지니스로</title>
-  <meta name="description" content="디자인으로 시작해 기록·데이터·비즈니스를 잇는 박영우의 포트폴리오. 렛츠 캘린더, 컬처플로우, 렛츠 뷰, 렛츠 캠핑, 렛츠 픽, 렛츠 헤어.">
+  <meta name="description" content="기술과 비즈니스를 이해하는 디자이너 박영우의 포트폴리오. 렛츠 캘린더, 컬처플로우, 렛츠 뷰, 렛츠 캠핑, 렛츠 픽, 렛츠 헤어. Designer Park Young Woo — connecting scattered records into data, turning insight into business.">
+  <meta name="author" content="박영우 Park Young Woo">
+  <link rel="canonical" href="https://pyw31337.github.io/all/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="박영우 Portfolio">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:url" content="https://pyw31337.github.io/all/">
-  <meta property="og:title" content="박영우 — 흩어진 기록을 데이터로 연결하여, 인사이트를 비지니스로">
-  <meta property="og:description" content="Connecting scattered records into data, turning insight into business.">
-  <meta property="og:image" content="https://pyw31337.github.io/all/assets/hero.jpg">
+  <meta property="og:title" content="박영우 PARK YOUNG WOO — 흩어진 기록을 데이터로 연결하여, 인사이트를 비지니스로">
+  <meta property="og:description" content="디자인으로 시작해 기록·데이터·비즈니스를 잇습니다. Connecting scattered records into data, turning insight into business.">
+  <meta property="og:image" content="https://pyw31337.github.io/all/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="박영우 포트폴리오 — 흩어진 기록을 데이터로 연결하여, 인사이트를 비지니스로">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="박영우 PARK YOUNG WOO — Portfolio">
+  <meta name="twitter:description" content="Connecting scattered records into data, turning insight into business.">
+  <meta name="twitter:image" content="https://pyw31337.github.io/all/assets/og.png">
   <meta name="theme-color" content="#ffffff">
   <script>(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 768px)">
-  <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 767px)">
-  <link rel="stylesheet" href="css/portfolio.css?v=20261028-9">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23ffffff%22/><circle cx=%2250%22 cy=%2250%22 r=%2212%22 fill=%22%231F3A8A%22/></svg>">
+  <link rel="stylesheet" href="css/portfolio.css?v=20261028-10">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <noscript><style>[data-hero],.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
   <a class="skip" href="#main">본문 바로가기</a>
@@ -53,11 +65,8 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top">
-      <picture class="hero__media" aria-hidden="true">
-        <source media="(max-width: 767px)" srcset="assets/hero-mobile.webp" type="image/webp">
-        <source srcset="assets/hero.webp" type="image/webp">
-        <img src="assets/hero.jpg" alt="" width="1280" height="720" fetchpriority="high">
-      </picture>
+      <canvas id="hero-stage" class="hero__stage" aria-hidden="true"></canvas>
+      <noscript><picture class="hero__media hero__poster" aria-hidden="true"><source media="(max-width: 767px)" srcset="assets/hero-v7-mobile.webp" type="image/webp"><source srcset="assets/hero-v7.webp" type="image/webp"><img src="assets/hero-v7.png" alt="" width="1440" height="900"></picture></noscript>
       <div class="hero__scrim" aria-hidden="true"></div>
       <div class="hero__inner wrap">
         <p class="eyebrow hero__eyebrow" data-hero>Designer · Records · Business</p>
@@ -86,7 +95,7 @@
 
     <!-- PROOF -->
     <section class="section proof" id="highlights">
-      <svg class="px-deco" data-speed="-.18" style="right:-40px;top:120px;width:420px" viewBox="0 0 420 260" aria-hidden="true"><path d="M10 230 C80 220 110 160 170 165 S260 70 320 80 400 20 410 14"/><path class="o" d="M300 84 l20 -4"/><path d="M30 250h370M30 250V30"/></svg>
+      <svg class="px-deco hud-deco" data-speed="-.12" style="right:3%;top:48px;width:260px" viewBox="0 0 260 160" aria-hidden="true"><path d="M10 40h200 M10 40v-10 M18 40v-5 M26 40v-5 M34 40v-5 M42 40v-5 M50 40v-10 M58 40v-5 M66 40v-5 M74 40v-5 M82 40v-5 M90 40v-10 M98 40v-5 M106 40v-5 M114 40v-5 M122 40v-5 M130 40v-10 M138 40v-5 M146 40v-5 M154 40v-5 M162 40v-5 M170 40v-10 M178 40v-5 M186 40v-5 M194 40v-5 M202 40v-5 M210 40v-10"/><text x="12" y="27">000</text><text x="92" y="27">080</text><text x="172" y="27">160</text><circle cx="170" cy="105" r="34"/><circle cx="170" cy="105" r="19" stroke-dasharray="3 5"/><path d="M204.0 105.0L197.0 105.0 M203.5 110.9L200.5 110.4 M201.9 116.6L199.1 115.6 M199.4 122.0L196.8 120.5 M196.0 126.9L193.7 124.9 M191.9 131.0L189.9 128.7 M187.0 134.4L183.5 128.4 M181.6 136.9L180.6 134.1 M175.9 138.5L175.4 135.5 M170.0 139.0L170.0 136.0 M164.1 138.5L164.6 135.5 M158.4 136.9L159.4 134.1 M153.0 134.4L156.5 128.4 M148.1 131.0L150.1 128.7 M144.0 126.9L146.3 124.9 M140.6 122.0L143.2 120.5 M138.1 116.6L140.9 115.6 M136.5 110.9L139.5 110.4 M136.0 105.0L143.0 105.0 M136.5 99.1L139.5 99.6 M138.1 93.4L140.9 94.4 M140.6 88.0L143.2 89.5 M144.0 83.1L146.3 85.1 M148.1 79.0L150.1 81.3 M153.0 75.6L156.5 81.6 M158.4 73.1L159.4 75.9 M164.1 71.5L164.6 74.5 M170.0 71.0L170.0 74.0 M175.9 71.5L175.4 74.5 M181.6 73.1L180.6 75.9 M187.0 75.6L183.5 81.6 M191.9 79.0L189.9 81.3 M196.0 83.1L193.7 85.1 M199.4 88.0L196.8 89.5 M201.9 93.4L199.1 94.4 M203.5 99.1L200.5 99.6"/><path d="M122 105h20M198 105h20M170 57v20M170 133v20"/><path class="o" d="M164 103v-4h4M176 103v-4h-4M164 107v4h4M176 107v4h-4"/><circle class="o f" cx="170" cy="105" r="1.8"/><path d="M194 81l18 -18h60"/><text x="214" y="59">01 · HIGHLIGHTS</text></svg>
       <div class="wrap">
         <header class="sec-head reveal">
           <p class="eyebrow">01 — Highlights</p>
@@ -133,7 +142,7 @@
 
     <!-- ABOUT / NARRATIVE -->
     <section class="section about" id="philosophy">
-      <svg class="px-deco" data-speed=".22" style="left:-60px;top:40%;width:300px" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="120"/><circle cx="150" cy="150" r="70"/><path d="M150 30v240M30 150h240"/><circle class="o" cx="220" cy="90" r="6"/></svg>
+      <svg class="px-deco hud-deco" data-speed=".18" style="left:2%;top:38%;width:240px" viewBox="0 0 240 260" aria-hidden="true"><path d="M14 20v220 M14 20h10 M14 28h5 M14 36h5 M14 44h5 M14 52h5 M14 60h10 M14 68h5 M14 76h5 M14 84h5 M14 92h5 M14 100h10 M14 108h5 M14 116h5 M14 124h5 M14 132h5 M14 140h10 M14 148h5 M14 156h5 M14 164h5 M14 172h5 M14 180h10 M14 188h5 M14 196h5 M14 204h5 M14 212h5 M14 220h10 M14 228h5 M14 236h5"/><circle cx="120" cy="140" r="70"/><circle cx="120" cy="140" r="38" stroke-dasharray="3 5"/><path d="M190.0 140.0L183.0 140.0 M188.9 152.2L186.0 151.6 M185.8 163.9L183.0 162.9 M180.6 175.0L178.0 173.5 M173.6 185.0L171.3 183.1 M165.0 193.6L163.1 191.3 M155.0 200.6L151.5 194.6 M143.9 205.8L142.9 203.0 M132.2 208.9L131.6 206.0 M120.0 210.0L120.0 207.0 M107.8 208.9L108.4 206.0 M96.1 205.8L97.1 203.0 M85.0 200.6L88.5 194.6 M75.0 193.6L76.9 191.3 M66.4 185.0L68.7 183.1 M59.4 175.0L62.0 173.5 M54.2 163.9L57.0 162.9 M51.1 152.2L54.0 151.6 M50.0 140.0L57.0 140.0 M51.1 127.8L54.0 128.4 M54.2 116.1L57.0 117.1 M59.4 105.0L62.0 106.5 M66.4 95.0L68.7 96.9 M75.0 86.4L76.9 88.7 M85.0 79.4L88.5 85.4 M96.1 74.2L97.1 77.0 M107.8 71.1L108.4 74.0 M120.0 70.0L120.0 73.0 M132.2 71.1L131.6 74.0 M143.9 74.2L142.9 77.0 M155.0 79.4L151.5 85.4 M165.0 86.4L163.1 88.7 M173.6 95.0L171.3 96.9 M180.6 105.0L178.0 106.5 M185.8 116.1L183.0 117.1 M188.9 127.8L186.0 128.4"/><path d="M36 140h42M162 140h42M120 56v42M120 182v42"/><path class="o" d="M114 138v-4h4M126 138v-4h-4M114 142v4h4M126 142v4h-4"/><circle class="o f" cx="120" cy="140" r="1.8"/><path d="M169 91l18 -18h60"/><text x="189" y="69">02 · PHILOSOPHY</text></svg>
       <div class="wrap">
         <header class="sec-head reveal">
           <p class="eyebrow">02 — Philosophy</p>
@@ -224,7 +233,7 @@
 
     <!-- CAREER (compact) -->
     <section class="section career" id="experience">
-      <svg class="px-deco" data-speed="-.14" style="right:4%;top:60px;width:260px" viewBox="0 0 260 200" aria-hidden="true"><rect x="10" y="30" width="240" height="160" rx="14"/><path d="M10 70h240M60 10v40M200 10v40M50 110h30M110 110h30M170 110h30M50 150h30M110 150h30"/><path class="o" d="M106 150h38"/></svg>
+      <svg class="px-deco hud-deco" data-speed="-.12" style="right:3%;top:56px;width:260px" viewBox="0 0 260 170" aria-hidden="true"><path d="M10 40h220 M10 40v-10 M18 40v-5 M26 40v-5 M34 40v-5 M42 40v-5 M50 40v-10 M58 40v-5 M66 40v-5 M74 40v-5 M82 40v-5 M90 40v-10 M98 40v-5 M106 40v-5 M114 40v-5 M122 40v-5 M130 40v-10 M138 40v-5 M146 40v-5 M154 40v-5 M162 40v-5 M170 40v-10 M178 40v-5 M186 40v-5 M194 40v-5 M202 40v-5 M210 40v-10 M218 40v-5 M226 40v-5"/><text x="12" y="27">000</text><text x="92" y="27">080</text><text x="172" y="27">160</text><circle cx="70" cy="110" r="36"/><circle cx="70" cy="110" r="20" stroke-dasharray="3 5"/><path d="M106.0 110.0L99.0 110.0 M105.5 116.3L102.5 115.7 M103.8 122.3L101.0 121.3 M101.2 128.0L98.6 126.5 M97.6 133.1L95.3 131.2 M93.1 137.6L91.2 135.3 M88.0 141.2L84.5 135.1 M82.3 143.8L81.3 141.0 M76.3 145.5L75.7 142.5 M70.0 146.0L70.0 143.0 M63.7 145.5L64.3 142.5 M57.7 143.8L58.7 141.0 M52.0 141.2L55.5 135.1 M46.9 137.6L48.8 135.3 M42.4 133.1L44.7 131.2 M38.8 128.0L41.4 126.5 M36.2 122.3L39.0 121.3 M34.5 116.3L37.5 115.7 M34.0 110.0L41.0 110.0 M34.5 103.7L37.5 104.3 M36.2 97.7L39.0 98.7 M38.8 92.0L41.4 93.5 M42.4 86.9L44.7 88.8 M46.9 82.4L48.8 84.7 M52.0 78.8L55.5 84.9 M57.7 76.2L58.7 79.0 M63.7 74.5L64.3 77.5 M70.0 74.0L70.0 77.0 M76.3 74.5L75.7 77.5 M82.3 76.2L81.3 79.0 M88.0 78.8L84.5 84.9 M93.1 82.4L91.2 84.7 M97.6 86.9L95.3 88.8 M101.2 92.0L98.6 93.5 M103.8 97.7L101.0 98.7 M105.5 103.7L102.5 104.3"/><path d="M20 110h22M98 110h22M70 60v22M70 138v22"/><path class="o" d="M64 108v-4h4M76 108v-4h-4M64 112v4h4M76 112v4h-4"/><circle class="o f" cx="70" cy="110" r="1.8"/><path d="M95 85l18 -18h60"/><text x="115" y="63">03 · EXPERIENCE</text></svg>
       <div class="wrap">
         <header class="sec-head sec-head--row reveal">
           <div>
@@ -284,7 +293,7 @@
 
     <!-- PROJECTS -->
     <section class="section projects" id="work">
-      <svg class="px-deco" data-speed=".16" style="left:-30px;top:200px;width:340px" viewBox="0 0 340 220" aria-hidden="true"><path d="M20 200V40M20 200h300"/><path d="M60 200v-50M110 200v-90M160 200v-60M210 200v-130M260 200v-110"/><path class="o" d="M60 140 110 100 160 130 210 60 260 80"/></svg>
+      <svg class="px-deco hud-deco" data-speed=".14" style="left:2%;top:180px;width:240px" viewBox="0 0 240 260" aria-hidden="true"><path d="M14 30v200 M14 30h10 M14 38h5 M14 46h5 M14 54h5 M14 62h5 M14 70h10 M14 78h5 M14 86h5 M14 94h5 M14 102h5 M14 110h10 M14 118h5 M14 126h5 M14 134h5 M14 142h5 M14 150h10 M14 158h5 M14 166h5 M14 174h5 M14 182h5 M14 190h10 M14 198h5 M14 206h5 M14 214h5 M14 222h5 M14 230h10"/><text x="28" y="33">000</text><text x="28" y="113">080</text><text x="28" y="193">160</text><circle cx="130" cy="150" r="52"/><circle cx="130" cy="150" r="29" stroke-dasharray="3 5"/><path d="M182.0 150.0L175.0 150.0 M181.2 159.0L178.3 158.5 M178.9 167.8L176.0 166.8 M175.0 176.0L172.4 174.5 M169.8 183.4L167.5 181.5 M163.4 189.8L161.5 187.5 M156.0 195.0L152.5 189.0 M147.8 198.9L146.8 196.0 M139.0 201.2L138.5 198.3 M130.0 202.0L130.0 199.0 M121.0 201.2L121.5 198.3 M112.2 198.9L113.2 196.0 M104.0 195.0L107.5 189.0 M96.6 189.8L98.5 187.5 M90.2 183.4L92.5 181.5 M85.0 176.0L87.6 174.5 M81.1 167.8L84.0 166.8 M78.8 159.0L81.7 158.5 M78.0 150.0L85.0 150.0 M78.8 141.0L81.7 141.5 M81.1 132.2L84.0 133.2 M85.0 124.0L87.6 125.5 M90.2 116.6L92.5 118.5 M96.6 110.2L98.5 112.5 M104.0 105.0L107.5 111.0 M112.2 101.1L113.2 104.0 M121.0 98.8L121.5 101.7 M130.0 98.0L130.0 101.0 M139.0 98.8L138.5 101.7 M147.8 101.1L146.8 104.0 M156.0 105.0L152.5 111.0 M163.4 110.2L161.5 112.5 M169.8 116.6L167.5 118.5 M175.0 124.0L172.4 125.5 M178.9 132.2L176.0 133.2 M181.2 141.0L178.3 141.5"/><path d="M64 150h31M165 150h31M130 84v31M130 185v31"/><path class="o" d="M124 148v-4h4M136 148v-4h-4M124 152v4h4M136 152v4h-4"/><circle class="o f" cx="130" cy="150" r="1.8"/><path d="M166 114l18 -18h60"/><text x="186" y="92">04 · SELECTED WORK</text></svg>
       <div class="wrap">
         <header class="sec-head reveal">
           <p class="eyebrow">04 — Selected Work</p>
@@ -331,6 +340,7 @@
     <span lang="en">Designed by Park Young Woo.</span>
   </footer>
 
-  <script type="module" src="js/portfolio.js?v=20261028-9"></script>
+  <script type="module" src="js/hero/hero.js?v=20261028-10"></script>
+  <script type="module" src="js/portfolio.js?v=20261028-10"></script>
 </body>
 </html>

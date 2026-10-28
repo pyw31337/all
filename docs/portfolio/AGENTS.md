@@ -70,3 +70,11 @@
 - 히어로 이미지: 사람 없는 밝은 디자이너 책상 매크로 정물(노트 장부·필름 사진·핀 꽂힌 지도·포스트잇 탭).
 - 수상은 2002년 2건만(대덕대 21c 웹컨테스트 장려상, 기장군 청년회의소 홈페이지 경진대회 금상). 고교/1997 수상 언급 금지.
 - 라임리 스크린샷 반영 완료(로컬 실행, 빈 데이터, 지역 블러).
+
+## v7 handoff (2026-10-28)
+- 메인 히어로 = `js/hero/hero.js` (lab/hero-11.js 이식). 엔진 사본: `js/hero/{mech,hud,emblem,icons}.js` — lab 원본과 분리됨(메인은 #hero-stage, host=.hero 기준 좌표, IntersectionObserver로 일시정지, ResizeObserver, RM 시 정적 프레임 재그리기). lab 수정이 메인에 자동 반영되지 않음.
+- 캐시 버전 `20261028-10` (css, hero.js, portfolio.js). js/hero 하위 모듈은 쿼리 없음 → 수정 시 hero.js 버전 올리고 필요하면 import에 ?v 추가.
+- 포스터/OG 재생성: /workspace/pw/assets.mjs (playwright, 로컬 서버 8123). 섹션 스크린샷: /workspace/pw/secs.mjs <url> <tag>.
+- 이전 히어로 복구: `git checkout hero-v5 -- index.html css/portfolio.css js/portfolio.js` (이후 변경과 충돌 주의).
+- 금지 유지: 주소·전화·생년월일·이메일 평문, 이력서 PDF/이미지 커밋, limery 비공개 레포 링크, 71782f0 히스토리 재작성(사용자 승인 필요), 근거 없는 수치.
+- 알려진 이슈: hero-6 lab 겹침은 lab 전용(무시). 헤드라인의 '비지니스'는 표준어 '비즈니스'와 다른 의도된 표기 — 사용자 확인 전 변경 금지.

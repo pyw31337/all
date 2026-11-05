@@ -23,7 +23,7 @@
   benefit: '누구에게 어떤 이익인가',      // 프로젝트 카드 '이익' 행
   category: 'travel',                 // 카테고리 (아래 분류표 참고)
   categoryLabel: '여행 & 아웃도어',   // 카테고리 한글명
-  status: 'live',                     // 'live' | 'beta' | 'in-progress' | 'archived' (종료 — url/githubUrl null 권장)
+  status: 'live',                     // 'live' | 'beta'(카드에 '제작 중' 배지) | 'in-progress' | 'archived' (종료 — url/githubUrl null 권장)
   statusLabel: '운영 중',             // 상태 텍스트
   badge: '대표 특징 뱃지',            // 카드 우측 상단 뱃지 텍스트
   accentColor: '#3b82f6',             // 테마 대표 색상
@@ -66,6 +66,7 @@
 | `mobility` | 모빌리티 & 인프라 | 비디오/카메라 (`video`) | CCTV, 도로교통, 지하철, 대중교통 등 |
 | `tools` | 생산성 & 도구 | 도구 (`tool`) | 브라우저 확장도구, 개발자 유틸리티, 자동화 |
 | `lifestyle` | 가족 & 라이프 | 하트 (`heart`) | 가계부, 가족 OS, 개인 기록 관리 등 |
+| `insight` | 뉴스 & 인사이트 | 차트 (`chart`) | 뉴스, 타임라인, 인물·사건 분석 |
 
 > 새 카테고리를 추가하고 싶다면 `data/projects.js` 상단의 `CATEGORIES` 배열에도 동일하게 추가하시면 됩니다.
 

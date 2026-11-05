@@ -1,5 +1,5 @@
 // Main hero (from lab 11) · Assembly + living graph: emblem (hero-8) with 360 nodes that scatter → cluster per project → dock onto the ring
-import * as M from './mech.js?v=20261028-18'; import * as U from './hud.js?v=20261105-3'; import { emblem } from './emblem.js?v=20261105-4';
+import * as M from './mech.js?v=20261028-18'; import * as U from './hud.js?v=20261105-6'; import { emblem } from './emblem.js?v=20261105-6';
 const E = emblem({ z: .33, noStatus: 1 }); const K = U.PK.length; let N = [], p = 0, boom = 0, cur = 0, lastSw = 0, pinUntil = 0, hov = -1;
 // which project hub sits under a point (hover/tap); returns index or -1
 const hubAt = (x, y) => { const r = S.mob ? 26 : 22; let k = -1, bd = r * r; for (let i = 0; i < K && i < N.length; i++) { const h = N[i], d = (h.x - x) ** 2 + (h.y - y) ** 2; if (d < bd) { bd = d; k = i; } } return k; };

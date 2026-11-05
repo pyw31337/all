@@ -100,3 +100,7 @@
 - 히어로 허브 7개(`hud.js` PK에 news 추가, hero.js는 `K = U.PK.length` 사용). 관계도에 뉴스보드(렛츠 캘린더 → '시간축 설계', 점선).
 - Designer × AI: "AI는 가능성을 넓히고, 디자이너는 방향을 정합니다." 마무리 인용: "완성은 출시하는 날이 아니라, 누군가의 불편이 사라지는 날입니다."
 - 렛츠 헤어 썸네일 `hair-main.webp`(예약 화면 + 스타일 히어로).
+
+## v14 (2026-11-05) — 히어로 아이콘 모프
+- `emblem.setIcon(key)`: 중앙 아이콘 조각(group 4·5)이 새 아이콘 경로로 재타깃되어 흐르듯 변형(order 기반 지연). 아이콘 경로는 `js/hero/icons.js`(PK 순서: calendar·tent·cctv·ticket·dropper·scissors·news).
+- `hero.js`: 4초마다 자동 순환, 허브 노드 호버(모바일은 탭) 시 해당 서비스로 전환 후 6초 고정. 활성 허브는 오렌지, 아이콘 아래 `P-0n · 이름` 라벨. reduced-motion에서는 순환 없음.

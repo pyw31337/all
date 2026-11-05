@@ -1,9 +1,9 @@
 // 8 · Assembly: hundreds of mechanical fragments fly in and interlock into a calendar/data emblem
-import { ICONS } from './icons.js?v=20261105-3';
+import { ICONS } from './icons.js?v=20261105-4';
 import * as M from './mech.js?v=20261028-18';
 // factory version of hero-8 emblem (used by hero-8, 11, 13)
 export function emblem(opt = {}) {
-let F = [], C = {}, T0 = 0, explodeAt = -1;
+let F = [], C = {}, T0 = 0, explodeAt = -1, G = null, cache = {}, cur = 'calendar';
 function build(S) {
   F = []; const R = S.R, q = S.q, cx = R.x + R.w * (opt.cx ?? (S.mob ? .5 : .56)), cy = R.y + R.h * (opt.cy ?? .5), Z = Math.min(R.w, R.h) * (opt.z ?? (S.mob ? .47 : .43)); C = { cx, cy, Z };
   const add = (o, grp, order) => { const f = M.frag(o); f.grp = grp; f.order = order; const a = M.rnd(0, 6.3), d = M.rnd(.7, 1.3) * Math.max(S.W, S.H) * .6;
@@ -20,14 +20,16 @@ function build(S) {
   // crosshair dashes
   for (const k of [0, 1, 2, 3]) for (let j = 0; j < 8; j++) polar(Z * (1.03 + j * .035), k * Math.PI / 2, 3, { l: Z * .025, rad: 1, z: .7 });
   // calendar icon, multi-line (main + two offset rails)
-  const sc = Z * 1.05 / 24, ox = cx - 12 * sc, oy = cy - 13 * sc; const P = M.sample(ICONS.calendar, Math.round(260 * q + 80), sc, ox, oy);
-  P.forEach((p, i) => { const L = sc * .62; add({ tx0: p.x, ty0: p.y, ta: p.a, l: L, z: .95 }, 4, i / P.length);
-    if (i % 2 === 0) for (const o of [-3, 3]) add({ tx0: p.x - Math.sin(p.a) * o, ty0: p.y + Math.cos(p.a) * o, ta: p.a, l: L * .7, z: .25 }, 4, i / P.length); });
+  const sc = Z * 1.05 / 24, ox = cx - 12 * sc, oy = cy - 13 * sc, nMain = Math.round(260 * q + 80); const P = M.sample(ICONS.calendar, nMain, sc, ox, oy);
+  G = { sc, ox, oy, nMain, main: [], g5: [] }; cache = {}; cur = 'calendar';
+  P.forEach((p, i) => { const L = sc * .62; const m = add({ tx0: p.x, ty0: p.y, ta: p.a, l: L, z: .95 }, 4, i / P.length); m.ri = i; m.ro = 0; G.main.push(m);
+    if (i % 2 === 0) for (const o of [-3, 3]) { const r = add({ tx0: p.x - Math.sin(p.a) * o, ty0: p.y + Math.cos(p.a) * o, ta: p.a, l: L * .7, z: .25 }, 4, i / P.length); r.ri = i; r.ro = o; G.main.push(r); } });
   // date-cell panels inside body (7 x 3)
   for (let r = 0; r < 3; r++) for (let c = 0; c < 7; c++) { const x = ox + (4.4 + c * 2.2) * sc, y = oy + (12.4 + r * 2.6) * sc;
-    add({ tx0: x, ty0: y, ta: 0, l: sc * 1.15, kind: (r * 7 + c) % 9 === 4 ? 4 : 3, hot: (r * 7 + c) === 11, z: .6 }, 5, (r * 7 + c) / 21); }
+    G.g5.push(add({ tx0: x, ty0: y, ta: 0, l: sc * 1.15, kind: (r * 7 + c) % 9 === 4 ? 4 : 3, hot: (r * 7 + c) === 11, z: .6 }, 5, (r * 7 + c) / 21)); }
   // data strip under header: tiny bars
-  for (let i = 0; i < 28; i++) { const h = 3 + Math.abs(Math.sin(i * 1.7)) * sc * 1.2; add({ tx0: ox + (3.6 + i * .6) * sc, ty0: oy + 8.2 * sc - h / 2, ta: Math.PI / 2, l: h, z: .7 }, 5, i / 28); }
+  for (let i = 0; i < 28; i++) { const h = 3 + Math.abs(Math.sin(i * 1.7)) * sc * 1.2; G.g5.push(add({ tx0: ox + (3.6 + i * .6) * sc, ty0: oy + 8.2 * sc - h / 2, ta: Math.PI / 2, l: h, z: .7 }, 5, i / 28)); }
+  G.g5.forEach(f => { f.c0 = { x: f.tx0, y: f.ty0, a: f.ta, k: f.kind, l: f.l, hot: f.hot }; });
   // free debris (never assembles; orbits)
   for (let i = 0; i < 140 * q + 30; i++) { const f = add({ l: M.rnd(2, 7), kind: Math.random() < .15 ? 2 : Math.random() < .2 ? 1 : 0, txt: (Math.random() * 99 | 0).toString().padStart(2, '0'), z: Math.random() * .4, dr: M.rnd(1.08, 1.5), dth: M.rnd(0, 6.3), dsp: M.rnd(-.06, .06) }, 9, 1); }
   T0 = performance.now();
@@ -55,5 +57,16 @@ function update(S, now, c) {
   if (!opt.noStatus) ctx.fillText(`ASSEMBLY ${String(Math.round(ok / F.length * 100)).padStart(3, '0')}%  ·  PARTS ${F.length}`, S.R.x, S.R.y + S.R.h + 26);
   return ok / F.length;
 }
-return { build, update, explode: () => { explodeAt = performance.now(); }, get C() { return C; }, get F() { return F; } };
+// morph the centre emblem into another service icon (fragments re-target along the new path)
+function setIcon(key, now = performance.now()) {
+  if (!G || key === cur || !ICONS[key]) return; cur = key;
+  const P = cache[key] || (cache[key] = M.sample(ICONS[key], G.nMain, G.sc, G.ox, G.oy)), n = P.length;
+  const kick = f => { f.locked = 0; f.vx += M.rnd(-2.5, 2.5); f.vy += M.rnd(-2.5, 2.5); f.hold = now + f.order * 420; };
+  for (const f of G.main) { const p = P[f.ri]; f.tx0 = p.x - Math.sin(p.a) * f.ro; f.ty0 = p.y + Math.cos(p.a) * f.ro; f.ta = p.a; kick(f); }
+  G.g5.forEach((f, j) => {
+    if (key === 'calendar') { const o = f.c0; f.tx0 = o.x; f.ty0 = o.y; f.ta = o.a; f.kind = o.k; f.l = o.l; f.hot = o.hot; }
+    else { const p = P[(j * 37) % n], dx = C.cx - p.x, dy = C.cy - p.y, d = Math.hypot(dx, dy) || 1, off = 5 + (j % 3) * 3; f.tx0 = p.x + dx / d * off; f.ty0 = p.y + dy / d * off; f.ta = p.a; f.kind = j % 6 ? 0 : 4; f.l = G.sc * (j % 6 ? .5 : .55); f.hot = 0; }
+    kick(f); });
+}
+return { build, update, setIcon, explode: () => { explodeAt = performance.now(); }, get C() { return C; }, get F() { return F; }, get icon() { return cur; } };
 }

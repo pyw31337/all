@@ -1,13 +1,20 @@
 // Main hero (from lab 11) · Assembly + living graph: emblem (hero-8) with 360 nodes that scatter → cluster per project → dock onto the ring
-import * as M from './mech.js?v=20261028-18'; import * as U from './hud.js?v=20261105-3'; import { emblem } from './emblem.js?v=20261105-3';
-const E = emblem({ z: .33, noStatus: 1 }); const K = U.PK.length; let N = [], p = 0, boom = 0;
+import * as M from './mech.js?v=20261028-18'; import * as U from './hud.js?v=20261105-3'; import { emblem } from './emblem.js?v=20261105-4';
+const E = emblem({ z: .33, noStatus: 1 }); const K = U.PK.length; let N = [], p = 0, boom = 0, cur = 0, lastSw = 0, pinUntil = 0, hov = -1;
+// which project hub sits under a point (hover/tap); returns index or -1
+const hubAt = (x, y) => { const r = S.mob ? 26 : 22; let k = -1, bd = r * r; for (let i = 0; i < K && i < N.length; i++) { const h = N[i], d = (h.x - x) ** 2 + (h.y - y) ** 2; if (d < bd) { bd = d; k = i; } } return k; };
+const pick = (i, now) => { cur = i; lastSw = now; pinUntil = now + 6000; };
 const S = M.stage(S => { E.build(S); const R = S.R, n = Math.round(360 * S.q); N = [];
   for (let i = 0; i < n; i++) N.push({ i, m: i % K, hub: i < K, x: R.x + Math.random() * R.w, y: R.y + Math.random() * R.h, vx: 0, vy: 0, hx: R.x + Math.random() * R.w, hy: R.y + Math.random() * R.h, ph: Math.random() * 6.3, lit: 0, k: (i / K) | 0 }); });
-S.onDown = () => { E.explode(); const C = E.C; N.forEach(o => { const a = Math.atan2(o.y - C.cy, o.x - C.cx); o.vx += Math.cos(a) * M.rnd(8, 24); o.vy += Math.sin(a) * M.rnd(8, 24); }); boom = performance.now(); };
+S.onDown = () => { const h = hubAt(S.mx, S.my); if (h >= 0) { pick(h, performance.now()); return; } E.explode(); const C = E.C; N.forEach(o => { const a = Math.atan2(o.y - C.cy, o.x - C.cx); o.vx += Math.cos(a) * M.rnd(8, 24); o.vy += Math.sin(a) * M.rnd(8, 24); }); boom = performance.now(); };
 const tick = now => {
   const ctx = S.ctx, t = now / 1000, R = S.R, C = E.C; ctx.clearRect(0, 0, S.W, S.H); M.bg(S);
   const c = M.cursor(S, now, t => [.5 + .48 * Math.sin(t * .3), .5 + .32 * Math.cos(t * .8)]);
   if (M.RM) { c.x = c.y = -1e4; }
+  hov = c.idle ? -1 : hubAt(c.x, c.y); S.host.style.cursor = hov >= 0 ? 'pointer' : '';
+  if (hov >= 0 && hov !== cur) pick(hov, now);
+  if (!M.RM && hov < 0 && now > pinUntil && now - lastSw > 4000 && now - (tick.t0 || (tick.t0 = now)) > 4200) { cur = (cur + 1) % K; lastSw = now; }
+  E.setIcon(U.PK[cur], now);
   const tg = M.RM ? 2 : S.mob ? M.cl((c.x - R.x) / R.w) * 2 : M.cl((c.x - S.W * .36) / (S.W * .58)) * 2; p += (tg - p) * .04; const k = Math.min(1, Math.floor(p)), fr = M.easeIO(M.cl(p - k));
   const per = Math.ceil(N.length / K), hubR = C.Z * 1.32; let best = null, bd = 1e9;
   for (const o of N) {
@@ -27,7 +34,10 @@ const tick = now => {
   E.update(S, now, c);
   ctx.beginPath(); for (const o of N) if (!o.hub) { const r = (o.i % 5 ? 1.2 : 2) * (1 + o.lit); ctx.moveTo(o.x + r, o.y); ctx.arc(o.x, o.y, r, 0, 6.29); } ctx.fillStyle = U.nav(.6); ctx.fill();
   ctx.beginPath(); for (const o of N) if (o.lit > .4 && !o.hub) { ctx.moveTo(o.x + 3, o.y); ctx.arc(o.x, o.y, 3, 0, 6.29); } ctx.fillStyle = U.orange(.9); ctx.fill();
-  hubs.forEach((h, i) => { ctx.fillStyle = '#fff'; ctx.strokeStyle = '#1F3A8A'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(h.x, h.y, 5, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = U.nav(.75); ctx.font = U.mono(8); const lf = h.x < C.cx - 8; ctx.textAlign = lf ? 'right' : 'left'; ctx.fillText(`P-0${i + 1} ${U.PN[i]}`, h.x + (lf ? -9 : 9), h.y - 7); });
+  hubs.forEach((h, i) => { const on = i === cur; ctx.fillStyle = on ? '#FF8A1F' : '#fff'; ctx.strokeStyle = on ? '#FF8A1F' : '#1F3A8A'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(h.x, h.y, on ? 6.5 : 5, 0, 7); ctx.fill(); ctx.stroke();
+    if (on) { ctx.strokeStyle = U.orange(.45); ctx.beginPath(); ctx.arc(h.x, h.y, 11 + Math.sin(now / 240) * 2, 0, 7); ctx.stroke(); }
+    ctx.fillStyle = on ? '#FF8A1F' : U.nav(.75); ctx.font = U.mono(on ? 9 : 8); const lf = h.x < C.cx - 8; ctx.textAlign = lf ? 'right' : 'left'; ctx.fillText(`P-0${i + 1} ${U.PN[i]}`, h.x + (lf ? -11 : 11), h.y - 8); });
+  ctx.fillStyle = U.nav(.8); ctx.font = U.mono(S.mob ? 9 : 10); ctx.textAlign = 'center'; ctx.fillText(`P-0${cur + 1} · ${U.PN[cur]}`, C.cx, C.cy + C.Z * .66);
   if (best) { const o = best; ctx.strokeStyle = '#FF8A1F'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(o.x, o.y, 9, 0, 7); ctx.moveTo(o.x - 16, o.y); ctx.lineTo(o.x - 11, o.y); ctx.moveTo(o.x + 11, o.y); ctx.lineTo(o.x + 16, o.y); ctx.moveTo(o.x, o.y - 16); ctx.lineTo(o.x, o.y - 11); ctx.stroke(); ctx.fillStyle = '#111418'; ctx.font = U.mono(9); ctx.textAlign = 'left'; ctx.fillText(`R-${String(o.i).padStart(4, '0')} · P-0${o.m + 1}`, o.x + 14, o.y - 10); }
   U.rulers(S, c.idle ? { x: -1e4 } : c, now);
   if (!S.mob) ctx.fillStyle = U.nav(.6), ctx.font = U.mono(9), ctx.textAlign = "left", ctx.fillText(`PHASE ${Math.round(p) + 1}/3 · ${['SCATTERED', 'CLUSTERED', 'DOCKED'][Math.round(p)]} · NODES ${N.length} · PARTS ${E.F.length}`, R.x, R.y + R.h + 28);

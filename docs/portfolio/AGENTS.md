@@ -102,5 +102,6 @@
 - 렛츠 헤어 썸네일 `hair-main.webp`(예약 화면 + 스타일 히어로).
 
 ## v14 (2026-11-05) — 히어로 아이콘 모프
+- 아이콘(2026-11-05 확정): 컬처플로우 = 무대 커튼+별, 렛츠 픽 = 커서+선택 영역 (키 이름은 ticket·dropper 유지).
 - `emblem.setIcon(key)`: 중앙 아이콘 조각(group 4·5)이 새 아이콘 경로로 재타깃되어 흐르듯 변형(order 기반 지연). 아이콘 경로는 `js/hero/icons.js`(PK 순서: calendar·tent·cctv·ticket·dropper·scissors·news).
 - `hero.js`: 4초마다 자동 순환, 허브 노드 호버(모바일은 탭) 시 해당 서비스로 전환 후 6초 고정. 활성 허브는 오렌지, 아이콘 아래 `P-0n · 이름` 라벨. reduced-motion에서는 순환 없음.

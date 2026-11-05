@@ -1,5 +1,5 @@
 // 8 · Assembly: hundreds of mechanical fragments fly in and interlock into a calendar/data emblem
-import { ICONS } from './icons.js?v=20261105-4';
+import { ICONS } from './icons.js?v=20261105-6';
 import * as M from './mech.js?v=20261028-18';
 // factory version of hero-8 emblem (used by hero-8, 11, 13)
 export function emblem(opt = {}) {

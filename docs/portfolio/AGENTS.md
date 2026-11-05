@@ -2,6 +2,7 @@
 
 ## 읽는 순서
 1. `INTERVIEW.md` — 원천 데이터(본인 발언)
+   - `DESIGN_GUIDE.md` — 본인의 디자인 원칙 10가지·완료 검증표 (모든 작업의 기준)
 2. `ANALYSIS.md` — 인물 분석, 관계도, 히어로 카피 후보, 서사 아웃라인
 3. `RESUME.md` — 경력 전체(★ = 부각)
 4. `DESIGN_DIRECTION.md` — 레퍼런스와 페이지 구조
@@ -80,3 +81,10 @@
 - 알려진 이슈: hero-6 lab 겹침은 lab 전용(무시). 헤드라인의 '비즈니스'는 표준어 '비즈니스'와 다른 의도된 표기 — 사용자 확인 전 변경 금지.
 - 특허는 "출원 2건"으로만 표기(등록 표현 금지). 소속명은 "코리아센터 디자인UX본부". 개발 스택은 퍼블리싱 보조 역량으로만.
 - 이메일: data-m(문자코드+7, 역순)으로 저장, 신뢰된 클릭 시에만 조합. 평문/분할 표기 금지.
+
+## v11 handoff (2026-11-05)
+- 신규 섹션 `#principles`(03): `.pr-grid` 카드 6개(인라인 SVG 미니 그래픽, `.is-in` 시 애니메이션), `.flow6` 일하는 방식 6단계, `.duo` Designer × AI, 인용. CSS는 portfolio.css 하단 `v11 · Principles` 블록.
+- 섹션 번호: 경력 04 / 프로젝트 05(js `05-${...}`) / 프로필 06. 캐시 버전 `20261105-1`.
+- 프로젝트: `news`(status 'beta' → 카드에 `.badge--beta`), `hair`는 스타일 카탈로그 반영(screenshot `hair-studio.webp`). 카테고리 `insight` 추가.
+- 뉴스보드 GitHub 링크는 공개 여부 미확인으로 null — 공개 레포면 `githubUrl` 채울 것.
+- 원칙 문구는 DESIGN_GUIDE.md와 INTERVIEW §14 기준. 개발자 프레이밍 금지 원칙 유지('구현'은 AI 쪽에만 표기).

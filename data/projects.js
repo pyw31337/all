@@ -8,7 +8,8 @@ export const CATEGORIES = [
   { id: 'culture', label: '문화 & 라이프', icon: 'ticket' },
   { id: 'mobility', label: '모빌리티 & 인프라', icon: 'video' },
   { id: 'tools', label: '생산성 & 도구', icon: 'tool' },
-  { id: 'lifestyle', label: '가족 & 라이프', icon: 'heart' }
+  { id: 'lifestyle', label: '가족 & 라이프', icon: 'heart' },
+  { id: 'insight', label: '뉴스 & 인사이트', icon: 'chart' }
 ];
 
 export const PROJECTS = [
@@ -354,16 +355,16 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     slug: 'hair',
     title: '렛츠 헤어',
     titleEn: "Let's Hair",
-    summaryEn: "10-second, sign-up-free booking for neighborhood salons.",
-    intent: "링크 하나로 10초 만에 끝나는 무가입 미용실 예약",
-    why: "20년째 미용실을 하시는 어머니가 시술 중에도 전화 예약을 받는 모습을 보고 만들었습니다.",
-    benefit: "1인 가게의 온라인 예약을 링크 하나, 가입 없이, 몇 번의 터치로 끝나도록 줄였습니다.",
+    summaryEn: "Sign-up-free booking, plus a 360° style catalog for consultations.",
+    intent: "무가입 10초 예약에, 고객과 미용사가 같은 그림을 보는 스타일 카탈로그를 더한 미용실 서비스",
+    why: "20년째 미용실을 하시는 어머니가 시술 중에도 전화 예약을 받는 모습을 보고 시작했습니다. 상담은 여전히 말과 사진 몇 장에 기대는 아날로그 방식이었습니다.",
+    benefit: "예약은 링크 하나로 끝나고, 상담은 모발 상태에서 출발해 기장·앞머리·컬러를 단계별로 쌓으며 360°로 확인합니다. 미용사와 고객이 하나의 지향점을 봅니다.",
     releaseDate: '24.03.28',
     category: 'tools',
     categoryLabel: '생산성 & 도구',
     status: 'live',
     statusLabel: '운영 중',
-    badge: '무가입 10초 예약',
+    badge: '예약 + 360° 스타일 카탈로그',
     accentColor: '#f43f5e', // rose
     accentGlow: 'rgba(244, 63, 94, 0.35)',
     gradient: 'linear-gradient(135deg, #e11d48 0%, #fb7185 100%)',
@@ -390,7 +391,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
       }
     ],
     techStack: ['Vanilla JS', 'Firebase Firestore', 'CSS 3D Flip', 'PWA', 'GitHub Pages'],
-    stats: '무가입 10초 예약 · 멀티 SaaS',
+    stats: '무가입 예약 · 스타일 카탈로그 구축 중',
     story: {
       problem: '시술 중 걸려오는 예약 문의 전화로 작업 흐름이 끊기고, 문자 조율의 번거로움과 상용 솔루션의 고가 수수료 부담이 있었습니다.',
       solution: '로그인 없는 링크형 예약과 실시간 Firestore 동기화, 뒷번호 간편 취소, 멀티 숍 무료 개설 시스템을 구축했습니다.',
@@ -414,8 +415,38 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     },
     url: 'https://pyw31337.github.io/hair/?shop=jhair',
     githubUrl: 'https://github.com/pyw31337/hair',
-    screenshot: 'assets/screenshots/hair.webp',
+    screenshot: 'assets/screenshots/hair-studio.webp',
     iconPath: 'assets/icons/framed/jhair.png',
+    featured: false
+  },
+  {
+    id: 'news',
+    slug: 'news',
+    title: '뉴스보드',
+    titleEn: 'NewsBoard',
+    summaryEn: 'Today\'s top issues, and the timeline behind them.',
+    intent: '꼭 알아야 할 오늘의 이슈를 고르고, 인물·사건을 시간축으로 잇는 뉴스 보드',
+    why: '정치나 사건은 오늘 하루만 봐서는 맥락이 보이지 않았습니다. 같은 인물의 과거와 오늘의 발언이 일치하는지, 예상과 결과가 왜 달라졌는지 따라가고 싶었습니다.',
+    benefit: '타임라인으로 원인과 결과를 이해하고, 게임처럼 만지며 읽어 뉴스가 어렵지 않게 됩니다. 공인의 발언과 행적을 기록하는 인물 사전으로 넓혀 갈 계획입니다.',
+    category: 'insight',
+    categoryLabel: '뉴스 & 인사이트',
+    status: 'beta',
+    statusLabel: '제작 중',
+    badge: '만지는 뉴스',
+    accentColor: '#ef4444',
+    summary: '포털에서 가장 많이 회자된 오늘의 이슈 10개와, 인물·장소·사건을 따라가는 타임라인',
+    description: `매일 쏟아지는 뉴스 중 화제성을 기준으로 꼭 봐야 할 이슈를 고르고, 인물·사건의 연속성을 타임라인으로 잇습니다.
+퀴즈·스크래치·찬반처럼 손으로 만지는 모듈로 뉴스를 쉽게 읽도록 실험하고 있습니다.`,
+    highlights: [
+      { icon: 'chart', title: '화제성 기반 오늘의 이슈', desc: '관련 기사 수·언론사 수·댓글로 화제도를 매겨 꼭 알아야 할 10개를 고릅니다.' },
+      { icon: 'refresh', title: '인물·사건 타임라인', desc: '과거와 오늘의 발언, 예상과 결과를 한 축에 놓아 일관성과 인과를 봅니다.' },
+      { icon: 'sparkles', title: '만지는 뉴스', desc: '스크래치·찬반 투표·퀴즈 등 게임 요소로 뉴스를 어렵지 않게 만듭니다.' }
+    ],
+    techStack: [],
+    stats: '오늘의 이슈 10 · 타임라인',
+    url: 'https://pyw31337.github.io/news/',
+    githubUrl: null,
+    screenshot: 'assets/screenshots/news.webp',
     featured: false
   },
   {

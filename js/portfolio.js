@@ -58,14 +58,14 @@ $('#featured').innerHTML = featured.map((p, i) => `
     <a class="fp__shot" ${p.url ? `href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"` : ''} aria-label="${esc(p.title)} 화면">
       ${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : ''}
     </a>
-    <div class="fp__body"><span class="fp__no">04-${i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
+    <div class="fp__body"><span class="fp__no">05-${i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
   </article>`).join('');
 
 $('#others').innerHTML = others.map((p, i) => `
   <article class="op reveal ${p.status === 'archived' ? 'is-archived' : ''}" style="--accent:${esc('var(--brand)')}">
     <div class="op__shot">${p.screenshot ? `<img src="${esc(p.screenshot)}" alt="${esc(p.title)} 서비스 화면" loading="lazy" decoding="async">` : `<div class="op__ph" aria-hidden="true"><span>${esc(p.titleEn || p.title)}</span></div>`}
-      ${p.status === 'archived' ? `<span class="badge">Archived · ${esc(p.badge || '')}</span>` : ''}</div>
-    <div class="op__body"><span class="fp__no op__no">04-${featured.length + i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
+      ${p.status === 'archived' ? `<span class="badge">Archived · ${esc(p.badge || '')}</span>` : ''}${p.status === 'beta' ? `<span class="badge badge--beta">${esc(p.statusLabel || 'Beta')} · ${esc(p.badge || '')}</span>` : ''}</div>
+    <div class="op__body"><span class="fp__no op__no">05-${featured.length + i + 1}</span>${head(p)}${rows(p)}${links(p)}</div>
   </article>`).join('');
 
 /* Ontology: living force-directed graph (canvas, no libs) */

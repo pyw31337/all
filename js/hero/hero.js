@@ -1,17 +1,17 @@
 // Main hero (from lab 11) · Assembly + living graph: emblem (hero-8) with 360 nodes that scatter → cluster per project → dock onto the ring
-import * as M from './mech.js?v=20261028-18'; import * as U from './hud.js?v=20261028-18'; import { emblem } from './emblem.js?v=20261028-18';
-const E = emblem({ z: .33, noStatus: 1 }); let N = [], p = 0, boom = 0;
+import * as M from './mech.js?v=20261028-18'; import * as U from './hud.js?v=20261105-3'; import { emblem } from './emblem.js?v=20261105-3';
+const E = emblem({ z: .33, noStatus: 1 }); const K = U.PK.length; let N = [], p = 0, boom = 0;
 const S = M.stage(S => { E.build(S); const R = S.R, n = Math.round(360 * S.q); N = [];
-  for (let i = 0; i < n; i++) N.push({ i, m: i % 6, hub: i < 6, x: R.x + Math.random() * R.w, y: R.y + Math.random() * R.h, vx: 0, vy: 0, hx: R.x + Math.random() * R.w, hy: R.y + Math.random() * R.h, ph: Math.random() * 6.3, lit: 0, k: (i / 6) | 0 }); });
+  for (let i = 0; i < n; i++) N.push({ i, m: i % K, hub: i < K, x: R.x + Math.random() * R.w, y: R.y + Math.random() * R.h, vx: 0, vy: 0, hx: R.x + Math.random() * R.w, hy: R.y + Math.random() * R.h, ph: Math.random() * 6.3, lit: 0, k: (i / K) | 0 }); });
 S.onDown = () => { E.explode(); const C = E.C; N.forEach(o => { const a = Math.atan2(o.y - C.cy, o.x - C.cx); o.vx += Math.cos(a) * M.rnd(8, 24); o.vy += Math.sin(a) * M.rnd(8, 24); }); boom = performance.now(); };
 const tick = now => {
   const ctx = S.ctx, t = now / 1000, R = S.R, C = E.C; ctx.clearRect(0, 0, S.W, S.H); M.bg(S);
   const c = M.cursor(S, now, t => [.5 + .48 * Math.sin(t * .3), .5 + .32 * Math.cos(t * .8)]);
   if (M.RM) { c.x = c.y = -1e4; }
   const tg = M.RM ? 2 : S.mob ? M.cl((c.x - R.x) / R.w) * 2 : M.cl((c.x - S.W * .36) / (S.W * .58)) * 2; p += (tg - p) * .04; const k = Math.min(1, Math.floor(p)), fr = M.easeIO(M.cl(p - k));
-  const per = Math.ceil(N.length / 6), hubR = C.Z * 1.32; let best = null, bd = 1e9;
+  const per = Math.ceil(N.length / K), hubR = C.Z * 1.32; let best = null, bd = 1e9;
   for (const o of N) {
-    const ang = o.m / 6 * 6.283 - 1.57 + t * .03, hx = C.cx + Math.cos(ang) * hubR, hy = C.cy + Math.sin(ang) * hubR;
+    const ang = o.m / K * 6.283 - 1.57 + t * .03, hx = C.cx + Math.cos(ang) * hubR, hy = C.cy + Math.sin(ang) * hubR;
     const g = 2.39996 * o.k, rr = Math.sqrt(o.k) * (S.mob ? 2.4 : 3.6), A0 = [o.hx + Math.cos(t * .5 + o.ph) * 12, o.hy + Math.sin(t * .6 + o.ph) * 12];
     const A1 = o.hub ? [hx, hy] : [hx + Math.cos(g + t * .1) * rr, hy + Math.sin(g + t * .1) * rr];
     const ra = (o.i / N.length) * 6.283 + t * .05, A2 = o.hub ? [C.cx + Math.cos(ang) * C.Z * 1.18, C.cy + Math.sin(ang) * C.Z * 1.18] : [C.cx + Math.cos(ra) * C.Z * (1.06 + (o.i % 3) * .035), C.cy + Math.sin(ra) * C.Z * (1.06 + (o.i % 3) * .035)];
@@ -21,7 +21,7 @@ const tick = now => {
     o.lit *= .94; const st = now - boom < 500 ? .01 : .05 + (o.i % 7) * .006; o.vx = (o.vx + (tx - o.x) * st) * .8; o.vy = (o.vy + (ty - o.y) * st) * .8; o.x += o.vx; o.y += o.vy;
   }
   // links: member→hub (phase 0–1), hub→emblem center spokes
-  const hubs = N.slice(0, 6), la = .06 + .22 * (1 - Math.abs(p - 1)); ctx.strokeStyle = U.nav(la); ctx.lineWidth = .5; ctx.beginPath();
+  const hubs = N.slice(0, K), la = .06 + .22 * (1 - Math.abs(p - 1)); ctx.strokeStyle = U.nav(la); ctx.lineWidth = .5; ctx.beginPath();
   for (const o of N) { if (o.hub) continue; const h = hubs[o.m]; if (Math.abs(o.x - h.x) + Math.abs(o.y - h.y) < 160) { ctx.moveTo(h.x, h.y); ctx.lineTo(o.x, o.y); } } ctx.stroke();
   ctx.strokeStyle = U.nav(.35); ctx.setLineDash([3, 4]); ctx.beginPath(); hubs.forEach(h => { ctx.moveTo(h.x, h.y); ctx.lineTo(C.cx + (h.x - C.cx) * .78, C.cy + (h.y - C.cy) * .78); }); ctx.stroke(); ctx.setLineDash([]);
   E.update(S, now, c);

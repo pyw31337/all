@@ -151,9 +151,10 @@ $('#others').innerHTML = others.map((p, i) => `
     cctv: [830, 110, '렛츠 뷰', "Let's View", ''],
     pick: [110, 300, '렛츠 픽', "Let's Pick", 'tool'],
     hair: [830, 470, '렛츠 헤어', "Let's Hair", 'tool'],
+    news: [110, 470, '뉴스보드', 'NewsBoard · beta', ''],
   };
-  const E = [['limery', 'calendar', '범위를 소모임으로 축소', 1], ['culture', 'calendar', '주변 행사', 1], ['culture', 'camp', '지역 행사', 1], ['cctv', 'camp', '교통·날씨 맥락', 0]];
-  let s = `<svg viewBox="0 0 940 560" aria-label="라임리에서 렛츠 캘린더로, 컬처플로우가 렛츠 캘린더와 렛츠 캠핑에 연동되는 서비스 관계도" role="img">`;
+  const E = [['limery', 'calendar', '범위를 소모임으로 축소', 1], ['culture', 'calendar', '주변 행사', 1], ['culture', 'camp', '지역 행사', 1], ['cctv', 'camp', '교통·날씨 맥락', 0], ['calendar', 'news', '시간축 설계', 0]];
+  let s = `<svg viewBox="0 0 940 560" aria-label="라임리에서 렛츠 캘린더로, 컬처플로우가 렛츠 캘린더와 렛츠 캠핑에 연동되고, 렛츠 캘린더의 시간축 설계가 뉴스보드로 이어지는 서비스 관계도" role="img">`;
   E.forEach(([a, b, t, solid], i) => {
     const [x1, y1] = N[a], [x2, y2] = N[b];
     s += `<path class="l-edge ${solid ? '' : 'is-dashed'}" style="--d:${i * .2}s" d="M${x1},${y1} C${(x1 + x2) / 2},${y1} ${(x1 + x2) / 2},${y2} ${x2},${y2}"/>`;

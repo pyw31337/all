@@ -9,6 +9,7 @@ export const ICONS = {
   bars: 'M3 21V3 M3 21h18 M7 18v-4 M11 18V9 M15 18v-6 M19 18V5',
   line: 'M2 19 8 11l4 3.5 9-10 M17 4.5h4v4',
   pie: 'M12 3a9 9 0 1 0 9 9h-9z M14 1.8a8 8 0 0 1 8 8h-8z',
+  news: 'M4 4h13v16H4z M17 8h3v10a2 2 0 0 1-2 2 M7 8h7 M7 12h7 M7 16h4',
 };
-export const LABELS = { calendar: '렛츠 캘린더', tent: '렛츠 캠핑', cctv: '렛츠 뷰', ticket: '컬처플로우', dropper: '렛츠 픽', scissors: '렛츠 헤어', comb: '렛츠 헤어', bars: '가계부', line: '인사이트', pie: '지출' };
+export const LABELS = { calendar: '렛츠 캘린더', tent: '렛츠 캠핑', cctv: '렛츠 뷰', ticket: '컬처플로우', dropper: '렛츠 픽', scissors: '렛츠 헤어', comb: '렛츠 헤어', bars: '가계부', line: '인사이트', pie: '지출', news: '뉴스보드' };
 export const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;

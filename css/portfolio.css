@@ -131,7 +131,7 @@ small{display:block}
 .lineage.is-in .l-edge{animation:draw 1.6s var(--ease) var(--d) forwards}
 .l-edge.is-dashed{stroke:var(--ink3);stroke-width:1.5}
 .lineage.is-in .l-edge.is-dashed{animation:none;stroke-dasharray:5 7;stroke-dashoffset:0}
-.l-label{fill:var(--ink3);font:600 13px var(--font);text-anchor:middle}
+.l-label{fill:var(--ink3);font:600 13px var(--font);text-anchor:middle;paint-order:stroke;stroke:var(--card);stroke-width:6px;stroke-linejoin:round}
 .l-node rect{fill:var(--bg2);stroke:var(--line);stroke-width:1.5;transition:stroke .3s}
 .l-node:hover rect{stroke:var(--accent)}
 .l-node text{fill:var(--ink);font:700 17px var(--font);text-anchor:middle}.l-node text.e{fill:var(--ink3);font-size:12px;font-weight:500}

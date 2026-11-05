@@ -1,7 +1,7 @@
 // HUD primitives for hero 11–14 (thin navy lines, orange only for locks)
 import * as M from './mech.js?v=20261028-18';
-import { LABELS } from './icons.js?v=20261028-18';
-export const PK = ['calendar', 'tent', 'cctv', 'ticket', 'dropper', 'scissors'];
+import { LABELS } from './icons.js?v=20261105-3';
+export const PK = ['calendar', 'tent', 'cctv', 'ticket', 'dropper', 'scissors', 'news'];
 export const PN = PK.map(k => LABELS[k]);
 const NAV = a => `rgba(31,58,138,${a})`, OR = a => `rgba(255,138,31,${a})`, MONO = s => `${s}px ui-monospace,Menlo,monospace`;
 export const type = (s, p) => s.slice(0, Math.max(0, Math.round(s.length * M.cl(p))));

@@ -567,3 +567,20 @@ mark.hlm{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){.v-loop .dot{animation:none}.v-dev .b,.v-cut .ln,.v-cut .info{transition:none}}
 [data-theme=dark] .flow6__ic{background:var(--card)}
 [data-theme=dark] .duo__c{background:var(--bg2)}
+
+/* ===== v12 · quieter English, profile ===== */
+:root{--en:#A3A9B4}
+[data-theme=dark]{--en:#6B7280}
+.sec-head__en{font-size:clamp(13px,1.05vw,15px);color:var(--en);margin-top:12px;font-weight:400}
+.chapter h3 small,.pr h3 small,.pcard h4 small,.ct__body h5 small[lang=en]{font-size:11.5px;color:var(--en);font-weight:400}
+.pen{font-size:13px;color:var(--en)}
+.onto .en,.lineage .en{color:var(--en)!important;font-size:13px!important}
+.quote footer[lang=en],blockquote footer[lang=en]{font-size:13px;color:var(--en)}
+.nav__links small{font-size:10px;opacity:.5}
+.mnav a small{font-size:11px;color:var(--en)}
+.btn span[lang]{opacity:.5}
+.profile__lead-en,.bx--intro .profile__lead-en{font-size:13px;opacity:.7}
+.hero__en{font-size:clamp(13px,1.15vw,16px);color:#8A909B}
+[data-theme=dark] .hero__en{color:#8A909B}
+.bx--tl .chips{margin-top:14px}
+.pr p{font-size:15.5px;color:var(--ink2)}

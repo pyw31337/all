@@ -1,5 +1,7 @@
 # AGENTS
 
+> **배포 규칙 (2026-11-05, 사용자 지시):** 작업이 완료되면 확인을 묻지 말고 바로 PR을 main에 머지해 배포한다. 배포 후 Actions 성공과 실제 사이트 반영을 확인해 보고한다.
+
 포트폴리오 리뉴얼 작업은 먼저 [`docs/portfolio/AGENTS.md`](docs/portfolio/AGENTS.md)를 읽으세요.
 
 

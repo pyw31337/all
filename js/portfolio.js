@@ -38,9 +38,9 @@ const others = PROJECTS.filter(p => !featured.includes(p));
 
 const rows = p => `
   <dl class="iwb">
-    <div><dt>의도<small lang="en">Intent</small></dt><dd>${esc(p.intent || p.summary)}</dd></div>
-    ${p.why ? `<div><dt>왜<small lang="en">Why</small></dt><dd>${esc(p.why)}</dd></div>` : ''}
-    ${p.benefit ? `<div><dt>이익<small lang="en">Benefit</small></dt><dd>${esc(p.benefit)}</dd></div>` : ''}
+    <div><dt>의도</dt><dd>${esc(p.intent || p.summary)}</dd></div>
+    ${p.why ? `<div><dt>왜</dt><dd>${esc(p.why)}</dd></div>` : ''}
+    ${p.benefit ? `<div><dt>이익</dt><dd>${esc(p.benefit)}</dd></div>` : ''}
   </dl>`;
 const links = p => `
   <div class="plinks">

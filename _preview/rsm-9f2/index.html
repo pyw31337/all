@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>[입사지원_디자이너 박영우]</title>
+  <meta property="og:title" content="[디자이너] 입사지원서_박영우">
+  <meta property="og:description" content="입사지원서/경력기술서/자기소개서 포함">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Passion+One:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f3ff;
+      color: #222;
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    .top-backdrop {
+      width: 100%;
+      height: 360px;
+      background-color: #8d7eff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .content_wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, 88%);
+      margin: 40px auto 64px;
+      background-color: #fff;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+    }
+    .bgcolor {
+      background-color: #8d7eff;
+      width: 100%;
+      min-height: 200px;
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      align-items: end;
+      padding: 0 40px 20px 0;
+      position: relative;
+    }
+    .profile-col {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .profile_img {
+      background-color: #fff;
+      background-image: url('../resume/profile_photo.jpg');
+      background-size: cover;
+      background-position: center -15px;
+      border-radius: 50%;
+      width: 196px;
+      height: 196px;
+      transform: translateY(96px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+      border: 4px solid #fff;
+    }
+    .header_wrap {
+      padding: 40px 0 6px 24px;
+    }
+    .header_eng {
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: -0.02em;
+      color: rgba(255, 255, 255, 0.92);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .header_kor {
+      font-size: clamp(32px, 3.6vw, 46px);
+      font-weight: 400;
+      color: #fff;
+      letter-spacing: -0.06em;
+      line-height: 1.15;
+      display: block;
+    }
+    .gray_bg {
+      width: 100%;
+      background-color: #f1f1f1;
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      padding: 28px 40px 28px 0;
+    }
+    .gray_left { min-height: 1px; }
+    .gray_right {
+      padding-left: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 24px;
+      min-width: 0;
+    }
+    .info-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      border-bottom: 1px solid #ddd;
+      padding: 13px 6px;
+      min-width: 0;
+    }
+    .info-row.full {
+      grid-column: 1 / -1;
+    }
+    .info-row .title.head {
+      flex: 0 0 76px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #333;
+    }
+    .info-row .txt {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-weight: 400;
+      font-size: 14px;
+      color: #222;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .pii-locked {
+      color: #777 !important;
+      font-size: 13px !important;
+    }
+    .unlock-row {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 6px 2px;
+    }
+    .unlock-label {
+      font-size: 13px;
+      color: #555;
+      margin-right: 4px;
+    }
+    .unlock-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+    .unlock-input {
+      padding: 7px 11px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 140px;
+      background: #fff;
+      font-family: inherit;
+    }
+    .unlock-btn {
+      padding: 8px 14px;
+      border: 1px solid #7464f0;
+      background: #7464f0;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .unlock-msg {
+      font-size: 12px;
+      color: #c62828;
+      width: 100%;
+    }
+
+    /* Body sections */
+    .sections-body {
+      padding: 16px 40px 0 0;
+    }
+    .gap {
+      width: 100%;
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      align-items: start;
+    }
+    .body_left_wrap {
+      padding-right: 40px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 22px;
+      font-weight: 400;
+    }
+    .body_left {
+      text-align: right;
+    }
+    .body_left1 {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: #8d7eff;
+      margin-bottom: 2px;
+    }
+    .body_right {
+      padding-left: 24px;
+      min-width: 0;
+    }
+    .border {
+      border-bottom: 1px solid #e5e5e5;
+      padding: 14px 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      min-width: 0;
+    }
+    .border:first-child { padding-top: 0; }
+    .title.body {
+      flex: 0 0 112px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .txt.body {
+      flex: 1 1 auto;
+      min-width: 0;
+      color: #666;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.55;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .portfolio-title {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .thumb {
+      flex: 0 0 100px;
+      width: 100px;
+      height: auto;
+      border-radius: 3px;
+      border: 1px solid #eee;
+      display: block;
+    }
+    .thumb-placeholder {
+      flex: 0 0 100px;
+      width: 100px;
+      height: 64px;
+      border-radius: 3px;
+      border: 1px dashed #d5d5d5;
+      background: #fafafa;
+      color: #999;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .btn {
+      flex: 0 0 auto;
+      color: #333;
+      border: 1px solid #ccc;
+      font-size: 12px;
+      padding: 6px 11px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      border-radius: 3px;
+      background: #fff;
+      align-self: center;
+    }
+    .btn.btn-primary {
+      width: 100%;
+      background-color: #333;
+      border: 0;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      padding: 16px 0;
+      text-align: center;
+    }
+    .btn_arrow {
+      font-weight: 900;
+      font-size: 10px;
+      vertical-align: middle;
+      margin-left: 14px;
+      color: #ff7e00;
+      font-family: 'Passion One', cursive;
+    }
+    .badge-archived {
+      flex: 0 0 auto;
+      font-size: 11px;
+      color: #999;
+      border: 1px solid #e2e2e2;
+      background: #fafafa;
+      padding: 4px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+      align-self: center;
+    }
+    .end { width: 100%; height: 96px; }
+
+    @media screen and (max-width: 768px) {
+      .top-backdrop { display: none; }
+      .content_wrap {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+      .bgcolor {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding: 28px 16px 24px;
+        min-height: 0;
+        gap: 14px;
+      }
+      .profile-col { order: 1; }
+      .profile_img {
+        width: 112px;
+        height: 112px;
+        transform: none;
+        background-position: center -8px;
+      }
+      .header_wrap {
+        order: 2;
+        padding: 0;
+      }
+      .header_kor {
+        font-size: clamp(24px, 7.2vw, 34px);
+        letter-spacing: -0.04em;
+      }
+      .gray_bg {
+        grid-template-columns: 1fr;
+        padding: 16px 16px 20px;
+      }
+      .gray_left { display: none; }
+      .gray_right {
+        padding-left: 0;
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .info-row .title.head { flex: 0 0 72px; font-size: 13px; }
+      .info-row .txt { font-size: 13px; }
+      .unlock-input { width: 100%; max-width: 170px; }
+
+      .sections-body { padding: 8px 16px 0; }
+      .gap {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+        gap: 12px;
+      }
+      .body_left_wrap {
+        justify-content: flex-start;
+        padding-right: 0;
+        font-size: 20px;
+      }
+      .body_left { text-align: left; }
+      .body_left1 {
+        display: inline-block;
+        margin-right: 6px;
+        font-size: 18px;
+      }
+      .body_right { padding-left: 0; }
+      .border {
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 4px;
+      }
+      .title.body {
+        flex: none;
+        width: 100%;
+        font-size: 13px;
+        color: #222;
+      }
+      .txt.body {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 13px;
+      }
+      .thumb, .thumb-placeholder {
+        width: 100%;
+        max-width: 280px;
+        flex: none;
+      }
+      .thumb-placeholder { height: 90px; }
+      .btn, .badge-archived {
+        width: 100%;
+        text-align: center;
+        margin-top: 6px;
+        padding: 10px 12px;
+      }
+      .end { height: 48px; }
+    }
+  </style>
+</head>
+<body>
+<div class="top-backdrop"></div>
+<div class="content_wrap">
+  <div class="bgcolor">
+    <div class="profile-col">
+      <div class="profile_img" role="img" aria-label="박영우 프로필 사진"></div>
+    </div>
+    <div class="header_wrap">
+      <span class="header_eng">DESIGNER Youngwoo Park</span>
+      <span class="header_kor">디자이너 입사지원서</span>
+    </div>
+  </div>
+
+  <div class="gray_bg">
+    <div class="gray_left"></div>
+    <div class="gray_right">
+      <div class="info-row">
+        <div class="title head">이름</div>
+        <div class="txt">박영우 (朴英于)</div>
+      </div>
+      <div class="info-row">
+        <div class="title head">생년월일</div>
+        <div class="txt pii-locked" id="pii-birth">🔒 비밀번호 확인 필요</div>
+      </div>
+      <div class="info-row">
+        <div class="title head">연락처</div>
+        <div class="txt pii-locked" id="pii-phone">🔒 비밀번호 확인 필요</div>
+      </div>
+      <div class="info-row">
+        <div class="title head">E-mail</div>
+        <div class="txt">pyw213@naver.com</div>
+      </div>
+      <div class="info-row full">
+        <div class="title head">주소</div>
+        <div class="txt pii-locked" id="pii-addr">🔒 비밀번호 확인 필요</div>
+      </div>
+      <div class="unlock-row" id="pii-unlock-box">
+        <span class="unlock-label">연락처·주소·생년월일은 보호되어 있습니다.</span>
+        <div class="unlock-controls">
+          <input id="pii-pw-input" class="unlock-input" type="password" inputmode="numeric" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter')unlockPii();" />
+          <button type="button" class="unlock-btn" onclick="unlockPii()">확인</button>
+        </div>
+        <div id="pii-pw-msg" class="unlock-msg"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sections-body">
+    <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">01.</span>
+                    <span>출신학교</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                    <div class="title body">중학교</div>
+                    <div class="txt body">부산 해운대구 '상당 중학교' (~01.02)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">고등학교</div>
+                    <div class="txt body">부산 해운대구 '해운대 고등학교' (~04.02)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">대학교</div>
+                    <div class="txt body">경기 이천시 '청강문화산업대학교' (~08.02)</div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">02.</span>
+                    <span>전공 및 성적</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                    <div  class="title body">전공</div>
+                    <div class="txt body">컴퓨터그래픽디자인</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">입학</div>
+                    <div class="txt body">'컴퓨터그래픽디자인과' 수석입학</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">1학년1학기</div>
+                    <div class="txt body">성적 장학생 1등 (평점 4.30/4.5)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">1학년2학기</div>
+                    <div class="txt body">성적 장학생 2등 (평점 4.05/4.5)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">2학년1학기</div>
+                    <div class="txt body">성적 장학생 1등 (평점 4.38/4.5)</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">03.</span>
+                    <span>업무스킬</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                    <div  class="title body">그래픽</div>
+                    <div class="txt body">Photoshop / Illustrator / Figma / After Effect / Premiere / Flash</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">기타</div>
+                    <div class="txt body">HTML5 / CSS3 / Jquery / Wordpress / Joomla / PHP / Mysql / Python </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">04.</span>
+                    <span>병역사항</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                    <div  class="title body">근무지</div>
+                    <div class="txt body">경기 파주시 육군 제6953부대 2기갑여단</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">주특기</div>
+                    <div class="txt body">사령부 경리과 관리회계병 만기전역 (~07.03)</div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">05.</span>
+                    <span>경력사항</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                    <div  class="title body">상당중학교</div>
+                    <div class="txt body">방과후 중학교 교사대상 '홈페이지 제작 강의' (HTML, Flash 등) (~99.07 / 3月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">청강대학교</div>
+                    <div class="txt body">학과 컴퓨터 시스템 관리 (~04.06 / 4月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">필묵</div>
+                    <div class="txt body">사이트 유지보수 및 캘리그라피 작업 서포트 인턴 (~05.02 / 3月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">필묵아트센터</div>
+                    <div class="txt body">'컴퓨터 그래픽 디자인 강의' (Photoshop, Illustrator, Flash 등) (~05.02 / 1月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">2기갑여단</div>
+                    <div class="txt body">'여단 경리회계 업무 시스템' 사이트 제작 (~05.07 / 2月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">필묵</div>
+                    <div class="txt body">사이트 유지보수 및 캘리그라피 작업 서포트 인턴 (~07.08 / 2月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">필묵</div>
+                    <div class="txt body">'Philmuk Art Shop' 개발 참여 (~07.08 / 2月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">캘리세상</div>
+                    <div class="txt body">캘리그라피 디자인 전문회사 '캘리세상' 공동 창업 (07.12 ~ 09.12 / 25月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">진경여고</div>
+                    <div class="txt body">전북익산 진경여고 방과후 '컴퓨터그래픽 특강' (Photoshop, Typography 등) (~07.09 / 1日間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">준영피엔피</div>
+                    <div class="txt body">경남양산 현대자동차 협력사 '부품도장'파트 QA 및 기사 재직 (08.10 ~ 09.01 / 3月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">대대에프씨</div>
+                    <div class="txt body">프랜차이즈 본사 '(주)대대에프씨(대대푸드원)' 마케팅팀 그래픽 디자이너 재직 (10.03 ~ 10.07 / 5月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">아트서비스</div>
+                    <div class="txt body">영화광고대행사 Flash 모션그래픽 / 액션스크립트 디자이너 재직 (10.07 수습 입사 ~ 12.01 / 19月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">코리아센터</div>
+                    <div class="txt body">이커머스 플랫폼 메이크샵·몰테일 서비스 UI/UX 최적화, 글로벌 커머스 비주얼 아이덴티티 강화 / 디자인UX본부 과장(팀장) (12.02 ~ 22.11 / 130月間)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">(주)크레소티</div>
+                    <div class="txt body">개발기획부 책임매니저 — 그룹웨어 통합 설계, 온·누리POS UI 고도화 및 온·오프라인 마케팅 비주얼 총괄 (22.12 ~ 재직중)</div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">06.</span>
+                    <span>업무성과</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                    <div  class="title body">대한상공회의소</div>
+                    <div class="txt body">워드프로세서 1급 취득 (01.12)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">부산시</div>
+                    <div class="txt body">기장군 청년회의소 주최 '홈페이지 경진대회' 금상 수상(02.12)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">대덕대학</div>
+                    <div class="txt body">산업부장관배 '21c 웹컨테스트' 장려상 수상 (02.06)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">디자인정글</div>
+                    <div class="txt body">UCC정글 웹디자인 부문 '명예의 전당' 등록 (08.04)</div>
+                    <span class="badge-archived">아카이브 만료</span>
+                </div>
+                <div class="border">
+                    <div  class="title body">도로교통공단</div>
+                    <div class="txt body">1종 보통 면허 취득 (08.10)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">도로교통공단</div>
+                    <div class="txt body">1종 대형 / 트레일러 특수 면허 취득 (09.10)</div>
+                </div>
+               <div class="border">
+                    <div  class="title body">맥스무비</div>
+                    <div class="txt body">플래시 배너광고 '명예의 전당' 다수 등록 (토르, 트랜스포머 등) (11.07)</div>
+                </div>
+                <div class="border">
+                    <div  class="title body">특허청</div>
+                    <div class="txt body">'유수분분리기능 접시' 특허출원 (13.03)</div>
+                </div>
+               <div class="border">
+                    <div  class="title body">특허청</div>
+                    <div class="txt body">'유수분분리기능 뚜껑' 특허출원 (14.03)</div>
+                </div>
+               <div class="border">
+                    <div  class="title body">현대홈쇼핑</div>
+                    <div class="txt body">'오리엔탈 브런치 세트(유수분분리기능 접시)' 첫 방송 45분 만에 1,200세트(약 1억 원) 완판 (14.08.27)</div>
+                    <div class="btn" onClick="openSafe('http://news.donga.com/3/all/20140902/66181871/1');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+               <div class="border">
+                    <div  class="title body">로컬파인더</div>
+                    <div class="txt body">'One-Day Trip 추천 서비스' 반응형 웹서비스 기획 및 디자인/개발 (17.12 / 서비스종료)</div>
+                    <span class="badge-archived">서비스 종료</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">07.</span>
+                    <span>포트폴리오</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                     <div class="btn btn-primary" onClick="openSafe('../cds/reference.php');">포트폴리오 목록 바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">PCweb</div>
+                    <div class="txt body"><span class="thumb-placeholder">ARCHIVED<br>2021</span><span class="portfolio-title">해외배송대행서비스 '몰테일' PC 웹디자인</span></div>
+                    <span class="badge-archived">아카이브 만료</span>
+                </div>
+                <div class="border">
+                    <div class="title body">PCweb</div>
+                    <div class="txt body"><img src="../resume/thumb/winnebago_1.jpg" class="thumb"><span class="portfolio-title">미국 정통형 No.1 모터홈 '위네바고 코리아' PC 웹디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/winnebago_pc');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">PCweb</div>
+                    <div class="txt body"><img src="../resume/thumb/caravantail_1.jpg" class="thumb"><span class="portfolio-title">카라반토탈서비스 '카라반테일' PC 웹디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/caravantail_pc');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">PCweb</div>
+                    <div class="txt body"><img src="../resume/thumb/hbeef_1.jpg" class="thumb"><span class="portfolio-title">횡성한우전문쇼핑몰 '횡성축협한우몰' PC 웹디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/hbeef_pc');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">MobileWeb</div>
+                    <div class="txt body"><img src="../resume/thumb/hbeef_2.jpg" class="thumb"><span class="portfolio-title">횡성한우전문쇼핑몰 '횡성축협한우몰' Mobile 웹디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/hbeef_mobile');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">PCweb</div>
+                    <div class="txt body"><img src="../resume/thumb/bluecoffee_1.jpg" class="thumb"><span class="portfolio-title">로스팅커피전문샵 '블루커피' PC 웹디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/bluecoffee_pc');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">PCweb</div>
+                    <div class="txt body"><img src="../resume/thumb/earphoneshop_1.jpg" class="thumb"><span class="portfolio-title">음향기기전문샵 '이어폰샵' PC 웹디자인 / 로고리뉴얼</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/earphoneshop_pc');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">MobileWeb</div>
+                    <div class="txt body"><img src="../resume/thumb/earphoneshop_2.jpg" class="thumb"><span class="portfolio-title">음향기기전문샵 '이어폰샵' Mobile 웹디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/earphoneshop_mobile');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">MobileWeb</div>
+                    <div class="txt body"><span class="thumb-placeholder">ARCHIVED<br>2021</span><span class="portfolio-title">해외직구전문몰 '테일리스트' Mobile 웹디자인</span></div>
+                    <span class="badge-archived">아카이브 만료</span>
+                </div>
+                <div class="border">
+                    <div class="title body">PCweb</div>
+                    <div class="txt body"><img src="../resume/thumb/monotimes_1.jpg" class="thumb"><span class="portfolio-title">럭셔리명품시계전문샵 '모노타임즈' PC 웹디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/monotimes_pc');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">MobileAPP</div>
+                    <div class="txt body"><span class="thumb-placeholder">ARCHIVED<br>2021</span><span class="portfolio-title"> K-Culture 역직구 플랫폼 'OK VIT' Mobile 앱디자인</span></div>
+                    <span class="badge-archived">아카이브 만료</span>
+                </div>
+                <div class="border">
+                    <div class="title body">MobileAPP</div>
+                    <div class="txt body"><img src="../resume/thumb/koreawhere_1.jpg" class="thumb"><span class="portfolio-title">중국인대상 한국여행 SNS '한국어디' Mobile 앱디자인</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/koreawhere_mobile');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div  class="title body">Motion</div>
+                    <div class="txt body"><img src="../resume/thumb/parttail.jpg" class="thumb"><span class="portfolio-title">수입차 부품 구매대행 서비스 '파트테일' 서비스 소개 영상</span></div>
+                    <div class="btn" onClick="openSafe('https://vimeo.com/232604333');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div  class="title body">Motion</div>
+                    <div class="txt body"><img src="../resume/thumb/db_1711_1.jpg" class="thumb"><span class="portfolio-title">DB손해보험 페이스북 바이럴 클립</span></div>
+                    <div class="btn" onClick="openSafe('https://vimeo.com/250230640');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Motion</div>
+                    <div class="txt body"><img src="../resume/thumb/parttail_1705_2.jpg" class="thumb"><span class="portfolio-title">수입차 부품 구매대행 서비스 '파트테일' APP 인트로 클립</span></div>
+                    <div class="btn" onClick="openSafe('https://vimeo.com/250231417');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Motion</div>
+                    <div class="txt body"><span class="thumb-placeholder">ARCHIVED<br>2021</span><span class="portfolio-title">해외배송대행서비스 '몰테일' APP 인트로 클립(21.03)</span></div>
+                    <span class="badge-archived">아카이브 만료</span>
+                </div>
+                <div class="border">
+                    <div class="title body">Motion</div>
+                    <div class="txt body"><img src="../resume/thumb/malltail_1702.jpg" class="thumb"><span class="portfolio-title">해외배송대행서비스 '몰테일' APP 인트로 클립(17.02)</span></div>
+                    <span class="badge-archived">아카이브 만료</span>
+                </div>
+                <div class="border">
+                    <div class="title body">PrintAD</div>
+                    <div class="txt body"><img src="../resume/thumb/sellpia_1.jpg" class="thumb"><span class="portfolio-title">O2O 통합ERP서비스 '셀피아' 지면광고</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/sellpia_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">PrintAD</div>
+                    <div class="txt body"><img src="../resume/thumb/shopnote_1.jpg" class="thumb"><span class="portfolio-title">무료모바일홈페이지제작서비스 '샵노트' 지면광고</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/shopnote_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/canus_1.jpg" class="thumb"><span class="portfolio-title">천연염소우유비누 '캐너스' 온라인 상세페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/canus_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/gnlady_1.jpg" class="thumb"><span class="portfolio-title">SBS X 강남여신 '여름특가전' 프로모 페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/gnlady_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/kim_1.jpg" class="thumb"><span class="portfolio-title">'광천 김선생' 온라인 상세페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/kim_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/lacuisine_1.jpg" class="thumb"><span class="portfolio-title">라퀴진 'Brand History' 온라인 상세페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/lacuisine_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/marvel_1.jpg" class="thumb"><span class="portfolio-title">MARVEL 'TMX in 부산' 온라인 프로모 페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/marvel_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/okdgg_1.jpg" class="thumb"><span class="portfolio-title">OKDGG 신년 이벤트 페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/okdgg_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/shilla_1.jpg" class="thumb"><span class="portfolio-title">신라호텔 면세점 온라인 배너</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/shilla_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/styleberry_1.jpg" class="thumb"><span class="portfolio-title">스타일베리 온라인 배너</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/styleberry_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/tag_1.jpg" class="thumb"><span class="portfolio-title">제주 프리미엄 건전복 '천혜복' 온라인 상세페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/tag_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/taillist_1.jpg" class="thumb"><span class="portfolio-title">테일리스트 'Best Awards' 온라인 배너</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/taillist_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+                <div class="border">
+                    <div class="title body">Promotion</div>
+                    <div class="txt body"><img src="../resume/thumb/vr_1.jpg" class="thumb"><span class="portfolio-title">삼성 기어 VR 온라인 프로모 페이지</span></div>
+                    <div class="btn" onClick="openSafe('../resume/data/vr_1.jpg');">바로가기<span class="btn_arrow">></span></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="gap">
+
+            <div class="body_left_wrap">
+                <div class="body_left">
+                    <span class="body_left1">08.</span>
+                    <span>자기소개</span>
+                </div>
+            </div>
+            <div class="body_right">
+                <div class="border" style="padding-top:0;">
+                    <div class="txt body">
+                     97년 AT&T를 통해 처음 인터넷 공간을 접한 후, 온라인을 통한 사람들간의 '커뮤니티 공간'에 매료되었습니다. 이후 보다 나은 '온라인 공간'을 만들고 싶은 마음에,
+                     컴퓨터에 관련되는 모든 지식을 습득하려 하였고, Hardware 부터 3D, ASP까지 그 지식을 세분화해서 공부해 나아가다 보니, 먼저 체득하게 된것은 그래픽툴 기반 '디자인' 분야 였습니다.
+                     <br><br>
+                     상대적으로 일찍 전문화된 경험을 갖게 되다 보니, 주변 교우들로 부터해서 학교 선생님들에게 까지, 어린 나이에 Flash와 HTML 기반의 웹제작 강의를 하게 되었고,
+                     그렇게 개인적인 흥미와 주변의 독려로 수차례 대내외 수상과 더불어 진로까지 '컴퓨터그래픽디자인과'로 결정하게 되었으며, 이후 교과과정까지 우수한 성적을 유지하여
+                     졸업까지 하게 되었습니다.
+                     <br><br>
+                     학교를 졸업하면서 인턴 경험이 있는 '캘리그라피' 분야에, 재직당시 만났던 원광대 지인과 함께 '전북 익산'을 터전으로 3명이서 첫 창업을 하게 되었고, 캘리그라피디자인/관련상품개발/
+                     상품발송/고객CS/사이트개발/사이트유지보수/온라인마케팅/경리업무 등을 단독으로 진행하면서 개인적인 업무역량을 대폭 늘렸던 계기가 되었으며, 이후 프랜차이즈 본사 마케팅팀에서
+                     재직하는 기간동안은 '마케터'로써 인터뷰자료작성/보도자료작성/컨벤션결과보고작성/신규브랜드런칭디자인/전시부스디자인 등 다양한 업무를 독자 진행 가능한 수준까지
+                     성장할 수 있었습니다.
+                     <br><br>
+                     그리고 온라인광고대행사에서 근무하면서, 다양한 매체(Naver, CJ, Lotte 등)와의 협업으로 진행되는 다양한 광고집행 및 광고제작을 경험하게 되었고, 프로젝트를 진행하면서
+                     제작된 광고가 게재되는 '맥스무비'에 우수한 광고로 선별되어 '명예의 전당'으로 다양한 작품의 광고로 수차례 등재할 수 있는 기회가 있었습니다.
+                     <br><br>
+                     또한, 생활의 불편함을 느끼고서 제품디자인을 구상하고 직접 3D로 렌더링한 이미지로, 주변 사람들에게 공감을 얻어 특허청에 특허출원도 했던 이색적인 경험도 있습니다.
+                     특이점으로는 진행 과정중에 '아이디어오디션'측의 제안으로 제품생산을 하게 되었고, '현대홈쇼핑' 첫 방송에서 45분 만에 1,200세트(약 1억 원) 완판까지 달성하는 개인적인 영광도 있습니다.
+                     <br><br>
+                     이처럼, 정말 다양한 분야에서 다양한 업무를 진행해온 경험이 있습니다. 디자인이 좋아 디자이너로써 성장해 왔고, 이젠 단순 디자이너를 뛰어넘어 보다 넓은 스펙트럼의 생산성을 목표로
+                     모션그래픽 부터 Front-End/Back-End 언어와 파이썬까지 두루 섭렵해 나아가고 있습니다.
+                     지난 10년은 코리아센터 디자인UX본부 팀장으로 이커머스 플랫폼의 서비스 디자인을 이끌어 왔고, 지금은 크레소티 개발기획부 책임매니저로 그룹웨어 통합 설계와 온·누리POS UI 고도화, 데이터 기반 운영까지 그 범위를 넓혀가고 있습니다.
+                     이외에도 경제와 경영, 심리와 스타트업에 관심이 많고, 이러한 과거의 종합적인 경험과 지식이,
+                     입사를 희망하는 곳으로부터 더 나은 미래를 위한 또다른 가능성으로 발현해 나아가고자 합니다.  
+                     <br><br>
+                     더 높은 목표와 더 많은 열정의 기염을 약속드리겠습니다. 서로에게 소중한 인연과 기회가 되기를 희망합니다.
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+
+        
+    <div class="end"></div>
+  </div>
+</div>
+
+<script>
+function openSafe(url){
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+(function(){
+  var B = {"s": "b7c28bdf27feed8bff2aec28ff35a293", "c": "5e9717eeb81e6d3451bb9cb21c6f8fcdc09b9022a134182f8faf9810668fdd605da133cab83c26bb02f91caa1cf385a0959808585e1b3f57009cc7e73b975a0f61f0f69bf2d16fd5c81b4a50297aae33893936c846bfdc5cd99c3a66bbb59e9bfcd853", "t": "9111652f39a6faa0ab66752cf700f1739e0d5407f157fb81b02c3bf4671c4bd8", "i": 5000};
+  function rotr(n,x){return (x>>>n)|(x<<(32-n));}
+  function sha256(bytes){
+    var K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+      0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+      0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+      0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+      0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+      0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+      0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+      0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+    var H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+    var l=bytes.length, b=bytes.slice(); b.push(0x80);
+    while((b.length%64)!==56)b.push(0);
+    var bits=l*8;
+    for(var i=7;i>=0;i--)b.push(i>=4?((bits/Math.pow(2,i*8))>>>0)&255:((bits>>>(i*8))&255));
+    var W=new Array(64);
+    for(var i=0;i<b.length;i+=64){
+      for(var t=0;t<16;t++)W[t]=(b[i+t*4]<<24)|(b[i+t*4+1]<<16)|(b[i+t*4+2]<<8)|b[i+t*4+3];
+      for(var t=16;t<64;t++){
+        var s0=rotr(7,W[t-15])^rotr(18,W[t-15])^(W[t-15]>>>3);
+        var s1=rotr(17,W[t-2])^rotr(19,W[t-2])^(W[t-2]>>>10);
+        W[t]=(W[t-16]+s0+W[t-7]+s1)|0;
+      }
+      var a=H[0],c=H[1],d=H[2],e=H[3],f=H[4],g=H[5],h=H[6],k=H[7];
+      for(var t=0;t<64;t++){
+        var S1=rotr(6,f)^rotr(11,f)^rotr(25,f);
+        var ch=(f&g)^((~f)&h);
+        var t1=(k+S1+ch+K[t]+W[t])|0;
+        var S0=rotr(2,a)^rotr(13,a)^rotr(22,a);
+        var maj=(a&c)^(a&d)^(c&d);
+        var t2=(S0+maj)|0;
+        k=h;h=g;g=f;f=(e+t1)|0;e=d;d=c;c=a;a=(t1+t2)|0;
+      }
+      H[0]=(H[0]+a)|0;H[1]=(H[1]+c)|0;H[2]=(H[2]+d)|0;H[3]=(H[3]+e)|0;
+      H[4]=(H[4]+f)|0;H[5]=(H[5]+g)|0;H[6]=(H[6]+h)|0;H[7]=(H[7]+k)|0;
+    }
+    var out=[];
+    for(var i=0;i<8;i++){out.push((H[i]>>>24)&255,(H[i]>>>16)&255,(H[i]>>>8)&255,H[i]&255);}
+    return out;
+  }
+  function hmac(key,msg){
+    var k=key.length>64?sha256(key):key.slice();
+    while(k.length<64)k.push(0);
+    var op=[],ip=[];
+    for(var i=0;i<64;i++){op.push(k[i]^0x5c);ip.push(k[i]^0x36);}
+    return sha256(op.concat(sha256(ip.concat(msg))));
+  }
+  function pbkdf2(pw,salt,iters,dkLen){
+    var out=[],block=1;
+    while(out.length<dkLen){
+      var s=salt.concat([(block>>>24)&255,(block>>>16)&255,(block>>>8)&255,block&255]);
+      var u=hmac(pw,s), t=u.slice();
+      for(var i=1;i<iters;i++){
+        u=hmac(pw,u);
+        for(var j=0;j<32;j++)t[j]^=u[j];
+      }
+      out=out.concat(t); block++;
+    }
+    return out.slice(0,dkLen);
+  }
+  function hexToBytes(h){var a=[];for(var i=0;i<h.length;i+=2)a.push(parseInt(h.substr(i,2),16));return a;}
+  function utf8Bytes(s){var u=unescape(encodeURIComponent(s)),a=[];for(var i=0;i<u.length;i++)a.push(u.charCodeAt(i));return a;}
+  function bytesToUtf8(b){var s='';for(var i=0;i<b.length;i++)s+=String.fromCharCode(b[i]);return decodeURIComponent(escape(s));}
+  window.unlockPii=function(){
+    var v=(document.getElementById('pii-pw-input').value||'').trim();
+    var msg=document.getElementById('pii-pw-msg');
+    if(!v){msg.textContent='비밀번호를 입력해 주세요.';return;}
+    var salt=hexToBytes(B.s), ct=hexToBytes(B.c), tag=hexToBytes(B.t);
+    var dk=pbkdf2(utf8Bytes(v),salt,B.i,64);
+    var ek=dk.slice(0,32), mk=dk.slice(32,64);
+    var calc=hmac(mk,salt.concat(ct));
+    var ok=true; for(var i=0;i<32;i++)if(calc[i]!==tag[i])ok=false;
+    if(!ok){msg.textContent='비밀번호가 일치하지 않습니다.';return;}
+    var pt=[], ctr=0;
+    while(pt.length<ct.length){
+      var blk=sha256(ek.concat([(ctr>>>24)&255,(ctr>>>16)&255,(ctr>>>8)&255,ctr&255]));
+      for(var i=0;i<blk.length&&pt.length<ct.length;i++)pt.push(ct[pt.length]^blk[i]);
+      ctr++;
+    }
+    var data=JSON.parse(bytesToUtf8(pt));
+    var bEl=document.getElementById('pii-birth'); bEl.textContent=data.birth; bEl.classList.remove('pii-locked');
+    var pEl=document.getElementById('pii-phone'); pEl.textContent=data.phone; pEl.classList.remove('pii-locked');
+    var aEl=document.getElementById('pii-addr'); aEl.textContent=data.addr; aEl.classList.remove('pii-locked');
+    document.getElementById('pii-unlock-box').style.display='none';
+  };
+})();
+</script>
+</body>
+</html>

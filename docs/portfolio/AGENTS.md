@@ -86,7 +86,7 @@
 - 신규 섹션 `#principles`(03): `.pr-grid` 카드 6개(인라인 SVG 미니 그래픽, `.is-in` 시 애니메이션), `.flow6` 일하는 방식 6단계, `.duo` Designer × AI, 인용. CSS는 portfolio.css 하단 `v11 · Principles` 블록.
 - 섹션 번호: 경력 04 / 프로젝트 05(js `05-${...}`) / 프로필 06. 캐시 버전 `20261105-1`.
 - 프로젝트: `news`(status 'beta' → 카드에 `.badge--beta`), `hair`는 스타일 카탈로그 반영(screenshot `hair-studio.webp`). 카테고리 `insight` 추가.
-- 뉴스보드 GitHub 링크는 공개 여부 미확인으로 null — 공개 레포면 `githubUrl` 채울 것.
+- 뉴스보드 GitHub 링크: 공개 레포 확인 후 추가(2026-11-25).
 - 원칙 문구는 DESIGN_GUIDE.md와 INTERVIEW §14 기준. 개발자 프레이밍 금지 원칙 유지('구현'은 AI 쪽에만 표기).
 
 ## v12 탈고 (2026-11-05, 사용자 피드백)

@@ -10,7 +10,7 @@ export function stage(onBuild) {
     S.dpr = Math.min(2, devicePixelRatio || 1); S.W = host.clientWidth; S.H = host.clientHeight; S.mob = S.W < 768;
     for (const c of [cv, S.bg]) { c.width = S.W * S.dpr; c.height = S.H * S.dpr; } cv.style.width = S.W + 'px'; cv.style.height = S.H + 'px';
     ctx.setTransform(S.dpr, 0, 0, S.dpr, 0, 0);
-    S.R = S.mob ? { x: S.W * .06, y: 72, w: S.W * .88, h: S.H * .36 } : { x: S.W * .52, y: S.H * .12, w: S.W * .44, h: S.H * .76 };
+    S.R = S.mob ? { x: S.W * .06, y: 72, w: S.W * .88, h: Math.min(S.H * .36, S.W * .72) } : { x: S.W * .52, y: S.H * .12, w: S.W * .44, h: S.H * .76 };
     S.q = S.mob ? .4 : 1; drawBg(S); onBuild(S); S.redraw && S.redraw();
   };
   S.mx = -1e4; S.my = -1e4; S.act = -1e9;

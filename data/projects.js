@@ -445,7 +445,7 @@ FFmpeg 기반 저지연 HLS 변환 프록시와 적응형 수집(Adaptive Collec
     techStack: [],
     stats: '오늘의 이슈 10 · 타임라인',
     url: 'https://pyw31337.github.io/news/',
-    githubUrl: null,
+    githubUrl: 'https://github.com/pyw31337/news',
     screenshot: 'assets/screenshots/news.webp',
     featured: false
   },

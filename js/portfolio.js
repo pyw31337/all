@@ -1,4 +1,4 @@
-import { PROJECTS } from '../data/projects.js?v=20261028-18';
+import { PROJECTS } from '../data/projects.js?v=20261125-2';
 
 const $ = (s, el = document) => el.querySelector(s);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

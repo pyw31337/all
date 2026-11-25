@@ -584,3 +584,6 @@ mark.hlm{color:var(--ink)}
 [data-theme=dark] .hero__en{color:#8A909B}
 .bx--tl .chips{margin-top:14px}
 .pr p{font-size:15.5px;color:var(--ink2)}
+
+/* v17 · mobile hero: reserve room for the hub graphic so the headline never sits on it */
+@media (max-width:767px){.hero__inner{padding-top:calc(96px + 81vw)}}

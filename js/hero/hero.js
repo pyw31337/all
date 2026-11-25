@@ -1,5 +1,5 @@
 // Main hero (from lab 11) · Assembly + living graph: emblem (hero-8) with 360 nodes that scatter → cluster per project → dock onto the ring
-import * as M from './mech.js?v=20261028-18'; import * as U from './hud.js?v=20261105-6'; import { emblem } from './emblem.js?v=20261105-6';
+import * as M from './mech.js?v=20261125-1'; import * as U from './hud.js?v=20261125-1'; import { emblem } from './emblem.js?v=20261125-1';
 const E = emblem({ z: .33, noStatus: 1 }); const K = U.PK.length; let N = [], p = 0, boom = 0, cur = 0, lastSw = 0, pinUntil = 0, hov = -1;
 // which project hub sits under a point (hover/tap); returns index or -1
 const hubAt = (x, y) => { const r = S.mob ? 26 : 22; let k = -1, bd = r * r; for (let i = 0; i < K && i < N.length; i++) { const h = N[i], d = (h.x - x) ** 2 + (h.y - y) ** 2; if (d < bd) { bd = d; k = i; } } return k; };
@@ -36,9 +36,12 @@ const tick = now => {
   ctx.beginPath(); for (const o of N) if (o.lit > .4 && !o.hub) { ctx.moveTo(o.x + 3, o.y); ctx.arc(o.x, o.y, 3, 0, 6.29); } ctx.fillStyle = U.orange(.9); ctx.fill();
   hubs.forEach((h, i) => { const on = i === cur; ctx.fillStyle = on ? '#FF8A1F' : '#fff'; ctx.strokeStyle = on ? '#FF8A1F' : '#1F3A8A'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(h.x, h.y, on ? 6.5 : 5, 0, 7); ctx.fill(); ctx.stroke();
     if (on) { ctx.strokeStyle = U.orange(.45); ctx.beginPath(); ctx.arc(h.x, h.y, 11 + Math.sin(now / 240) * 2, 0, 7); ctx.stroke(); }
-    ctx.fillStyle = on ? '#FF8A1F' : U.nav(.75); ctx.font = U.mono(on ? 9 : 8); const lf = h.x < C.cx - 8; ctx.textAlign = lf ? 'right' : 'left'; ctx.fillText(`P-0${i + 1} ${U.PN[i]}`, h.x + (lf ? -11 : 11), h.y - 8); });
+    ctx.fillStyle = on ? '#FF8A1F' : U.nav(.75); ctx.font = U.mono(on ? 9 : 8); const txt = `P-0${i + 1} ${U.PN[i]}`, w = ctx.measureText(txt).width, pad = 8;
+    // keep every label inside the canvas: mobile = centred above the node, desktop = beside it (flips side if it would overflow)
+    let x, y = h.y - 8; if (S.mob) { x = h.x - w / 2; y = h.y - 12; } else { const lf = h.x < C.cx - 8; x = lf ? h.x - 11 - w : h.x + 11; if (x < pad) x = h.x + 11; if (x + w > S.W - pad) x = h.x - 11 - w; }
+    x = Math.max(pad, Math.min(S.W - pad - w, x)); ctx.textAlign = 'left'; ctx.fillText(txt, x, y); });
   ctx.fillStyle = U.nav(.8); ctx.font = U.mono(S.mob ? 9 : 10); ctx.textAlign = 'center'; ctx.fillText(`P-0${cur + 1} · ${U.PN[cur]}`, C.cx, C.cy + C.Z * .66);
-  if (best) { const o = best; ctx.strokeStyle = '#FF8A1F'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(o.x, o.y, 9, 0, 7); ctx.moveTo(o.x - 16, o.y); ctx.lineTo(o.x - 11, o.y); ctx.moveTo(o.x + 11, o.y); ctx.lineTo(o.x + 16, o.y); ctx.moveTo(o.x, o.y - 16); ctx.lineTo(o.x, o.y - 11); ctx.stroke(); ctx.fillStyle = '#111418'; ctx.font = U.mono(9); ctx.textAlign = 'left'; ctx.fillText(`R-${String(o.i).padStart(4, '0')} · P-0${o.m + 1}`, o.x + 14, o.y - 10); }
+  if (best) { const o = best; ctx.strokeStyle = '#FF8A1F'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(o.x, o.y, 9, 0, 7); ctx.moveTo(o.x - 16, o.y); ctx.lineTo(o.x - 11, o.y); ctx.moveTo(o.x + 11, o.y); ctx.lineTo(o.x + 16, o.y); ctx.moveTo(o.x, o.y - 16); ctx.lineTo(o.x, o.y - 11); ctx.stroke(); ctx.fillStyle = '#111418'; ctx.font = U.mono(9); ctx.textAlign = 'left'; const rt = `R-${String(o.i).padStart(4, '0')} · P-0${o.m + 1}`, rw = ctx.measureText(rt).width; ctx.fillText(rt, Math.max(8, Math.min(S.W - 8 - rw, o.x + 14 + rw > S.W - 8 ? o.x - 14 - rw : o.x + 14)), o.y - 10); }
   U.rulers(S, c.idle ? { x: -1e4 } : c, now);
   if (!S.mob) ctx.fillStyle = U.nav(.6), ctx.font = U.mono(9), ctx.textAlign = "left", ctx.fillText(`PHASE ${Math.round(p) + 1}/3 · ${['SCATTERED', 'CLUSTERED', 'DOCKED'][Math.round(p)]} · NODES ${N.length} · PARTS ${E.F.length}`, R.x, R.y + R.h + 28);
 };
